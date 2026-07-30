@@ -8,6 +8,7 @@ import { dict } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { getMolecule } from "@/lib/chemistry/molecules";
 import { getLibraryEntry, getAtomCount } from "@/lib/chemistry/molecule-library-data";
+import { getReactionsForMolecule } from "@/lib/chemistry/reactions";
 import { BondVisualization } from "./bond-visualization";
 import type { MoleculeRenderMode } from "./bond-visualization-scene";
 import { FunctionalGroupBadge } from "./functional-group-badge";
@@ -45,6 +46,7 @@ export function MoleculeDetail({
   const [viewResetToken, setViewResetToken] = React.useState(0);
 
   const bondKindIds = Array.from(new Set(molecule.bonds.map((b) => b.kind)));
+  const relatedReactions = getReactionsForMolecule(moleculeId);
 
   React.useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -232,13 +234,24 @@ export function MoleculeDetail({
                 <p className="mt-1.5 text-sm leading-relaxed text-foreground/90">{copy?.funFact}</p>
               </div>
 
-              <Link
-                href={`/bond-explorer?bondType=${molecule.bondTypeId}`}
-                className="glass-subtle inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted/40"
-              >
-                {d.exploreBonds}
-                <ArrowUpRight className="size-4" />
-              </Link>
+              <div className="flex flex-wrap gap-2">
+                <Link
+                  href={`/bond-explorer?bondType=${molecule.bondTypeId}`}
+                  className="glass-subtle inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted/40"
+                >
+                  {d.exploreBonds}
+                  <ArrowUpRight className="size-4" />
+                </Link>
+                {relatedReactions.length > 0 ? (
+                  <Link
+                    href={`/reaction-atlas?molecule=${moleculeId}`}
+                    className="glass-subtle inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted/40"
+                  >
+                    {dict.reactionAtlas.pageTitle}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                ) : null}
+              </div>
 
               <RelatedMolecules moleculeIds={entry.relatedMoleculeIds} onSelect={onSelectRelated} />
             </div>

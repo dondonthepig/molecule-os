@@ -519,6 +519,50 @@ export const MOLECULES: Record<string, MoleculeSpec> = {
       { from: "c1", to: "h1c", kind: "covalent-single" },
     ],
   },
+
+  // --- Reaction Atlas additions ---
+  ethane: {
+    id: "ethane",
+    bondTypeId: "covalent",
+    formula: "C₂H₆",
+    atoms: [
+      { id: "c1", element: "C", position: [-0.77, 0, 0], radius: 0.44, color: ATOM_COLORS.C },
+      { id: "c2", element: "C", position: [0.77, 0, 0], radius: 0.44, color: ATOM_COLORS.C },
+      { id: "h1a", element: "H", position: [-1.5, 0.85, 0.3], radius: 0.26, color: ATOM_COLORS.H },
+      { id: "h1b", element: "H", position: [-1.45, -0.5, -0.85], radius: 0.26, color: ATOM_COLORS.H },
+      { id: "h1c", element: "H", position: [-1.1, -0.6, 0.8], radius: 0.26, color: ATOM_COLORS.H },
+      { id: "h2a", element: "H", position: [1.5, -0.85, -0.3], radius: 0.26, color: ATOM_COLORS.H },
+      { id: "h2b", element: "H", position: [1.45, 0.5, 0.85], radius: 0.26, color: ATOM_COLORS.H },
+      { id: "h2c", element: "H", position: [1.1, 0.6, -0.8], radius: 0.26, color: ATOM_COLORS.H },
+    ],
+    bonds: [
+      { from: "c1", to: "c2", kind: "covalent-single" },
+      { from: "c1", to: "h1a", kind: "covalent-single" },
+      { from: "c1", to: "h1b", kind: "covalent-single" },
+      { from: "c1", to: "h1c", kind: "covalent-single" },
+      { from: "c2", to: "h2a", kind: "covalent-single" },
+      { from: "c2", to: "h2b", kind: "covalent-single" },
+      { from: "c2", to: "h2c", kind: "covalent-single" },
+    ],
+  },
+  chloromethane: {
+    id: "chloromethane",
+    bondTypeId: "polarCovalent",
+    formula: "CH₃Cl",
+    atoms: [
+      { id: "c", element: "C", position: [0, 0, 0], radius: 0.46, color: ATOM_COLORS.C },
+      { id: "cl", element: "Cl", position: [0.75, 0.75, 0.75], radius: 0.62, color: ATOM_COLORS.Cl, partialCharge: "-" },
+      { id: "h1", element: "H", position: [-0.75, -0.75, 0.75], radius: 0.28, color: ATOM_COLORS.H, partialCharge: "+" },
+      { id: "h2", element: "H", position: [-0.75, 0.75, -0.75], radius: 0.28, color: ATOM_COLORS.H, partialCharge: "+" },
+      { id: "h3", element: "H", position: [0.75, -0.75, -0.75], radius: 0.28, color: ATOM_COLORS.H, partialCharge: "+" },
+    ],
+    bonds: [
+      { from: "c", to: "cl", kind: "covalent-single" },
+      { from: "c", to: "h1", kind: "covalent-single" },
+      { from: "c", to: "h2", kind: "covalent-single" },
+      { from: "c", to: "h3", kind: "covalent-single" },
+    ],
+  },
 };
 
 export function getMolecule(id: string): MoleculeSpec {

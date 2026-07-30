@@ -15,9 +15,15 @@ import { LearningModeToggle, type LearningMode } from "./learning-mode-toggle";
 
 const LEARN_STEPS = ["identify", "structure", "properties", "molecule", "reactions"] as const;
 
-export function OrganicChemistryWorkspace() {
-  const [categoryId, setCategoryId] = React.useState<OrganicCategoryId>("alcohol");
-  const [moleculeId, setMoleculeId] = React.useState(ORGANIC_CATEGORIES.alcohol.representativeMoleculeIds[0]);
+export function OrganicChemistryWorkspace({
+  initialCategoryId,
+}: {
+  initialCategoryId?: OrganicCategoryId;
+} = {}) {
+  const [categoryId, setCategoryId] = React.useState<OrganicCategoryId>(initialCategoryId ?? "alcohol");
+  const [moleculeId, setMoleculeId] = React.useState(
+    ORGANIC_CATEGORIES[initialCategoryId ?? "alcohol"].representativeMoleculeIds[0],
+  );
   const [learningMode, setLearningMode] = React.useState<LearningMode>("learn");
   const [learnStep, setLearnStep] = React.useState(0);
   const [compareOpen, setCompareOpen] = React.useState(false);

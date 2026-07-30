@@ -11,7 +11,9 @@ export type ReactionTypeId =
   | "condensation"
   | "esterification"
   | "hydrolysis"
-  | "amidation";
+  | "amidation"
+  | "combustion"
+  | "substitution";
 
 export type ReactionEdge = {
   id: string;

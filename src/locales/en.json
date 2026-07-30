@@ -214,7 +214,7 @@
     },
     "reactionAtlas": {
       "title": "Reaction Atlas",
-      "description": "Interactive, multi-step reaction flowcharts with catalysts, conditions, mechanisms, yield, and energy diagrams."
+      "description": "An interactive reaction atlas covering catalysts, conditions, and transformation visualizations, breaking down every real chemical reaction step by step."
     },
     "periodicTable": {
       "title": "Periodic Table",
@@ -677,6 +677,7 @@
     "actions": {
       "viewInLibrary": "View in Molecule Library",
       "exploreBond": "Explore this bond",
+      "viewReactionAtlas": "View in Reaction Atlas",
       "compareWith": "Compare with another group",
       "selectSecond": "Select a second functional group to compare",
       "stepNext": "Next",
@@ -697,7 +698,9 @@
       "condensation": "Condensation",
       "esterification": "Esterification",
       "hydrolysis": "Hydrolysis",
-      "amidation": "Amidation"
+      "amidation": "Amidation",
+      "combustion": "Combustion",
+      "substitution": "Substitution"
     },
     "categoryNames": {
       "alkane": { "nameZh": "烷類", "nameEn": "Alkanes" },
@@ -798,6 +801,161 @@
         "keyProperties": "Polar, chemically stable, neither notably acidic nor basic.",
         "commonReactions": "Hydrolysis (breaking down to a carboxylic acid and an amine under acid or base)."
       }
+    }
+  },
+  "reactionAtlas": {
+    "pageTitle": "Reaction Atlas",
+    "pageSubtitle": "Search, filter, and step through real chemical reactions — see exactly how bonds change from reactants to products.",
+    "demoNotice": "The 3D structures on this page are simplified teaching illustrations, not precise scientific measurements; the equations, catalysts, and conditions are real chemistry.",
+    "search": {
+      "placeholder": "Search reaction name, molecule, category, or functional group...",
+      "clear": "Clear search",
+      "resultsLabel": "reactions",
+      "noResultsTitle": "No matching reactions found",
+      "noResultsHint": "Try different keywords, or clear your filters.",
+      "suggestionsLabel": "Suggestions"
+    },
+    "filters": {
+      "title": "Filters",
+      "typeLabel": "Reaction type",
+      "categoryLabel": "Functional group category",
+      "difficultyLabel": "Difficulty",
+      "clearAll": "Clear all filters"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "temperatures": {
+      "roomTemp": "Room temperature",
+      "heated": "Heated",
+      "reflux": "Heated under reflux",
+      "uvLight": "UV light",
+      "ignition": "Ignition"
+    },
+    "sections": {
+      "featured": "Featured reactions",
+      "all": "All reactions",
+      "equation": "Equation",
+      "conditions": "Conditions",
+      "transformation": "Structural transformation",
+      "learn": "Learn mode"
+    },
+    "labels": {
+      "reactants": "Reactants",
+      "products": "Products",
+      "catalyst": "Catalyst",
+      "oxidant": "Oxidant",
+      "temperature": "Temperature",
+      "symbolicOxidantNote": "\"[O]\" represents the net oxidizing effect supplied by the oxidizing agent — a common textbook shorthand, not an actual molecule.",
+      "viewReverse": "View the reverse reaction"
+    },
+    "actions": {
+      "viewDetail": "View reaction detail",
+      "viewInLibrary": "View in Molecule Library",
+      "exploreBond": "Explore this bond",
+      "viewInOrganicChemistry": "View in Organic Chemistry Explorer",
+      "close": "Close",
+      "stepNext": "Next",
+      "stepBack": "Back",
+      "stepLabel": "Step"
+    },
+    "learningSteps": {
+      "reactants": "Reactants",
+      "whatChanges": "What changes?",
+      "transformation": "Transformation",
+      "products": "Products",
+      "keyTakeaway": "Key takeaway"
+    },
+    "reactions": {
+      "combustionMethane": {
+        "name": "Combustion of Methane",
+        "summary": "Methane burns completely in excess oxygen to form carbon dioxide and water, releasing a large amount of heat — the chemical basis of natural gas as a fuel.",
+        "whatChanges": "Carbon-hydrogen bonds and the oxygen-oxygen bond break; new carbon-oxygen double bonds (in carbon dioxide) and oxygen-hydrogen bonds (in water) form in their place.",
+        "keyTakeaway": "The general pattern \"hydrocarbon + oxygen → carbon dioxide + water\" is one of the most characteristic reactions of alkanes."
+      },
+      "hydrogenationAcetyleneToEthylene": {
+        "name": "Hydrogenation of Acetylene to Ethylene",
+        "summary": "With a Lindlar catalyst (a partially poisoned palladium catalyst), acetylene adds only one equivalent of hydrogen and stops at the alkene stage instead of continuing to the alkane.",
+        "whatChanges": "One π bond of the carbon-carbon triple bond (C≡C) opens, becoming a carbon-carbon double bond (C=C); each carbon gains one additional hydrogen.",
+        "keyTakeaway": "Choosing a Lindlar catalyst is the key to controlling exactly where a hydrogenation stops — a classic example of precise control in organic synthesis."
+      },
+      "hydrogenationEthyleneToEthane": {
+        "name": "Hydrogenation of Ethylene to Ethane",
+        "summary": "Ethylene adsorbs hydrogen gas on the surface of a metal catalyst such as nickel, platinum, or palladium, completing an addition reaction that yields saturated ethane.",
+        "whatChanges": "The carbon-carbon double bond (C=C) opens into a single bond; each carbon gains one additional hydrogen, becoming a fully saturated alkane.",
+        "keyTakeaway": "This is the final step of the alkyne-to-alkane hydrogenation chain, showing how unsaturation drops step by step with each addition."
+      },
+      "additionEthyleneToEthanol": {
+        "name": "Hydration of Ethylene to Ethanol",
+        "summary": "Ethylene adds water under acid catalysis (such as phosphoric acid) — one of the main industrial routes for producing ethanol at scale.",
+        "whatChanges": "The carbon-carbon double bond opens, and one carbon forms a new carbon-oxygen single bond with water's oxygen, producing ethanol's hydroxyl group.",
+        "keyTakeaway": "Hydration is a key application of alkene addition reactions, converting a nonpolar hydrocarbon directly into a polar molecule bearing a functional group."
+      },
+      "oxidationEthanolToAcetaldehyde": {
+        "name": "Oxidation of Ethanol to Acetaldehyde",
+        "summary": "Ethanol is mildly oxidized by an oxidizing agent such as acidified potassium dichromate, losing the hydroxyl hydrogen and a carbon-bound hydrogen to form acetaldehyde.",
+        "whatChanges": "The oxygen-hydrogen bond of the hydroxyl group breaks, along with a carbon-hydrogen bond on the same carbon, forming a new carbon-oxygen double bond (the carbonyl).",
+        "keyTakeaway": "Oxidizing a primary alcohol yields an aldehyde — a classic example of using oxidant strength to control whether the product stops at the aldehyde or continues to the carboxylic acid."
+      },
+      "oxidationAcetaldehydeToAceticAcid": {
+        "name": "Oxidation of Acetaldehyde to Acetic Acid",
+        "summary": "Acetaldehyde's aldehyde group is readily oxidized further; a stronger oxidizing agent such as acidified potassium permanganate fully oxidizes it to acetic acid.",
+        "whatChanges": "The carbon-hydrogen bond on the aldehyde carbon breaks, and an oxygen atom supplied by the oxidant is incorporated, forming the new carbon-oxygen single bond of the carboxyl group.",
+        "keyTakeaway": "Aldehydes oxidize more readily than ketones precisely because the aldehyde carbon still carries a replaceable carbon-hydrogen bond."
+      },
+      "condensationMethanolToEther": {
+        "name": "Condensation of Methanol to Dimethyl Ether",
+        "summary": "Two methanol molecules undergo intermolecular dehydration under concentrated sulfuric acid catalysis and heat, forming an ether and water.",
+        "whatChanges": "The oxygen-hydrogen bond of one methanol and the carbon-oxygen bond of the other break and recombine, forming a new ether linkage (C-O-C) and releasing one water molecule.",
+        "keyTakeaway": "Intermolecular dehydration of alcohols is the key route to symmetric ethers — a different direction of dehydration from the intramolecular route that yields alkenes."
+      },
+      "esterificationAceticAcidMethanol": {
+        "name": "Esterification of Acetic Acid and Methanol",
+        "summary": "A carboxylic acid and an alcohol undergo esterification under concentrated sulfuric acid catalysis and reflux — a reversible reaction that produces a fruity-smelling ester.",
+        "whatChanges": "A carbon-oxygen bond of the carboxylic acid and the oxygen-hydrogen bond of the alcohol break and recombine, forming a new ester linkage (-COO-) and releasing one water molecule.",
+        "keyTakeaway": "Esterification is reversible — its reverse reaction is ester hydrolysis; the two form a matched equilibrium pair."
+      },
+      "hydrolysisMethylAcetate": {
+        "name": "Hydrolysis of Methyl Acetate",
+        "summary": "Under acid or base catalysis, an ester reacts with water and breaks back down into its original carboxylic acid and alcohol — the reverse of esterification.",
+        "whatChanges": "The carbon-oxygen bond within the ester linkage (-COO-) breaks as water is incorporated, regenerating the carboxyl and hydroxyl groups.",
+        "keyTakeaway": "Base-catalyzed hydrolysis (saponification) yields the carboxylate salt directly rather than the free acid — the chemistry behind soap-making."
+      },
+      "amidationAceticAcidAmmonia": {
+        "name": "Amidation of Acetic Acid and Ammonia",
+        "summary": "A carboxylic acid and ammonia (or an amine) undergo amidation under heat, releasing one water molecule to form an amide.",
+        "whatChanges": "A carbon-oxygen bond of the carboxyl group and a nitrogen-hydrogen bond of ammonia break and recombine, forming a new carbon-nitrogen bond and releasing one water molecule.",
+        "keyTakeaway": "The amide bond is chemically identical to the peptide bond in proteins — this reaction is a key starting point for understanding biological macromolecules."
+      },
+      "substitutionMethaneChlorine": {
+        "name": "Free-Radical Substitution of Methane and Chlorine",
+        "summary": "Under UV light, methane undergoes free-radical substitution with chlorine gas — a hydrogen atom is replaced by a chlorine atom, and hydrogen chloride is produced as a byproduct.",
+        "whatChanges": "Light homolytically breaks the carbon-hydrogen and chlorine-chlorine bonds into radicals, which recombine to form a new carbon-chlorine bond and a new hydrogen-chlorine bond.",
+        "keyTakeaway": "This is one of the few reactions alkanes readily undergo, and a classic teaching example of a free-radical mechanism."
+      }
+    },
+    "molecules": {
+      "ch4": { "nameZh": "甲烷", "nameEn": "Methane" },
+      "o2": { "nameZh": "氧氣", "nameEn": "Oxygen" },
+      "co2": { "nameZh": "二氧化碳", "nameEn": "Carbon Dioxide" },
+      "h2o": { "nameZh": "水", "nameEn": "Water" },
+      "acetylene": { "nameZh": "乙炔", "nameEn": "Acetylene" },
+      "h2": { "nameZh": "氫氣", "nameEn": "Hydrogen" },
+      "ethylene": { "nameZh": "乙烯", "nameEn": "Ethylene" },
+      "ethane": { "nameZh": "乙烷", "nameEn": "Ethane" },
+      "ethanol": { "nameZh": "乙醇", "nameEn": "Ethanol" },
+      "acetaldehyde": { "nameZh": "乙醛", "nameEn": "Acetaldehyde" },
+      "aceticAcid": { "nameZh": "乙酸（醋酸）", "nameEn": "Acetic Acid" },
+      "methanol": { "nameZh": "甲醇", "nameEn": "Methanol" },
+      "dimethylEther": { "nameZh": "二甲醚", "nameEn": "Dimethyl Ether" },
+      "methylAcetate": { "nameZh": "乙酸甲酯", "nameEn": "Methyl Acetate" },
+      "nh3": { "nameZh": "氨", "nameEn": "Ammonia" },
+      "acetamide": { "nameZh": "乙醯胺", "nameEn": "Acetamide" },
+      "cl2": { "nameZh": "氯氣", "nameEn": "Chlorine" },
+      "chloromethane": { "nameZh": "氯甲烷", "nameEn": "Chloromethane" },
+      "hcl": { "nameZh": "氯化氫", "nameEn": "Hydrogen Chloride" }
     }
   }
 }

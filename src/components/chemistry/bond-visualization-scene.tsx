@@ -208,24 +208,35 @@ function CovalentBondMesh({
   from,
   to,
   bondOrder,
+  highlighted = false,
 }: {
   from: [number, number, number];
   to: [number, number, number];
   bondOrder: 1 | 2 | 3;
+  highlighted?: boolean;
 }) {
+  const ref = React.useRef<THREE.Mesh>(null);
   const { position, quaternion, length } = React.useMemo(() => covalentTransform(from, to), [from, to]);
   const radius = bondOrder === 3 ? 0.095 : bondOrder === 2 ? 0.075 : 0.05;
+
+  useFrame(({ clock }) => {
+    const mesh = ref.current;
+    if (!mesh || !highlighted) return;
+    const material = mesh.material as THREE.MeshStandardMaterial;
+    material.emissiveIntensity = 0.6 + Math.sin(clock.elapsedTime * 2.2) * 0.35;
+  });
+
   return (
-    <mesh position={position} quaternion={quaternion}>
-      <cylinderGeometry args={[radius, radius, length, 12]} />
+    <mesh ref={ref} position={position} quaternion={quaternion}>
+      <cylinderGeometry args={[highlighted ? radius * 1.3 : radius, highlighted ? radius * 1.3 : radius, length, 12]} />
       <meshStandardMaterial
-        color="#9aa0a8"
-        emissive="#5a6472"
-        emissiveIntensity={0.12}
-        metalness={0.45}
+        color={highlighted ? "#91c9ed" : "#9aa0a8"}
+        emissive={highlighted ? "#91c9ed" : "#5a6472"}
+        emissiveIntensity={highlighted ? 0.7 : 0.12}
+        metalness={highlighted ? 0.15 : 0.45}
         roughness={0.35}
         transparent
-        opacity={0.85}
+        opacity={highlighted ? 0.95 : 0.85}
       />
     </mesh>
   );
@@ -293,6 +304,12 @@ function ElectronSea({ atoms, reduceMotion }: { atoms: AtomSpec[]; reduceMotion:
 }
 
 export type MoleculeRenderMode = "ballAndStick" | "spaceFilling";
+/** Bond to render as an ice-blue "explanatory highlight" overlay — e.g. Reaction Atlas's transformation view. */
+export type BondHighlightPair = { from: string; to: string };
+
+function isHighlightedBond(highlightBonds: BondHighlightPair[], from: string, to: string): boolean {
+  return highlightBonds.some((h) => (h.from === from && h.to === to) || (h.from === to && h.to === from));
+}
 
 function MoleculeGroup({
   molecule,
@@ -300,12 +317,14 @@ function MoleculeGroup({
   showLabels = true,
   showBonds = true,
   renderMode = "ballAndStick",
+  highlightBonds = [],
 }: {
   molecule: MoleculeSpec;
   reduceMotion: boolean;
   showLabels?: boolean;
   showBonds?: boolean;
   renderMode?: MoleculeRenderMode;
+  highlightBonds?: BondHighlightPair[];
 }) {
   const groupRef = React.useRef<THREE.Group>(null);
   const radiusScale = renderMode === "spaceFilling" ? 1.8 : 1;
@@ -339,7 +358,12 @@ function MoleculeGroup({
             const bondOrder = bond.kind === "covalent-triple" ? 3 : bond.kind === "covalent-double" ? 2 : 1;
             return (
               <React.Fragment key={i}>
-                <CovalentBondMesh from={from.position} to={to.position} bondOrder={bondOrder} />
+                <CovalentBondMesh
+                  from={from.position}
+                  to={to.position}
+                  bondOrder={bondOrder}
+                  highlighted={isHighlightedBond(highlightBonds, bond.from, bond.to)}
+                />
                 <SharedElectronPair from={from.position} to={to.position} biasT={biasT} reduceMotion={reduceMotion} />
               </React.Fragment>
             );
@@ -362,6 +386,7 @@ export function BondVisualizationScene({
   renderMode = "ballAndStick",
   enablePan = false,
   autoRotate = true,
+  highlightBonds = [],
 }: {
   molecule: MoleculeSpec;
   reduceMotion: boolean;
@@ -371,6 +396,7 @@ export function BondVisualizationScene({
   renderMode?: MoleculeRenderMode;
   enablePan?: boolean;
   autoRotate?: boolean;
+  highlightBonds?: BondHighlightPair[];
 }) {
   return (
     <Canvas
@@ -390,6 +416,7 @@ export function BondVisualizationScene({
         showLabels={showLabels}
         showBonds={showBonds}
         renderMode={renderMode}
+        highlightBonds={highlightBonds}
       />
       <OrbitControls
         enableDamping

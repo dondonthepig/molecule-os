@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { dict } from "@/lib/i18n";
 import { ORGANIC_CATEGORIES, type OrganicCategoryId } from "@/lib/chemistry/organic-chemistry";
 import { getMolecule } from "@/lib/chemistry/molecules";
+import { getReactionsForCategory } from "@/lib/chemistry/reactions";
 import { RelatedMolecules } from "./related-molecules";
 import type { LearningMode } from "./learning-mode-toggle";
 
@@ -32,6 +33,7 @@ export function OrganicPropertiesPanel({
   const showProperties = learningMode === "explore" || learnStep >= 2;
   const showMolecule = learningMode === "explore" || learnStep >= 3;
   const showReactions = learningMode === "explore" || learnStep >= 4;
+  const hasReactionAtlasEntries = getReactionsForCategory(categoryId).length > 0;
 
   return (
     <div className={className}>
@@ -62,13 +64,24 @@ export function OrganicPropertiesPanel({
         <div className="mt-6">
           <p className="text-xs font-semibold text-brand-cyan">{fieldLabels.commonReactions}</p>
           <p className="mt-1.5 text-sm leading-relaxed text-foreground/90">{info.commonReactions}</p>
-          <Link
-            href={`/bond-explorer?bondType=${molecule.bondTypeId}`}
-            className="glass-subtle mt-3 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted/40"
-          >
-            {actions.exploreBond}
-            <ArrowUpRight className="size-3.5" />
-          </Link>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link
+              href={`/bond-explorer?bondType=${molecule.bondTypeId}`}
+              className="glass-subtle inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted/40"
+            >
+              {actions.exploreBond}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
+            {hasReactionAtlasEntries ? (
+              <Link
+                href={`/reaction-atlas?category=${categoryId}`}
+                className="glass-subtle inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted/40"
+              >
+                {actions.viewReactionAtlas}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            ) : null}
+          </div>
         </div>
       ) : null}
     </div>

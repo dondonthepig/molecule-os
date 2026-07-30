@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 import type { MoleculeSpec } from "@/lib/chemistry/molecules";
-import type { MoleculeRenderMode } from "./bond-visualization-scene";
+import type { MoleculeRenderMode, BondHighlightPair } from "./bond-visualization-scene";
 
 const BondVisualizationScene = dynamic(
   () => import("./bond-visualization-scene").then((mod) => mod.BondVisualizationScene),
@@ -33,6 +33,7 @@ export function BondVisualization({
   renderMode = "ballAndStick",
   enablePan = false,
   autoRotate = true,
+  highlightBonds,
 }: {
   molecule: MoleculeSpec;
   replayToken: number;
@@ -42,6 +43,7 @@ export function BondVisualization({
   renderMode?: MoleculeRenderMode;
   enablePan?: boolean;
   autoRotate?: boolean;
+  highlightBonds?: BondHighlightPair[];
 }) {
   const reduceMotion = usePrefersReducedMotion();
 
@@ -57,6 +59,7 @@ export function BondVisualization({
         renderMode={renderMode}
         enablePan={enablePan}
         autoRotate={autoRotate}
+        highlightBonds={highlightBonds}
       />
     </div>
   );

@@ -214,7 +214,7 @@
     },
     "reactionAtlas": {
       "title": "反應圖譜",
-      "description": "互動式多階段反應流程圖，涵蓋催化劑、反應條件、反應機構、產率與能量圖，即將推出。"
+      "description": "互動式反應圖鑑，涵蓋催化劑、反應條件與結構轉換視覺化，逐步拆解每個真實化學反應。"
     },
     "periodicTable": {
       "title": "元素週期表",
@@ -677,6 +677,7 @@
     "actions": {
       "viewInLibrary": "在分子資料庫中查看",
       "exploreBond": "探索這個化學鍵",
+      "viewReactionAtlas": "在反應圖譜中查看",
       "compareWith": "與其他官能基比較",
       "selectSecond": "選擇欲比較的第二個官能基",
       "stepNext": "下一步",
@@ -697,7 +698,9 @@
       "condensation": "縮合",
       "esterification": "酯化",
       "hydrolysis": "水解",
-      "amidation": "醯胺化"
+      "amidation": "醯胺化",
+      "combustion": "燃燒",
+      "substitution": "取代"
     },
     "categoryNames": {
       "alkane": { "nameZh": "烷類", "nameEn": "Alkanes" },
@@ -798,6 +801,161 @@
         "keyProperties": "具極性、化學性質穩定，不具酸性也不具明顯鹼性。",
         "commonReactions": "水解反應（在酸或鹼中分解回羧酸與胺）。"
       }
+    }
+  },
+  "reactionAtlas": {
+    "pageTitle": "反應圖譜",
+    "pageSubtitle": "搜尋、篩選並逐步拆解真實的化學反應——從反應物到產物，看懂鍵結如何改變。",
+    "demoNotice": "本頁的 3D 結構為簡化教學示意，並非精確科學量測；反應式、催化劑與反應條件均為真實化學資料。",
+    "search": {
+      "placeholder": "搜尋反應名稱、分子、分類或官能基……",
+      "clear": "清除搜尋",
+      "resultsLabel": "個反應",
+      "noResultsTitle": "找不到符合的反應",
+      "noResultsHint": "試試其他關鍵字，或清除篩選條件。",
+      "suggestionsLabel": "建議"
+    },
+    "filters": {
+      "title": "篩選",
+      "typeLabel": "反應類型",
+      "categoryLabel": "官能基分類",
+      "difficultyLabel": "難度",
+      "clearAll": "清除所有篩選"
+    },
+    "difficulty": {
+      "beginner": "入門",
+      "intermediate": "中階",
+      "advanced": "進階"
+    },
+    "temperatures": {
+      "roomTemp": "室溫",
+      "heated": "加熱",
+      "reflux": "加熱迴流",
+      "uvLight": "紫外光照射",
+      "ignition": "點火"
+    },
+    "sections": {
+      "featured": "精選反應",
+      "all": "全部反應",
+      "equation": "反應式",
+      "conditions": "反應條件",
+      "transformation": "結構轉換",
+      "learn": "學習模式"
+    },
+    "labels": {
+      "reactants": "反應物",
+      "products": "生成物",
+      "catalyst": "催化劑",
+      "oxidant": "氧化劑",
+      "temperature": "溫度",
+      "symbolicOxidantNote": "「[O]」代表氧化劑提供的淨氧化作用，是教科書中常見的簡化表示法，並非實際存在的分子。",
+      "viewReverse": "查看逆反應"
+    },
+    "actions": {
+      "viewDetail": "查看反應詳情",
+      "viewInLibrary": "在分子資料庫中查看",
+      "exploreBond": "探索這個化學鍵",
+      "viewInOrganicChemistry": "在有機化學探索中查看",
+      "close": "關閉",
+      "stepNext": "下一步",
+      "stepBack": "上一步",
+      "stepLabel": "步驟"
+    },
+    "learningSteps": {
+      "reactants": "反應物",
+      "whatChanges": "發生了什麼變化？",
+      "transformation": "結構轉換",
+      "products": "生成物",
+      "keyTakeaway": "重點整理"
+    },
+    "reactions": {
+      "combustionMethane": {
+        "name": "甲烷燃燒反應",
+        "summary": "甲烷在充足氧氣下完全燃燒，生成二氧化碳與水，並釋放大量熱能——這是天然氣作為燃料的化學基礎。",
+        "whatChanges": "碳－氫鍵與氧－氧鍵斷裂，取而代之的是碳－氧雙鍵（於二氧化碳中）與氧－氫鍵（於水中）。",
+        "keyTakeaway": "碳氫化合物燃燒的通式是「碳氫化合物 + 氧氣 → 二氧化碳 + 水」，這是烷類最典型的反應之一。"
+      },
+      "hydrogenationAcetyleneToEthylene": {
+        "name": "乙炔氫化為乙烯",
+        "summary": "在 Lindlar 觸媒（經部分毒化的鈀觸媒）作用下，乙炔只加成一分子氫氣，停留在烯類階段，不會繼續氫化為烷類。",
+        "whatChanges": "碳－碳參鍵（C≡C）打開一個 π 鍵，變為碳－碳雙鍵（C=C），每個碳各多接上一個氫原子。",
+        "keyTakeaway": "選用 Lindlar 觸媒是控制氫化反應「停在哪一階段」的關鍵，是有機合成中精準控制反應程度的經典範例。"
+      },
+      "hydrogenationEthyleneToEthane": {
+        "name": "乙烯氫化為乙烷",
+        "summary": "乙烯在鎳、鉑或鈀等金屬觸媒表面吸附氫氣，完成加成反應，生成飽和的乙烷。",
+        "whatChanges": "碳－碳雙鍵（C=C）打開，變為碳－碳單鍵，兩個碳各多接上一個氫原子，成為完全飽和的烷類。",
+        "keyTakeaway": "這是烯類到烷類氫化鏈的最後一步，說明不飽和度如何隨著加成反應逐步降低。"
+      },
+      "additionEthyleneToEthanol": {
+        "name": "乙烯水合成乙醇",
+        "summary": "乙烯在酸觸媒（如磷酸）催化下與水加成，是工業上大量生產乙醇的主要方法之一。",
+        "whatChanges": "碳－碳雙鍵打開，其中一個碳與水的氧原子形成新的碳－氧單鍵，生成帶有氫氧基的乙醇。",
+        "keyTakeaway": "水合反應是烯類加成反應的重要應用，直接把非極性的烴類轉換為具有官能基的極性分子。"
+      },
+      "oxidationEthanolToAcetaldehyde": {
+        "name": "乙醇氧化為乙醛",
+        "summary": "乙醇在酸性重鉻酸鉀等氧化劑作用下被溫和氧化，脫去氫氧基與碳上的氫，生成乙醛。",
+        "whatChanges": "氫氧基（-OH）的氧－氫鍵斷裂，碳上的碳－氫鍵也一併斷裂，形成新的碳－氧雙鍵（羰基）。",
+        "keyTakeaway": "一級醇氧化生成醛，是實驗室中用氧化劑強弱來控制產物停在醛或繼續氧化成羧酸的經典例子。"
+      },
+      "oxidationAcetaldehydeToAceticAcid": {
+        "name": "乙醛氧化為乙酸",
+        "summary": "乙醛的醛基非常容易被進一步氧化，使用酸性高錳酸鉀等較強氧化劑即可將其完全氧化為乙酸。",
+        "whatChanges": "醛基上的碳－氫鍵斷裂，氧化劑提供的氧原子加入，形成羧基（-COOH）中新的碳－氧單鍵。",
+        "keyTakeaway": "醛類比酮類更容易被氧化，正是因為醛基上還保留著一個可以被取代的碳－氫鍵。"
+      },
+      "condensationMethanolToEther": {
+        "name": "甲醇縮合生成二甲醚",
+        "summary": "兩分子甲醇在濃硫酸催化、加熱條件下進行分子間脫水縮合，生成醚類與水。",
+        "whatChanges": "一分子甲醇的氧－氫鍵與另一分子甲醇的碳－氧鍵斷裂重組，兩者的氧與碳重新連接形成新的醚鍵（C-O-C），並釋出一分子水。",
+        "keyTakeaway": "醇類分子間的脫水縮合是製備對稱醚類的重要方法，與分子內脫水生成烯類是兩種不同方向的脫水反應。"
+      },
+      "esterificationAceticAcidMethanol": {
+        "name": "乙酸與甲醇酯化生成乙酸甲酯",
+        "summary": "羧酸與醇在濃硫酸催化、加熱迴流下進行酯化反應，這是一個可逆反應，生成帶有果香的酯類。",
+        "whatChanges": "羧酸的碳－氧鍵與醇的氧－氫鍵斷裂重組，形成新的酯鍵（-COO-），並釋出一分子水。",
+        "keyTakeaway": "酯化反應是可逆反應，逆反應正是酯的水解——兩者互為一組平衡反應。"
+      },
+      "hydrolysisMethylAcetate": {
+        "name": "乙酸甲酯水解回乙酸與甲醇",
+        "summary": "酯類在酸或鹼的催化下與水反應，分解回原本的羧酸與醇，是酯化反應的逆反應。",
+        "whatChanges": "酯鍵（-COO-）中的碳－氧鍵斷裂，水分子加入，重新生成羧基與氫氧基。",
+        "keyTakeaway": "鹼性水解（皂化）會直接生成羧酸鹽而非羧酸本身，是製造肥皂的化學基礎。"
+      },
+      "amidationAceticAcidAmmonia": {
+        "name": "乙酸與氨醯胺化生成乙醯胺",
+        "summary": "羧酸與氨（或胺類）在加熱條件下進行醯胺化反應，脫去一分子水，生成醯胺。",
+        "whatChanges": "羧基的碳－氧鍵與氨的氮－氫鍵斷裂重組，形成新的碳－氮鍵，並釋出一分子水。",
+        "keyTakeaway": "醯胺鍵正是蛋白質中胜肽鍵的化學本質，這個反應是理解生物大分子結構的重要起點。"
+      },
+      "substitutionMethaneChlorine": {
+        "name": "甲烷與氯氣的自由基取代反應",
+        "summary": "甲烷在紫外光照射下與氯氣進行自由基取代反應，氫原子被氯原子取代，同時生成氯化氫。",
+        "whatChanges": "碳－氫鍵與氯－氯鍵在光照下均勻斷裂形成自由基，重新組合生成碳－氯鍵與氫－氯鍵。",
+        "keyTakeaway": "這是烷類少數能發生的反應之一，也是自由基反應機構最經典的教學範例。"
+      }
+    },
+    "molecules": {
+      "ch4": { "nameZh": "甲烷", "nameEn": "Methane" },
+      "o2": { "nameZh": "氧氣", "nameEn": "Oxygen" },
+      "co2": { "nameZh": "二氧化碳", "nameEn": "Carbon Dioxide" },
+      "h2o": { "nameZh": "水", "nameEn": "Water" },
+      "acetylene": { "nameZh": "乙炔", "nameEn": "Acetylene" },
+      "h2": { "nameZh": "氫氣", "nameEn": "Hydrogen" },
+      "ethylene": { "nameZh": "乙烯", "nameEn": "Ethylene" },
+      "ethane": { "nameZh": "乙烷", "nameEn": "Ethane" },
+      "ethanol": { "nameZh": "乙醇", "nameEn": "Ethanol" },
+      "acetaldehyde": { "nameZh": "乙醛", "nameEn": "Acetaldehyde" },
+      "aceticAcid": { "nameZh": "乙酸（醋酸）", "nameEn": "Acetic Acid" },
+      "methanol": { "nameZh": "甲醇", "nameEn": "Methanol" },
+      "dimethylEther": { "nameZh": "二甲醚", "nameEn": "Dimethyl Ether" },
+      "methylAcetate": { "nameZh": "乙酸甲酯", "nameEn": "Methyl Acetate" },
+      "nh3": { "nameZh": "氨", "nameEn": "Ammonia" },
+      "acetamide": { "nameZh": "乙醯胺", "nameEn": "Acetamide" },
+      "cl2": { "nameZh": "氯氣", "nameEn": "Chlorine" },
+      "chloromethane": { "nameZh": "氯甲烷", "nameEn": "Chloromethane" },
+      "hcl": { "nameZh": "氯化氫", "nameEn": "Hydrogen Chloride" }
     }
   }
 }
