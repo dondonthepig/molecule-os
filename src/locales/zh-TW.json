@@ -1,0 +1,803 @@
+{
+  "metadata": {
+    "titleDefault": "MoleculeOS — 互動式化學探索平台",
+    "titleTemplate": "%s｜MoleculeOS",
+    "description": "MoleculeOS 是一個沉浸式的互動化學探索平台。用視覺化方式探索分子、理解化學反應，並以 3D 呈現掌握有機化學。",
+    "keywords": [
+      "化學",
+      "分子",
+      "有機化學",
+      "元素週期表",
+      "3D 分子檢視器",
+      "化學教育"
+    ]
+  },
+  "nav": {
+    "items": {
+      "home": { "label": "首頁", "description": "回到 MoleculeOS 總覽" },
+      "bondExplorer": { "label": "化學鍵探索", "description": "以 3D 視覺化探索離子鍵、共價鍵與金屬鍵" },
+      "organicChemistry": { "label": "有機化學", "description": "串連有機官能基的動態知識圖譜" },
+      "moleculeLibrary": { "label": "分子資料庫", "description": "瀏覽並檢視持續擴充的分子目錄" },
+      "reactionAtlas": { "label": "反應圖譜", "description": "互動式反應途徑與反應機構解析" },
+      "periodicTable": { "label": "元素週期表", "description": "可逐一探索元素的互動式週期表" },
+      "aiTutor": { "label": "AI 化學助教", "description": "提出問題，獲得引導式的化學解說" },
+      "quiz": { "label": "測驗中心", "description": "透過適性測驗檢驗你的學習成果" },
+      "settings": { "label": "設定", "description": "外觀、無障礙與帳號偏好設定" }
+    },
+    "ctaStartExploring": "立即探索",
+    "ariaOpenMenu": "開啟選單"
+  },
+  "mobileNav": {
+    "menuLabel": "選單",
+    "ariaCloseMenu": "關閉選單",
+    "ariaDialog": "網站導覽選單"
+  },
+  "themeToggle": {
+    "ariaSwitchToLight": "切換至淺色模式",
+    "ariaSwitchToDark": "切換至深色模式"
+  },
+  "footer": {
+    "tagline": "為學生、教師與終身學習者打造的沉浸式互動化學學習平台。",
+    "columnExplore": "探索",
+    "columnLearn": "學習",
+    "columnCompany": "公司",
+    "companyLinks": {
+      "about": "關於我們",
+      "careers": "徵才資訊",
+      "blog": "部落格",
+      "contact": "聯絡我們"
+    },
+    "socials": {
+      "website": "官方網站",
+      "community": "社群討論",
+      "updates": "最新消息"
+    },
+    "copyright": "版權所有，翻印必究。",
+    "builtFor": "獻給每一位探索者、教育者與求知者。"
+  },
+  "hero": {
+    "badge": "互動式化學探索平台",
+    "headlineLine1": "探索化學",
+    "headlineLine2": "前所未有的體驗。",
+    "subheadline": "用視覺化方式探索分子、理解化學反應，掌握有機化學——打造媲美頂級產品的學習體驗，而非傳統教科書。",
+    "ctaPrimary": "立即探索",
+    "ctaSecondary": "瀏覽分子資料庫",
+    "trustedBy": "深受學生與教育者信賴",
+    "scroll": "捲動"
+  },
+  "features": {
+    "eyebrow": "功能特色",
+    "headingPrefix": "真正",
+    "headingHighlight": "理解",
+    "headingSuffix": "化學，你所需要的一切。",
+    "items": {
+      "bondExplorer": {
+        "title": "化學鍵探索",
+        "description": "即時觀察原子間的電子移動——以 3D 呈現離子鍵、共價鍵與金屬鍵。"
+      },
+      "reactionAtlas": {
+        "title": "反應圖譜",
+        "description": "以互動式流程圖，逐步掌握多階段反應途徑。"
+      },
+      "periodicTable": {
+        "title": "元素週期表",
+        "description": "將滑鼠移至任一元素，即可查看電子組態、發現歷史與應用領域。"
+      },
+      "aiTutor": {
+        "title": "AI 化學助教",
+        "description": "以自然語言提問，獲得逐步引導的化學解說。"
+      },
+      "quizCenter": {
+        "title": "化學測驗中心",
+        "description": "適性測驗、單字卡與連續學習紀錄，讓學習持之以恆。"
+      },
+      "organicGraph": {
+        "title": "有機化學知識圖譜",
+        "description": "串連每一個官能基與反應的動態知識圖譜。"
+      }
+    }
+  },
+  "featureVisuals": {
+    "reactionSteps": ["醇類", "醛類", "羧酸"],
+    "chatQuestion": "為什麼水是極性分子？",
+    "chatAnswer": "氧原子的電負度較高，使電子雲偏向氧……",
+    "dayStreakLabel": "連續天數"
+  },
+  "interactiveDemo": {
+    "eyebrow": "互動示範",
+    "heading": "立即體驗化學鍵探索。",
+    "paragraph": "選擇下方任一鍵結類型——這是完整版化學鍵探索工具的即時預覽。",
+    "exampleLabel": "範例：",
+    "bondTypes": {
+      "ionic": {
+        "label": "離子鍵",
+        "formula": "Na⁺ Cl⁻",
+        "description": "一個原子將電子轉移給另一個原子，形成帶相反電荷的離子，並藉由靜電吸引力結合在一起。",
+        "example": "氯化鈉（食鹽）"
+      },
+      "covalent": {
+        "label": "共價鍵",
+        "formula": "H₂O",
+        "description": "原子共用一對電子，藉由對共用電子對的相互吸引力，將原子核結合在一起。",
+        "example": "水、甲烷，以及大多數有機分子"
+      },
+      "metallic": {
+        "label": "金屬鍵",
+        "formula": "Fe(s)",
+        "description": "帶正電的金屬離子排列成晶格，周圍環繞著可自由移動的「電子海」。",
+        "example": "鐵、銅，以及大多數固態金屬"
+      }
+    }
+  },
+  "categories": {
+    "eyebrow": "化學分類",
+    "heading": "涵蓋化學的每個分支，彼此串連。",
+    "items": {
+      "organic": { "name": "有機化學", "description": "碳骨架、官能基與反應機構。" },
+      "inorganic": { "name": "無機化學", "description": "金屬、配位錯合物與晶體結構。" },
+      "physical": { "name": "物理化學", "description": "熱力學、動力學與量子行為。" },
+      "biochemistry": { "name": "生物化學", "description": "蛋白質、酵素與代謝途徑。" },
+      "analytical": { "name": "分析化學", "description": "光譜學、層析法與結構鑑定。" },
+      "environmental": { "name": "環境化學", "description": "大氣循環、污染物與綠色化學。" }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "使用者心得",
+    "heading": "深受學生、教師與自學者喜愛。",
+    "items": [
+      {
+        "name": "陳品妤",
+        "role": "高三學測考生",
+        "quote": "在 3D 中旋轉分子，終於讓我搞懂了 sp3 和 sp2 混成軌域的差別。",
+        "initials": "品妤"
+      },
+      {
+        "name": "林昱翔",
+        "role": "大二有機化學學生",
+        "quote": "反應圖譜把課本上一堆箭頭，變成我真的看得懂、跟得上的步驟。",
+        "initials": "昱翔"
+      },
+      {
+        "name": "王雅婷",
+        "role": "高中化學教師",
+        "quote": "我每週都用化學鍵探索搭配投影機上課，學生看得到電子怎麼動，問的問題也變深入了。",
+        "initials": "雅婷"
+      },
+      {
+        "name": "張家豪",
+        "role": "轉職自學者",
+        "quote": "34 歲才開始從零學化學，AI 化學助教從不會讓我覺得跟不上，總是能配合我的步調。",
+        "initials": "家豪"
+      },
+      {
+        "name": "李思穎",
+        "role": "大學生物化學系學生",
+        "quote": "官能基的比較功能，讓命名規則終於說得通，而不再只是死背。",
+        "initials": "思穎"
+      }
+    ]
+  },
+  "stats": {
+    "heading": "化學，一目了然。",
+    "items": {
+      "molecules": { "label": "已建模分子數" },
+      "reactions": { "label": "已收錄反應數" },
+      "learners": { "label": "探索中的學習者" },
+      "quizLift": { "label": "測驗成績平均提升" }
+    }
+  },
+  "finalCta": {
+    "heading": "準備好用不同方式看化學了嗎？",
+    "paragraph": "立即進入化學鍵探索，第一次親眼看見電子如何移動——不需要教科書。",
+    "cta": "立即探索"
+  },
+  "common": {
+    "demoData": "示範資料",
+    "comingSoon": "即將推出",
+    "backToHome": "回到首頁",
+    "ariaGoTo": "前往",
+    "ariaOpenLink": "開啟連結",
+    "noImage": "無圖片"
+  },
+  "pages": {
+    "bondExplorer": {
+      "title": "化學鍵探索",
+      "description": "動畫化的離子鍵、共價鍵、極性共價鍵、金屬鍵、氫鍵、配位鍵與凡得瓦力 3D 解說，即將推出。"
+    },
+    "organicChemistry": {
+      "title": "有機化學",
+      "description": "串連烷類、烯類、炔類、醇類、醚類、酮類、酯類、胺類等每個官能基的動態知識圖譜，即將推出。"
+    },
+    "moleculeLibrary": {
+      "title": "分子資料庫",
+      "description": "可瀏覽、可搜尋的分子目錄，包含 3D 分子結構、性質與實際應用，即將推出。"
+    },
+    "reactionAtlas": {
+      "title": "反應圖譜",
+      "description": "互動式多階段反應流程圖，涵蓋催化劑、反應條件、反應機構、產率與能量圖，即將推出。"
+    },
+    "periodicTable": {
+      "title": "元素週期表",
+      "description": "可互動、可查詢的元素週期表，包含電子組態、發現歷史、原子半徑與電負度，即將推出。"
+    },
+    "aiTutor": {
+      "title": "AI 化學助教",
+      "description": "以對話形式解說反應與反應機構、提供提問建議，並依你的程度產生專屬測驗，即將推出。"
+    },
+    "quiz": {
+      "title": "化學測驗中心",
+      "description": "拖曳配對、單字卡、記憶配對、限時測驗與排行榜，全方位追蹤你的學習進度，即將推出。"
+    },
+    "settings": {
+      "title": "設定",
+      "description": "外觀、無障礙與帳號偏好設定——導覽列中的深色模式切換功能已經可以使用。"
+    }
+  },
+  "bondExplorer": {
+    "workspaceTitle": "化學鍵探索",
+    "workspaceSubtitle": "拖曳、旋轉並觀察電子如何在原子間移動。",
+    "demoNotice": "本頁的 3D 視覺化為簡化教學示意，座標與動畫經過設計以利理解，並非精確科學量測。",
+    "modeToggle": { "explore": "探索模式", "learn": "學習模式" },
+    "sections": {
+      "categories": "鍵結類型",
+      "visualization": "3D 視覺化",
+      "information": "鍵結資訊",
+      "examples": "分子範例",
+      "polarity": "鍵結極性",
+      "quiz": "小測驗"
+    },
+    "info": {
+      "nameZh": "中文名稱",
+      "nameEn": "英文名稱",
+      "formation": "形成方式",
+      "electronBehavior": "電子行為",
+      "characteristics": "鍵結特徵",
+      "typicalExamples": "典型例子",
+      "commonSubstances": "常見物質",
+      "realWorldUses": "生活中的應用",
+      "misconceptions": "常見誤解"
+    },
+    "prompts": {
+      "electronDirection": "電子會往哪裡移動？",
+      "strongerAttraction": "哪個原子吸引電子的能力較強？",
+      "bondTypeQuestion": "這是什麼類型的鍵？"
+    },
+    "controls": {
+      "rotateHint": "拖曳以旋轉視角",
+      "zoomHint": "捲動或雙指縮放",
+      "playElectronFlow": "播放電子流動",
+      "reset": "重設視角",
+      "selectExample": "選擇範例分子"
+    },
+    "polarityPanel": {
+      "electronegativityDiff": "電負度差",
+      "nonpolar": "非極性",
+      "polar": "極性",
+      "ionicCharacter": "離子性",
+      "deltaPositive": "部分正電荷 (δ⁺)",
+      "deltaNegative": "部分負電荷 (δ⁻)"
+    },
+    "quizUi": {
+      "checkAnswer": "確認答案",
+      "correct": "答對了！",
+      "incorrect": "再試一次",
+      "nextQuestion": "下一題",
+      "scoreLabel": "答對題數",
+      "finished": "本單元測驗完成！"
+    },
+    "bonds": {
+      "ionic": {
+        "nameZh": "離子鍵",
+        "nameEn": "Ionic Bond",
+        "tagline": "電子完全轉移，形成正負離子後彼此吸引。",
+        "formation": "電負度差異極大的原子相遇時，電負度較低的原子會將電子完全轉移給電負度較高的原子，形成帶正電與帶負電的離子。",
+        "electronBehavior": "電子由金屬原子（如鈉）完全轉移到非金屬原子（如氯），過程中沒有共用電子對，只有單向的完全轉移。",
+        "characteristics": "鍵結透過正負離子間的靜電吸引力（庫侖力）形成，通常鍵結強度高、熔點與沸點高，且固態時不導電，熔融或溶於水後才能導電。",
+        "typicalExamples": "氯化鈉（NaCl）、氧化鎂（MgO）、氯化鉀（KCl）。",
+        "commonSubstances": "食鹽、多數鹼金屬鹵化物、許多礦物晶體。",
+        "realWorldUses": "食鹽用於調味與食品保存；離子化合物廣泛用於電解質溶液、肥料與工業原料。",
+        "misconceptions": "常見誤解是以為離子鍵中的「電子轉移」是逐漸完成的——事實上一旦形成離子鍵，電子已經完全屬於接收方原子，不存在「部分轉移」的中間狀態（那是極性共價鍵的情況）。"
+      },
+      "covalent": {
+        "nameZh": "共價鍵",
+        "nameEn": "Covalent Bond",
+        "tagline": "兩個原子共用一對（或多對）電子，電負度相近或相同。",
+        "formation": "電負度相近甚至相同的兩個原子相遇時，透過共用一對或多對電子來達到穩定的電子組態，而非轉移電子。",
+        "electronBehavior": "電子對被兩個原子核共同吸引，平均分布在兩者之間，不偏向任何一方。",
+        "characteristics": "鍵結方向性強，鍵能因鍵級（單鍵、雙鍵、三鍵）而異；純共價（非極性）分子通常熔沸點較低，固態時不導電。",
+        "typicalExamples": "氫氣（H₂）、氯氣（Cl₂）、甲烷（CH₄）、二氧化碳（CO₂）。",
+        "commonSubstances": "大氣中的 O₂、N₂；天然氣的主要成分甲烷；乾冰（固態 CO₂）。",
+        "realWorldUses": "甲烷是天然氣燃料的主要成分；二氧化碳用於碳酸飲料與滅火器；氯氣用於水處理消毒。",
+        "misconceptions": "常見誤解是認為只要是共價鍵就一定「不導電、鍵結弱」——事實上共價鍵可以非常強（如鑽石中的碳－碳鍵），共價分子的物理性質取決於分子結構與分子間作用力，而非鍵結類型本身。"
+      },
+      "polarCovalent": {
+        "nameZh": "極性共價鍵",
+        "nameEn": "Polar Covalent Bond",
+        "tagline": "電子對被共用，但因電負度差異而偏向其中一個原子。",
+        "formation": "當兩個鍵結原子的電負度差異落在中等範圍（約 0.4～1.7）時，電子對仍被共用，但會偏向電負度較高的原子，形成部分電荷。",
+        "electronBehavior": "共用電子對的電子雲密度偏向電負度較高的原子（如 HCl 中的 Cl），使該原子帶部分負電荷（δ⁻），另一原子帶部分正電荷（δ⁺）。",
+        "characteristics": "分子可能因鍵的極性與分子形狀而具有淨偶極矩，使分子整體呈現極性，進而影響沸點、溶解度與分子間作用力。",
+        "typicalExamples": "氯化氫（HCl）、水（H₂O）、氨（NH₃）。",
+        "commonSubstances": "水；氨水；鹽酸（HCl 水溶液）。",
+        "realWorldUses": "水的極性使其成為優良溶劑，能溶解許多離子與極性物質；氨用於清潔劑與肥料製造。",
+        "misconceptions": "常見誤解是認為「鍵極性」等於「分子極性」——例如 CO₂ 中每個 C=O 鍵都是極性的，但因分子呈線形、兩個鍵的偶極互相抵消，整個分子反而是非極性的。"
+      },
+      "metallic": {
+        "nameZh": "金屬鍵",
+        "nameEn": "Metallic Bond",
+        "tagline": "金屬陽離子排列成晶格，外層電子形成可自由移動的「電子海」。",
+        "formation": "金屬原子的價電子不屬於特定原子，而是脫離原子、在整個金屬晶格中自由移動，留下規則排列的金屬陽離子。",
+        "electronBehavior": "去域化的價電子如同「電子海」般包圍所有陽離子，能自由移動、傳遞能量與電荷，不屬於任何單一原子。",
+        "characteristics": "鍵結沒有方向性，晶格可在外力下滑動而不斷裂（具延展性與展性）；自由電子使金屬具有優良的導電性與導熱性。",
+        "typicalExamples": "鐵（Fe）、銅（Cu）、鋁（Al）、金（Au）等純金屬與合金。",
+        "commonSubstances": "建築用鋼材、電線用銅、飲料罐用鋁、首飾用金。",
+        "realWorldUses": "銅線用於電力傳輸；鋁合金用於航太與交通工具；鐵與鋼是建築與製造業的基礎材料。",
+        "misconceptions": "常見誤解是把金屬鍵想像成許多獨立的「原子對原子」鍵結——實際上金屬鍵是整塊金屬中所有原子共享同一片自由電子海的集體現象，難以用單一鍵結來描述。"
+      },
+      "hydrogen": {
+        "nameZh": "氫鍵",
+        "nameEn": "Hydrogen Bond",
+        "tagline": "分子間的較強作用力，發生在氫與高電負度原子（O、N、F）之間。",
+        "formation": "當氫原子與電負度極高的原子（如氧、氮、氟）以共價鍵結合後，該氫原子會帶明顯的部分正電荷，進而被鄰近分子中電負度高原子上的孤對電子吸引，形成氫鍵。",
+        "electronBehavior": "氫原子因與高電負度原子共價鍵結而失去大部分電子雲密度，帶部分正電荷（δ⁺）；鄰近分子的高電負度原子則以其孤對電子吸引這個氫原子。",
+        "characteristics": "氫鍵屬於分子間作用力，強度遠低於共價鍵或離子鍵，但明顯強於一般凡得瓦力，能顯著提高物質的熔沸點。",
+        "typicalExamples": "水分子之間的氫鍵、DNA 鹼基對之間的氫鍵、蛋白質二級結構中的氫鍵。",
+        "commonSubstances": "水、氨、氫氟酸（HF）、乙醇等含 O–H 或 N–H 鍵的物質。",
+        "realWorldUses": "水分子間的氫鍵造就了水異常高的沸點與冰的低密度（使冰浮於水面）；氫鍵也維持 DNA 雙股螺旋與蛋白質摺疊的穩定結構。",
+        "misconceptions": "常見誤解是把氫鍵誤認為一種「真正的化學鍵」——氫鍵其實是分子之間（或分子內）的較強靜電吸引力，而非原子間電子共用或轉移所形成的化學鍵。"
+      }
+    },
+    "molecules": {
+      "nacl": { "name": "氯化鈉", "description": "日常食鹽的主要成分，離子鍵的經典範例。" },
+      "h2": { "name": "氫氣", "description": "最簡單的共價分子，兩個氫原子共用一對電子。" },
+      "cl2": { "name": "氯氣", "description": "兩個相同的氯原子以非極性共價鍵結合。" },
+      "ch4": { "name": "甲烷", "description": "天然氣的主要成分，碳與四個氫以正四面體排列。" },
+      "co2": { "name": "二氧化碳", "description": "線形分子，鍵雖為極性但整體分子不具極性。" },
+      "hcl": { "name": "氯化氫", "description": "經典的極性共價分子，電子雲偏向氯。" },
+      "h2o": { "name": "水", "description": "生命不可或缺的極性分子，呈彎曲形。" },
+      "nh3": { "name": "氨", "description": "三角錐形分子，氮上帶部分負電荷。" },
+      "fe": { "name": "鐵", "description": "典型金屬晶格，展現自由電子海的特性。" },
+      "h2oDimer": { "name": "水分子對", "description": "兩個水分子間以氫鍵相連的示意。" }
+    },
+    "quiz": {
+      "ionic": {
+        "q1": {
+          "question": "下列何者正確描述離子鍵的形成過程？",
+          "options": ["兩個原子平均分享電子", "電子從一個原子完全轉移到另一個原子", "電子在整個晶格中自由移動", "沒有電子參與鍵結"],
+          "explanation": "離子鍵的核心特徵是電子的完全轉移，而非共用，這與共價鍵不同。"
+        },
+        "q2": {
+          "question": "在 NaCl 中，哪個原子吸引電子的能力較強，因而成為負離子？",
+          "options": ["氯 (Cl)", "鈉 (Na)", "兩者相同", "無法判斷"],
+          "explanation": "氯的電負度（3.16）遠高於鈉（0.93），因此鈉將電子轉移給氯，形成 Cl⁻。"
+        }
+      },
+      "covalent": {
+        "q1": {
+          "question": "H₂ 分子中的鍵結屬於哪一種類型？",
+          "options": ["非極性共價鍵", "極性共價鍵", "離子鍵", "金屬鍵"],
+          "explanation": "兩個氫原子的電負度完全相同，電子對平均分布，形成非極性共價鍵。"
+        },
+        "q2": {
+          "question": "在共價鍵中，電子的行為最準確的描述是？",
+          "options": ["從一個原子完全轉移到另一個原子", "在整個晶格中自由移動", "由兩個原子共同分享", "完全不參與鍵結"],
+          "explanation": "共價鍵的定義就是原子間共用電子對，而非轉移或去域化。"
+        }
+      },
+      "polarCovalent": {
+        "q1": {
+          "question": "在 HCl 分子中，哪一端帶部分負電荷（δ⁻）？",
+          "options": ["氫 (H)", "氯 (Cl)", "兩端電荷相同", "沒有電荷差異"],
+          "explanation": "氯的電負度較高，會把共用電子對拉向自己，形成 δ⁻；氫則帶 δ⁺。"
+        },
+        "q2": {
+          "question": "為什麼 HCl 會形成極性共價鍵而非離子鍵？",
+          "options": ["H 和 Cl 的電負度差異落在 0.4～1.7 之間", "H 和 Cl 的電負度完全相同", "電子完全轉移到 Cl", "這個鍵結中沒有共用電子"],
+          "explanation": "電負度差落在中等範圍時，電子被共用但不均勻分布，形成極性共價鍵；差異更大時才會形成離子鍵。"
+        }
+      },
+      "metallic": {
+        "q1": {
+          "question": "金屬鍵中的價電子如何運動？",
+          "options": ["固定在兩個原子之間", "完全轉移到另一個原子", "在整個金屬晶格中自由移動，形成「電子海」", "完全靜止不動"],
+          "explanation": "金屬鍵的價電子去域化，形成自由移動的電子海，這也是金屬導電的原因。"
+        },
+        "q2": {
+          "question": "金屬鍵的「電子海」模型可以解釋金屬的哪一項特性？",
+          "options": ["良好的導電性", "低熔點", "透明度高", "脆性大、易碎"],
+          "explanation": "自由移動的電子能攜帶電荷快速通過金屬，因此金屬導電性佳；金屬通常具延展性而非易碎。"
+        }
+      },
+      "hydrogen": {
+        "q1": {
+          "question": "氫鍵主要發生在氫原子與哪一類原子之間？",
+          "options": ["電負度高的原子，如 O、N、F", "另一個氫原子", "任何金屬原子", "碳原子"],
+          "explanation": "氫鍵需要氫原子與電負度極高的原子（O、N、F）形成的強極性 O–H / N–H / F–H 鍵作為前提。"
+        },
+        "q2": {
+          "question": "氫鍵與共價鍵相比，鍵結強度如何？",
+          "options": ["氫鍵遠強於共價鍵", "氫鍵比共價鍵弱，屬於分子間作用力", "兩者強度完全相同", "氫鍵不屬於任何作用力"],
+          "explanation": "氫鍵是分子間作用力，雖然比一般凡得瓦力強，但仍遠弱於共價鍵或離子鍵。"
+        }
+      }
+    }
+  },
+  "moleculeLibrary": {
+    "pageTitle": "分子資料庫",
+    "pageSubtitle": "搜尋、篩選並探索化學分子的三維結構。",
+    "demoNotice": "本頁的 3D 結構為簡化教學示意，座標經過設計以利理解，並非精確科學量測。分子量與化學性質則為真實數據。",
+    "search": {
+      "placeholder": "搜尋分子名稱、分子式或官能基……",
+      "clear": "清除搜尋",
+      "resultsLabel": "個分子",
+      "noResultsTitle": "找不到符合的分子",
+      "noResultsHint": "試試其他關鍵字，或清除篩選條件。",
+      "suggestionsLabel": "建議"
+    },
+    "filters": {
+      "title": "篩選",
+      "categoryLabel": "分類",
+      "allCategories": "全部分類",
+      "weightLabel": "分子量範圍",
+      "atomCountLabel": "原子數",
+      "functionalGroupLabel": "官能基",
+      "polarityLabel": "極性",
+      "clearAll": "清除所有篩選",
+      "polarityAll": "全部",
+      "polarityPolar": "極性",
+      "polarityNonpolar": "非極性",
+      "polarityIonic": "離子性"
+    },
+    "categories": {
+      "inorganic": "無機化合物",
+      "organic": "有機化合物",
+      "alcohol": "醇類",
+      "ether": "醚類",
+      "aldehyde": "醛類",
+      "ketone": "酮類",
+      "carboxylicAcid": "羧酸",
+      "ester": "酯類",
+      "amine": "胺類",
+      "amide": "醯胺類",
+      "alkane": "烷類",
+      "alkene": "烯類",
+      "alkyne": "炔類",
+      "aromatic": "芳香族化合物"
+    },
+    "functionalGroups": {
+      "hydroxyl": { "name": "氫氧基（羥基）", "description": "由一個氧原子與一個氫原子組成（-OH），是醇類的特徵官能基。" },
+      "carbonyl": { "name": "羰基", "description": "碳原子與氧原子形成雙鍵（C=O），常見於醛、酮、羧酸與酯類。" },
+      "carboxyl": { "name": "羧基", "description": "由羰基與氫氧基組成（-COOH），是羧酸的特徵官能基，具有酸性。" },
+      "ester": { "name": "酯基", "description": "由羧酸與醇脫水縮合形成（-COO-），常帶有特殊香氣。" },
+      "amino": { "name": "胺基", "description": "由氮原子與氫原子組成（-NH₂），是胺類的特徵官能基，具有鹼性。" },
+      "amide": { "name": "醯胺基", "description": "由羰基與胺基結合形成（-CONH₂），是蛋白質中胜肽鍵的基礎結構。" },
+      "alkene": { "name": "烯基（碳碳雙鍵）", "description": "碳原子間形成雙鍵（C=C），反應性比單鍵高。" },
+      "alkyne": { "name": "炔基（碳碳參鍵）", "description": "碳原子間形成參鍵（C≡C），是所有碳碳鍵結中最短也最強的一種。" },
+      "aromatic": { "name": "芳香環", "description": "由苯環等離域電子系統構成，具有特殊的穩定性。" }
+    },
+    "geometry": {
+      "linear": "直線形",
+      "bent": "彎曲形（角形）",
+      "trigonalPlanar": "平面三角形",
+      "trigonalPyramidal": "三角錐形",
+      "tetrahedral": "四面體形",
+      "planar": "平面環狀",
+      "ionicPair": "離子對（實際為晶格結構）"
+    },
+    "detail": {
+      "nameZh": "中文名稱",
+      "nameEn": "英文名稱",
+      "formula": "分子式",
+      "molecularWeight": "分子量",
+      "unitGMol": "g/mol",
+      "atomCount": "原子數",
+      "unitAtoms": "個原子",
+      "structure": "結構",
+      "bondTypes": "鍵結類型",
+      "functionalGroups": "官能基",
+      "polarity": "極性",
+      "geometry": "分子幾何",
+      "commonUses": "常見用途",
+      "safetyNotes": "安全與注意事項",
+      "funFact": "化學小知識",
+      "relatedMolecules": "相關分子",
+      "exploreBonds": "探索這個分子中的化學鍵",
+      "teachingNote": "教學示意，非精確科學量測",
+      "close": "關閉",
+      "noFunctionalGroups": "無特定官能基"
+    },
+    "viewerControls": {
+      "rotateHint": "拖曳以旋轉",
+      "zoomHint": "捲動或雙指縮放",
+      "resetView": "重設視角",
+      "autoRotateOn": "自動旋轉：開",
+      "autoRotateOff": "自動旋轉：關",
+      "toggleLabels": "原子標籤",
+      "ballAndStick": "球棍模型",
+      "spaceFilling": "空間填充模型",
+      "showBonds": "顯示鍵結",
+      "hideBonds": "隱藏鍵結"
+    },
+    "bondKinds": {
+      "covalentSingle": "單鍵（共價）",
+      "covalentDouble": "雙鍵（共價）",
+      "covalentTriple": "參鍵（共價）",
+      "ionic": "離子鍵",
+      "hydrogen": "氫鍵"
+    },
+    "molecules": {
+      "h2o": {
+        "nameZh": "水", "nameEn": "Water",
+        "commonUses": "萬用溶劑、維持生命不可或缺、工業冷卻與蒸氣發電。",
+        "safetyNotes": "日常飲用與接觸無虞，是最安全的化學物質之一。",
+        "funFact": "分子間的氫鍵使水的沸點異常高，也讓固態的冰密度低於液態水，因此冰塊會浮在水面上。"
+      },
+      "co2": {
+        "nameZh": "二氧化碳", "nameEn": "Carbon Dioxide",
+        "commonUses": "植物行光合作用的原料、碳酸飲料的氣泡來源、滅火器的滅火成分。",
+        "safetyNotes": "低濃度下無害，但高濃度密閉空間可能造成缺氧，需保持通風。",
+        "funFact": "固態二氧化碳稱為乾冰，在常壓下會直接昇華成氣體，不會經過液態。"
+      },
+      "o2": {
+        "nameZh": "氧氣", "nameEn": "Oxygen",
+        "commonUses": "維持生物呼吸作用、燃燒反應的必要成分、醫療用氧氣。",
+        "safetyNotes": "本身無毒，但高濃度氧氣會大幅提高可燃物的燃燒風險。",
+        "funFact": "地球大氣中約 21% 是氧氣，幾乎全部由植物與藻類行光合作用產生。"
+      },
+      "n2": {
+        "nameZh": "氮氣", "nameEn": "Nitrogen",
+        "commonUses": "食品包裝的惰性保護氣體、液態氮用於低溫保存、合成氨的原料。",
+        "safetyNotes": "化學性質穩定、無毒，但高濃度可能在密閉空間中造成缺氧。",
+        "funFact": "氮氣約占地球大氣的 78%，其分子中的三鍵使其異常穩定、極難發生反應。"
+      },
+      "h2": {
+        "nameZh": "氫氣", "nameEn": "Hydrogen",
+        "commonUses": "燃料電池能源、合成氨的原料（哈柏法）、火箭燃料。",
+        "safetyNotes": "極易燃燒，且與空氣混合後燃燒範圍寬廣，須避免明火與靜電。",
+        "funFact": "氫是宇宙中含量最豐富、也是最輕的元素，占宇宙已知物質的絕大部分。"
+      },
+      "nacl": {
+        "nameZh": "氯化鈉", "nameEn": "Sodium Chloride",
+        "commonUses": "日常食鹽、食物保存與醃製、融雪除冰。",
+        "safetyNotes": "食用安全，但過量攝取與皮膚長時間接觸濃鹽水仍需留意。",
+        "funFact": "固態氯化鈉排列成規則的立方晶格，每個離子都被 6 個帶相反電荷的離子包圍。"
+      },
+      "hcl": {
+        "nameZh": "氯化氫", "nameEn": "Hydrogen Chloride",
+        "commonUses": "人體胃酸的主要成分、工業清潔劑、PVC 等塑膠的原料。",
+        "safetyNotes": "具腐蝕性與刺激性，氣態或濃溶液需在通風良好環境下處理。",
+        "funFact": "人體胃部會分泌鹽酸（HCl 水溶液），pH 值低至 1～2，用來幫助消化食物。"
+      },
+      "nh3": {
+        "nameZh": "氨", "nameEn": "Ammonia",
+        "commonUses": "肥料生產的主要原料、清潔用品、工業冷媒。",
+        "safetyNotes": "具刺激性氣味與腐蝕性，高濃度吸入會刺激呼吸道，須通風處理。",
+        "funFact": "氨雖然常溫下是氣體，卻因氫鍵作用而極易溶於水，一體積的水可溶解超過百倍體積的氨氣。"
+      },
+      "ch4": {
+        "nameZh": "甲烷", "nameEn": "Methane",
+        "commonUses": "天然氣的主要成分與家用燃料、工業合成原料。",
+        "safetyNotes": "無色無味、極易燃，洩漏時需格外留意火源與通風。",
+        "funFact": "甲烷是最簡單的碳氫化合物，也是強效溫室氣體，常見於垃圾掩埋場與反芻動物的消化過程。"
+      },
+      "methanol": {
+        "nameZh": "甲醇", "nameEn": "Methanol",
+        "commonUses": "工業溶劑、生質燃料添加劑、有機合成原料。",
+        "safetyNotes": "具毒性，誤飲會傷害視神經甚至致命，僅供工業用途，不可誤用於食品。",
+        "funFact": "甲醇是最簡單的醇類，只比甲烷多了一個氧原子，性質卻截然不同。"
+      },
+      "ethanol": {
+        "nameZh": "乙醇", "nameEn": "Ethanol",
+        "commonUses": "酒精性飲料、乾洗手消毒液、汽油添加燃料（酒精汽油）、工業溶劑。",
+        "safetyNotes": "適量飲用相對安全，但高濃度易燃，且不可與甲醇混淆。",
+        "funFact": "乙醇是由酵母菌發酵糖類而產生，這個過程已被人類使用了數千年。"
+      },
+      "aceticAcid": {
+        "nameZh": "乙酸（醋酸）", "nameEn": "Acetic Acid",
+        "commonUses": "食醋的主要成分（約 4～8% 濃度）、食品防腐劑、工業溶劑。",
+        "safetyNotes": "稀釋後的食用醋安全，但高濃度純乙酸具腐蝕性，會刺激皮膚與黏膜。",
+        "funFact": "純乙酸在攝氏 16.6 度以下會凝固成類似冰的結晶，因此又被稱為「冰醋酸」。"
+      },
+      "acetone": {
+        "nameZh": "丙酮", "nameEn": "Acetone",
+        "commonUses": "指甲油卸除液、工業溶劑、油漆稀釋劑。",
+        "safetyNotes": "易燃且具揮發性，須在通風環境下使用，避免長時間吸入。",
+        "funFact": "人體在脂肪代謝（如生酮狀態）時也會自然產生少量丙酮，這也是酮症患者呼氣帶有特殊氣味的原因之一。"
+      },
+      "benzene": {
+        "nameZh": "苯", "nameEn": "Benzene",
+        "commonUses": "化學工業中作為合成塑膠、清潔劑等化合物的前驅物，歷史上也曾作為溶劑使用。",
+        "safetyNotes": "已知為致癌物質，現代使用受嚴格管制，須在專業防護與通風環境下處理。",
+        "funFact": "苯的環狀結構由凱庫勒於 1865 年提出，據傳他是在夢見一條蛇咬住自己尾巴後獲得靈感。"
+      },
+      "acetaldehyde": {
+        "nameZh": "乙醛", "nameEn": "Acetaldehyde",
+        "commonUses": "製造乙酸等化學品的中間原料。",
+        "safetyNotes": "具刺激性與潛在毒性，人體代謝酒精時也會產生乙醛，是造成宿醉不適的原因之一。",
+        "funFact": "當肝臟分解乙醇時，會先產生乙醛這個中間產物，乙醛的累積正是宿醉症狀的重要成因。"
+      },
+      "methylAcetate": {
+        "nameZh": "乙酸甲酯", "nameEn": "Methyl Acetate",
+        "commonUses": "低揮發性有機溶劑，用於部分油漆、膠水與指甲產品。",
+        "safetyNotes": "具揮發性，長時間吸入蒸氣可能造成不適，建議在通風環境下使用。",
+        "funFact": "乙酸甲酯具有類似水果的香氣，也天然存在於某些水果之中。"
+      },
+      "ethylene": {
+        "nameZh": "乙烯", "nameEn": "Ethylene",
+        "commonUses": "聚乙烯塑膠的原料、農業上用於催熟水果的植物荷爾蒙。",
+        "safetyNotes": "易燃氣體，工業處理需留意火源與洩漏。",
+        "funFact": "香蕉會釋放乙烯氣體，這也是為什麼把香蕉和其他水果放在一起會讓水果更快熟成的原因。"
+      },
+      "acetylene": {
+        "nameZh": "乙炔", "nameEn": "Acetylene",
+        "commonUses": "氧乙炔焊接與切割金屬的燃料氣體、化學合成原料。",
+        "safetyNotes": "極易燃且不穩定，高壓儲存需特別小心，燃燒溫度可達約攝氏 3300 度。",
+        "funFact": "乙炔燃燒時能產生現有氣體燃料中數一數二高的火焰溫度，因此被廣泛用於切割金屬。"
+      },
+      "methylamine": {
+        "nameZh": "甲胺", "nameEn": "Methylamine",
+        "commonUses": "醫藥與農業化學品合成的中間原料。",
+        "safetyNotes": "具刺激性氣味與腐蝕性，需在通風環境下處理。",
+        "funFact": "甲胺帶有類似氨與魚腥的氣味，是結構最簡單的一級胺。"
+      },
+      "acetamide": {
+        "nameZh": "乙醯胺", "nameEn": "Acetamide",
+        "commonUses": "有機合成的中間體、部分工業溶劑與塑化劑的原料。",
+        "safetyNotes": "純化學品建議在通風環境下處理，避免長時間接觸。",
+        "funFact": "乙醯胺可視為乙酸與氨結合並脫去一分子水後形成，是醯胺類官能基的代表分子之一。"
+      },
+      "dimethylEther": {
+        "nameZh": "二甲醚", "nameEn": "Dimethyl Ether",
+        "commonUses": "噴霧罐推進劑、液化石油氣替代燃料、有機合成溶劑。",
+        "safetyNotes": "易燃氣體，須避免明火，於通風環境下使用與儲存。",
+        "funFact": "二甲醚與乙醇的分子式同為 C₂H₆O，兩者互為結構異構物，性質卻大不相同——乙醇是液體，二甲醚在常溫常壓下是氣體。"
+      }
+    }
+  },
+  "organicChemistry": {
+    "pageTitle": "有機化學探索",
+    "pageSubtitle": "從官能基到分子、性質與反應，探索有機化學的完整關聯系統。",
+    "demoNotice": "本頁的 3D 結構為簡化教學示意，並非精確科學量測。",
+    "sections": {
+      "categories": "官能基分類",
+      "map": "反應關聯圖",
+      "structure": "分子結構",
+      "properties": "性質與範例",
+      "comparison": "官能基比較"
+    },
+    "info": {
+      "generalStructure": "一般結構",
+      "characteristicAtoms": "特徵原子",
+      "bondPattern": "鍵結型態",
+      "polarity": "極性",
+      "keyProperties": "關鍵性質",
+      "representativeMolecules": "代表分子",
+      "commonReactions": "常見反應"
+    },
+    "actions": {
+      "viewInLibrary": "在分子資料庫中查看",
+      "exploreBond": "探索這個化學鍵",
+      "compareWith": "與其他官能基比較",
+      "selectSecond": "選擇欲比較的第二個官能基",
+      "stepNext": "下一步",
+      "stepBack": "上一步",
+      "stepLabel": "步驟"
+    },
+    "learningSteps": {
+      "identify": "辨識官能基",
+      "structure": "認識結構",
+      "properties": "了解性質",
+      "molecule": "代表分子",
+      "reactions": "典型反應"
+    },
+    "reactionTypes": {
+      "hydrogenation": "氫化",
+      "addition": "加成",
+      "oxidation": "氧化",
+      "condensation": "縮合",
+      "esterification": "酯化",
+      "hydrolysis": "水解",
+      "amidation": "醯胺化"
+    },
+    "categoryNames": {
+      "alkane": { "nameZh": "烷類", "nameEn": "Alkanes" },
+      "alkene": { "nameZh": "烯類", "nameEn": "Alkenes" },
+      "alkyne": { "nameZh": "炔類", "nameEn": "Alkynes" },
+      "aromatic": { "nameZh": "芳香族化合物", "nameEn": "Aromatic Compounds" },
+      "alcohol": { "nameZh": "醇類", "nameEn": "Alcohols" },
+      "ether": { "nameZh": "醚類", "nameEn": "Ethers" },
+      "aldehyde": { "nameZh": "醛類", "nameEn": "Aldehydes" },
+      "ketone": { "nameZh": "酮類", "nameEn": "Ketones" },
+      "carboxylicAcid": { "nameZh": "羧酸", "nameEn": "Carboxylic Acids" },
+      "ester": { "nameZh": "酯類", "nameEn": "Esters" },
+      "amine": { "nameZh": "胺類", "nameEn": "Amines" },
+      "amide": { "nameZh": "醯胺類", "nameEn": "Amides" }
+    },
+    "categories": {
+      "alkane": {
+        "generalStructure": "CnH2n+2，僅由碳與氫組成的飽和鏈狀或環狀化合物。",
+        "characteristicAtoms": "碳（C）與氫（H），碳原子皆以單鍵飽和連接。",
+        "bondPattern": "碳－碳單鍵與碳－氫單鍵，無官能基，反應性低。",
+        "keyProperties": "非極性、密度低於水、熔沸點隨碳鏈增長而升高，化學性質相對不活潑。",
+        "commonReactions": "燃燒反應（產生二氧化碳與水）、鹵化反應（自由基取代）。"
+      },
+      "alkene": {
+        "generalStructure": "含至少一個碳－碳雙鍵（C=C）的不飽和碳氫化合物。",
+        "characteristicAtoms": "碳（C）與氫（H），雙鍵碳為平面三角形排列。",
+        "bondPattern": "一個 σ 鍵加一個 π 鍵構成碳－碳雙鍵，π 電子雲活性高。",
+        "keyProperties": "非極性、比同碳數烷類更活潑，雙鍵可進行加成反應。",
+        "commonReactions": "加成反應（如與 H₂、H₂O、鹵素加成）、聚合反應。"
+      },
+      "alkyne": {
+        "generalStructure": "含至少一個碳－碳參鍵（C≡C）的不飽和碳氫化合物。",
+        "characteristicAtoms": "碳（C）與氫（H），參鍵碳為直線形排列。",
+        "bondPattern": "一個 σ 鍵加兩個 π 鍵構成碳－碳參鍵，是最短也最強的碳碳鍵。",
+        "keyProperties": "非極性，反應性比烯類更高，燃燒時可產生極高溫火焰。",
+        "commonReactions": "加成反應（可分兩階段進行）、氧乙炔燃燒反應。"
+      },
+      "aromatic": {
+        "generalStructure": "以苯環為代表，環狀共軛 π 電子系統，具特殊穩定性。",
+        "characteristicAtoms": "碳（C）與氫（H）構成環狀骨架，電子在環上離域分布。",
+        "bondPattern": "介於單鍵與雙鍵之間的離域鍵結，常以交替單雙鍵（凱庫勒結構）簡化表示。",
+        "keyProperties": "非極性、化學性質穩定，較不易進行加成反應，傾向進行取代反應。",
+        "commonReactions": "親電子取代反應（如硝化、鹵化、磺化）。"
+      },
+      "alcohol": {
+        "generalStructure": "R-OH，碳鏈或碳環上接有氫氧基。",
+        "characteristicAtoms": "氧（O）與氫（H）組成的氫氧基，接於碳骨架上。",
+        "bondPattern": "極性的 C-O 與 O-H 單鍵，氧上帶部分負電荷。",
+        "keyProperties": "具極性、可與水形成氫鍵，小分子醇易溶於水，沸點高於同碳數的烷類。",
+        "commonReactions": "氧化反應（生成醛或酮）、酯化反應（與羧酸生成酯）、脫水縮合（生成醚或烯）。"
+      },
+      "ether": {
+        "generalStructure": "R-O-R'，兩個碳基團透過氧原子連接。",
+        "characteristicAtoms": "氧（O）以兩個單鍵連接兩側碳基團，不含氫氧基。",
+        "bondPattern": "兩個極性的 C-O 單鍵，氧上仍帶部分負電荷，但整體反應性較醇低。",
+        "keyProperties": "具弱極性、化學性質相對穩定，不易被氧化，常作為有機反應的溶劑。",
+        "commonReactions": "反應性低，主要作為溶劑；強酸下可發生醚鍵斷裂。"
+      },
+      "aldehyde": {
+        "generalStructure": "R-CHO，碳鏈末端接有羰基與氫。",
+        "characteristicAtoms": "碳氧雙鍵（C=O）加上直接連接的氫原子。",
+        "bondPattern": "極性的碳氧雙鍵，碳為平面三角形排列，氧帶部分負電荷。",
+        "keyProperties": "具極性、沸點高於同碳數烷類但低於醇類，羰基使其容易被氧化。",
+        "commonReactions": "氧化反應（生成羧酸）、還原反應（生成醇）、與醇加成生成半縮醛。"
+      },
+      "ketone": {
+        "generalStructure": "R-CO-R'，羰基兩側皆接碳基團。",
+        "characteristicAtoms": "碳氧雙鍵（C=O），兩側皆為碳原子而非氫。",
+        "bondPattern": "極性的碳氧雙鍵，碳為平面三角形排列。",
+        "keyProperties": "具極性、化學性質比醛類穩定，不易被進一步氧化。",
+        "commonReactions": "還原反應（生成二級醇）、與醇加成生成縮酮。"
+      },
+      "carboxylicAcid": {
+        "generalStructure": "R-COOH，碳鏈末端接有羧基。",
+        "characteristicAtoms": "羰基（C=O）與氫氧基（-OH）共同組成羧基。",
+        "bondPattern": "碳氧雙鍵與碳氧單鍵並存，具明顯酸性，可解離出 H⁺。",
+        "keyProperties": "具極性與酸性、可與鹼中和生成鹽類，小分子羧酸易溶於水。",
+        "commonReactions": "酯化反應（與醇生成酯）、中和反應（與鹼生成鹽）、醯胺化反應（與胺生成醯胺）。"
+      },
+      "ester": {
+        "generalStructure": "R-COO-R'，羧酸與醇縮合脫水後的產物。",
+        "characteristicAtoms": "羰基（C=O）與連接兩個碳基團的酯鍵氧。",
+        "bondPattern": "極性的碳氧雙鍵與單鍵並存，但不具酸性。",
+        "keyProperties": "具極性、通常帶有特殊香氣，化學性質較羧酸溫和。",
+        "commonReactions": "水解反應（生成羧酸與醇）、皂化反應（鹼性水解生成鹽與醇）。"
+      },
+      "amine": {
+        "generalStructure": "R-NH₂（或 R₂NH、R₃N），碳鏈接有胺基。",
+        "characteristicAtoms": "氮（N）上帶有孤對電子，可接一至三個碳基團。",
+        "bondPattern": "極性的 C-N 與 N-H 單鍵，氮上孤對電子使其具鹼性。",
+        "keyProperties": "具極性與鹼性、小分子胺類常帶有魚腥味，可與酸生成銨鹽。",
+        "commonReactions": "與酸中和生成銨鹽、與羧酸進行醯胺化反應。"
+      },
+      "amide": {
+        "generalStructure": "R-CO-NH₂，羧酸與胺縮合脫水後的產物。",
+        "characteristicAtoms": "羰基（C=O）與胺基氮（N）直接相連。",
+        "bondPattern": "碳氧雙鍵與碳氮單鍵並存，是蛋白質胜肽鍵的基礎結構。",
+        "keyProperties": "具極性、化學性質穩定，不具酸性也不具明顯鹼性。",
+        "commonReactions": "水解反應（在酸或鹼中分解回羧酸與胺）。"
+      }
+    }
+  }
+}

@@ -1,0 +1,803 @@
+{
+  "metadata": {
+    "titleDefault": "MoleculeOS — Explore Chemistry Visually",
+    "titleTemplate": "%s · MoleculeOS",
+    "description": "MoleculeOS is an immersive, interactive chemistry learning platform. Visualize molecules, understand reactions, and master organic chemistry in 3D.",
+    "keywords": [
+      "chemistry",
+      "molecules",
+      "organic chemistry",
+      "periodic table",
+      "3D molecule viewer",
+      "chemistry education"
+    ]
+  },
+  "nav": {
+    "items": {
+      "home": { "label": "Home", "description": "Back to the MoleculeOS overview" },
+      "bondExplorer": { "label": "Bond Explorer", "description": "Visualize ionic, covalent, and metallic bonds in 3D" },
+      "organicChemistry": { "label": "Organic Chemistry", "description": "A living knowledge graph of organic functional groups" },
+      "moleculeLibrary": { "label": "Molecule Library", "description": "Browse and inspect a growing catalog of molecules" },
+      "reactionAtlas": { "label": "Reaction Atlas", "description": "Interactive reaction pathways and mechanisms" },
+      "periodicTable": { "label": "Periodic Table", "description": "An element-by-element interactive periodic table" },
+      "aiTutor": { "label": "AI Tutor", "description": "Ask questions and get guided chemistry explanations" },
+      "quiz": { "label": "Quiz", "description": "Test your knowledge with adaptive quizzes" },
+      "settings": { "label": "Settings", "description": "Appearance, accessibility, and account preferences" }
+    },
+    "ctaStartExploring": "Start Exploring",
+    "ariaOpenMenu": "Open menu"
+  },
+  "mobileNav": {
+    "menuLabel": "Menu",
+    "ariaCloseMenu": "Close menu",
+    "ariaDialog": "Site navigation"
+  },
+  "themeToggle": {
+    "ariaSwitchToLight": "Switch to light mode",
+    "ariaSwitchToDark": "Switch to dark mode"
+  },
+  "footer": {
+    "tagline": "An immersive, interactive chemistry learning platform for students, teachers, and lifelong learners.",
+    "columnExplore": "Explore",
+    "columnLearn": "Learn",
+    "columnCompany": "Company",
+    "companyLinks": {
+      "about": "About",
+      "careers": "Careers",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "socials": {
+      "website": "Website",
+      "community": "Community",
+      "updates": "Updates"
+    },
+    "copyright": "All rights reserved.",
+    "builtFor": "Built for explorers, educators, and the curious."
+  },
+  "hero": {
+    "badge": "Explore Chemistry Visually",
+    "headlineLine1": "Explore Chemistry",
+    "headlineLine2": "Like Never Before.",
+    "subheadline": "Visualize molecules. Understand reactions. Master organic chemistry — with a learning platform built to feel like a premium product, not a textbook.",
+    "ctaPrimary": "Start Exploring",
+    "ctaSecondary": "View Molecule Library",
+    "trustedBy": "Trusted by students & educators",
+    "scroll": "Scroll"
+  },
+  "features": {
+    "eyebrow": "Features",
+    "headingPrefix": "Everything you need to actually",
+    "headingHighlight": "understand",
+    "headingSuffix": "chemistry.",
+    "items": {
+      "bondExplorer": {
+        "title": "Bond Explorer",
+        "description": "Watch electrons move between atoms in real time — ionic, covalent, and metallic bonds rendered in 3D."
+      },
+      "reactionAtlas": {
+        "title": "Reaction Atlas",
+        "description": "Follow multi-step reaction pathways as interactive flowcharts."
+      },
+      "periodicTable": {
+        "title": "Periodic Table",
+        "description": "Hover any element for electron configuration, history, and real-world uses."
+      },
+      "aiTutor": {
+        "title": "AI Tutor",
+        "description": "Ask questions in plain language and get guided, step-by-step explanations."
+      },
+      "quizCenter": {
+        "title": "Quiz Center",
+        "description": "Adaptive quizzes, flash cards, and streaks that keep learning consistent."
+      },
+      "organicGraph": {
+        "title": "Organic Chemistry Graph",
+        "description": "A living knowledge graph connecting every functional group and reaction."
+      }
+    }
+  },
+  "featureVisuals": {
+    "reactionSteps": ["Alcohol", "Aldehyde", "Carboxylic Acid"],
+    "chatQuestion": "Why is water polar?",
+    "chatAnswer": "Oxygen pulls electron density...",
+    "dayStreakLabel": "day streak"
+  },
+  "interactiveDemo": {
+    "eyebrow": "Interactive Demo",
+    "heading": "Try the Bond Explorer, right here.",
+    "paragraph": "Select a bond type below — this is a live preview of the interactions you'll get inside the full Bond Explorer.",
+    "exampleLabel": "Example:",
+    "bondTypes": {
+      "ionic": {
+        "label": "Ionic Bond",
+        "formula": "Na⁺ Cl⁻",
+        "description": "One atom transfers an electron to another, creating oppositely charged ions held together by electrostatic attraction.",
+        "example": "Sodium chloride (table salt)"
+      },
+      "covalent": {
+        "label": "Covalent Bond",
+        "formula": "H₂O",
+        "description": "Atoms share a pair of electrons, binding their nuclei together through mutual attraction to the shared pair.",
+        "example": "Water, methane, and most organic molecules"
+      },
+      "metallic": {
+        "label": "Metallic Bond",
+        "formula": "Fe(s)",
+        "description": "Positive metal ions sit in a lattice, surrounded by a delocalized 'sea' of electrons free to move throughout.",
+        "example": "Iron, copper, and most solid metals"
+      }
+    }
+  },
+  "categories": {
+    "eyebrow": "Chemical Categories",
+    "heading": "Every branch of chemistry, mapped and connected.",
+    "items": {
+      "organic": { "name": "Organic Chemistry", "description": "Carbon skeletons, functional groups, and reaction mechanisms." },
+      "inorganic": { "name": "Inorganic Chemistry", "description": "Metals, coordination complexes, and crystal structures." },
+      "physical": { "name": "Physical Chemistry", "description": "Thermodynamics, kinetics, and quantum behavior." },
+      "biochemistry": { "name": "Biochemistry", "description": "Proteins, enzymes, and metabolic pathways." },
+      "analytical": { "name": "Analytical Chemistry", "description": "Spectroscopy, chromatography, and structure elucidation." },
+      "environmental": { "name": "Environmental Chemistry", "description": "Atmospheric cycles, pollutants, and green chemistry." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "heading": "Loved by students, teachers, and self-learners.",
+    "items": [
+      {
+        "name": "Amara Osei",
+        "role": "AP Chemistry Student, Lincoln High",
+        "quote": "Rotating a molecule in 3D finally made hybridization click. I understood sp3 vs sp2 in one sitting.",
+        "initials": "AO"
+      },
+      {
+        "name": "Daniel Reyes",
+        "role": "Undergraduate, Organic Chemistry II",
+        "quote": "The Reaction Atlas turned a wall of arrows in my textbook into something I could actually follow step by step.",
+        "initials": "DR"
+      },
+      {
+        "name": "Priya Nair",
+        "role": "Chemistry Teacher, Riverside Academy",
+        "quote": "I use the Bond Explorer on the projector every week. Students ask better questions when they can see electrons move.",
+        "initials": "PN"
+      },
+      {
+        "name": "Marcus Lindqvist",
+        "role": "Self-Learner & Career Switcher",
+        "quote": "I'm learning chemistry from scratch at 34. The AI Tutor never makes me feel behind — it just meets me where I am.",
+        "initials": "ML"
+      },
+      {
+        "name": "Sofia Bianchi",
+        "role": "University Student, Biochemistry",
+        "quote": "The functional group comparisons made naming conventions finally make sense instead of feeling like memorization.",
+        "initials": "SB"
+      }
+    ]
+  },
+  "stats": {
+    "heading": "Chemistry, at a glance.",
+    "items": {
+      "molecules": { "label": "Molecules modeled" },
+      "reactions": { "label": "Reactions mapped" },
+      "learners": { "label": "Learners exploring" },
+      "quizLift": { "label": "Average quiz score lift" }
+    }
+  },
+  "finalCta": {
+    "heading": "Ready to see chemistry differently?",
+    "paragraph": "Jump into the Bond Explorer and watch electrons move for the first time — no textbook required.",
+    "cta": "Start Exploring"
+  },
+  "common": {
+    "demoData": "Demo Data",
+    "comingSoon": "Coming Soon",
+    "backToHome": "Back to Home",
+    "ariaGoTo": "Go to",
+    "ariaOpenLink": "Open link",
+    "noImage": "No image"
+  },
+  "pages": {
+    "bondExplorer": {
+      "title": "Bond Explorer",
+      "description": "Animated, 3D explanations of ionic, covalent, polar covalent, metallic, hydrogen, coordinate, and van der Waals bonds are on the way."
+    },
+    "organicChemistry": {
+      "title": "Organic Chemistry",
+      "description": "A living knowledge graph connecting alkanes, alkenes, alcohols, ketones, esters, amines, and every functional group between them."
+    },
+    "moleculeLibrary": {
+      "title": "Molecule Library",
+      "description": "A browsable, searchable catalog of molecules with 3D structures, properties, and real-world applications."
+    },
+    "reactionAtlas": {
+      "title": "Reaction Atlas",
+      "description": "Interactive, multi-step reaction flowcharts with catalysts, conditions, mechanisms, yield, and energy diagrams."
+    },
+    "periodicTable": {
+      "title": "Periodic Table",
+      "description": "A beautiful, hoverable periodic table with electron configuration, history, atomic radius, and electronegativity for every element."
+    },
+    "aiTutor": {
+      "title": "AI Tutor",
+      "description": "A chat-based tutor that explains reactions and mechanisms, suggests questions, and generates quizzes tailored to you."
+    },
+    "quiz": {
+      "title": "Quiz Center",
+      "description": "Drag-and-drop challenges, flash cards, memory match, timed quizzes, and a leaderboard to track your progress."
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Appearance, accessibility, and account preferences — including the theme toggle already live in the navbar."
+    }
+  },
+  "bondExplorer": {
+    "workspaceTitle": "Bond Explorer",
+    "workspaceSubtitle": "Drag, rotate, and watch how electrons move between atoms.",
+    "demoNotice": "The 3D visualizations on this page are simplified teaching illustrations — coordinates and animation are designed for clarity, not precise scientific measurement.",
+    "modeToggle": { "explore": "Explore Mode", "learn": "Learn Mode" },
+    "sections": {
+      "categories": "Bond Types",
+      "visualization": "3D Visualization",
+      "information": "Bond Information",
+      "examples": "Molecule Examples",
+      "polarity": "Bond Polarity",
+      "quiz": "Mini Quiz"
+    },
+    "info": {
+      "nameZh": "Chinese Name",
+      "nameEn": "English Name",
+      "formation": "Formation",
+      "electronBehavior": "Electron Behavior",
+      "characteristics": "Bond Characteristics",
+      "typicalExamples": "Typical Examples",
+      "commonSubstances": "Common Substances",
+      "realWorldUses": "Real-World Uses",
+      "misconceptions": "Common Misconceptions"
+    },
+    "prompts": {
+      "electronDirection": "Which way do the electrons move?",
+      "strongerAttraction": "Which atom attracts electrons more strongly?",
+      "bondTypeQuestion": "What type of bond is this?"
+    },
+    "controls": {
+      "rotateHint": "Drag to rotate",
+      "zoomHint": "Scroll or pinch to zoom",
+      "playElectronFlow": "Play electron flow",
+      "reset": "Reset view",
+      "selectExample": "Select an example molecule"
+    },
+    "polarityPanel": {
+      "electronegativityDiff": "Electronegativity Difference",
+      "nonpolar": "Nonpolar",
+      "polar": "Polar",
+      "ionicCharacter": "Ionic Character",
+      "deltaPositive": "Partial positive charge (δ⁺)",
+      "deltaNegative": "Partial negative charge (δ⁻)"
+    },
+    "quizUi": {
+      "checkAnswer": "Check Answer",
+      "correct": "Correct!",
+      "incorrect": "Try again",
+      "nextQuestion": "Next Question",
+      "scoreLabel": "Correct Answers",
+      "finished": "You've completed this quiz!"
+    },
+    "bonds": {
+      "ionic": {
+        "nameZh": "離子鍵",
+        "nameEn": "Ionic Bond",
+        "tagline": "Electrons transfer completely, forming oppositely charged ions that attract each other.",
+        "formation": "When atoms with very different electronegativities meet, the less electronegative atom transfers an electron completely to the more electronegative atom, forming a positive and a negative ion.",
+        "electronBehavior": "Electrons move from the metal atom (e.g. sodium) completely to the nonmetal atom (e.g. chlorine) — a one-way, complete transfer with no shared electron pair.",
+        "characteristics": "The bond forms through electrostatic attraction (Coulomb force) between oppositely charged ions. Ionic compounds typically have high melting and boiling points, and conduct electricity only when molten or dissolved, not as a solid.",
+        "typicalExamples": "Sodium chloride (NaCl), magnesium oxide (MgO), potassium chloride (KCl).",
+        "commonSubstances": "Table salt, most alkali metal halides, many mineral crystals.",
+        "realWorldUses": "Table salt is used for seasoning and food preservation; ionic compounds are widely used in electrolyte solutions, fertilizers, and industrial materials.",
+        "misconceptions": "A common misconception is that electron transfer in an ionic bond happens gradually — once an ionic bond forms, the electron fully belongs to the receiving atom, with no \"partially transferred\" intermediate state (that's what happens in a polar covalent bond)."
+      },
+      "covalent": {
+        "nameZh": "共價鍵",
+        "nameEn": "Covalent Bond",
+        "tagline": "Two atoms share one or more electron pairs; electronegativities are similar or equal.",
+        "formation": "When two atoms have similar or identical electronegativities, they achieve a stable electron configuration by sharing one or more electron pairs instead of transferring electrons.",
+        "electronBehavior": "The shared electron pair is attracted equally by both nuclei, distributed evenly between them rather than favoring either atom.",
+        "characteristics": "The bond is directional, and bond strength varies with bond order (single, double, triple); nonpolar covalent molecules typically have lower melting/boiling points and don't conduct electricity as solids.",
+        "typicalExamples": "Hydrogen (H₂), chlorine (Cl₂), methane (CH₄), carbon dioxide (CO₂).",
+        "commonSubstances": "Atmospheric O₂ and N₂; methane, the main component of natural gas; dry ice (solid CO₂).",
+        "realWorldUses": "Methane is the primary fuel component of natural gas; carbon dioxide is used in carbonated drinks and fire extinguishers; chlorine gas is used to disinfect water.",
+        "misconceptions": "A common misconception is that all covalent bonds are \"weak and non-conducting\" — in fact covalent bonds can be extremely strong (like the carbon–carbon bonds in diamond); a covalent substance's physical properties depend on molecular structure and intermolecular forces, not the bond type itself."
+      },
+      "polarCovalent": {
+        "nameZh": "極性共價鍵",
+        "nameEn": "Polar Covalent Bond",
+        "tagline": "The electron pair is shared, but shifted toward one atom due to an electronegativity difference.",
+        "formation": "When two bonded atoms have a moderate electronegativity difference (roughly 0.4–1.7), the electron pair is still shared, but shifts toward the more electronegative atom, creating partial charges.",
+        "electronBehavior": "The shared electron pair's density shifts toward the more electronegative atom (e.g. Cl in HCl), giving it a partial negative charge (δ⁻) while the other atom carries a partial positive charge (δ⁺).",
+        "characteristics": "Depending on bond polarity and molecular shape, a molecule may have a net dipole moment, making the whole molecule polar and affecting boiling point, solubility, and intermolecular forces.",
+        "typicalExamples": "Hydrogen chloride (HCl), water (H₂O), ammonia (NH₃).",
+        "commonSubstances": "Water; ammonia solution; hydrochloric acid (aqueous HCl).",
+        "realWorldUses": "Water's polarity makes it an excellent solvent for ionic and polar substances; ammonia is used in cleaning products and fertilizer production.",
+        "misconceptions": "A common misconception is equating \"bond polarity\" with \"molecular polarity\" — for example, each C=O bond in CO₂ is polar, but because the molecule is linear, the two bond dipoles cancel out, making the overall molecule nonpolar."
+      },
+      "metallic": {
+        "nameZh": "金屬鍵",
+        "nameEn": "Metallic Bond",
+        "tagline": "Metal cations arranged in a lattice, surrounded by a freely moving \"sea\" of outer electrons.",
+        "formation": "A metal atom's valence electrons don't belong to any single atom — they detach and move freely throughout the entire metallic lattice, leaving behind a regular arrangement of metal cations.",
+        "electronBehavior": "The delocalized valence electrons surround all the cations like a \"sea of electrons,\" free to move and carry energy and charge without belonging to any single atom.",
+        "characteristics": "The bond has no fixed direction, so the lattice can slide under stress without breaking (giving metals ductility and malleability); the free electrons give metals excellent electrical and thermal conductivity.",
+        "typicalExamples": "Iron (Fe), copper (Cu), aluminum (Al), gold (Au), and their alloys.",
+        "commonSubstances": "Steel used in construction, copper in electrical wiring, aluminum in beverage cans, gold in jewelry.",
+        "realWorldUses": "Copper wire is used for power transmission; aluminum alloys are used in aerospace and vehicles; iron and steel are foundational materials in construction and manufacturing.",
+        "misconceptions": "A common misconception is imagining metallic bonding as many separate \"atom-to-atom\" bonds — it's actually a collective phenomenon where every atom in the metal shares the same sea of free electrons, which can't really be described by a single discrete bond."
+      },
+      "hydrogen": {
+        "nameZh": "氫鍵",
+        "nameEn": "Hydrogen Bond",
+        "tagline": "A stronger intermolecular force between hydrogen and a highly electronegative atom (O, N, or F).",
+        "formation": "When a hydrogen atom is covalently bonded to a highly electronegative atom (like oxygen, nitrogen, or fluorine), it carries a significant partial positive charge, which is then attracted to a lone pair on a highly electronegative atom in a neighboring molecule, forming a hydrogen bond.",
+        "electronBehavior": "The hydrogen atom loses most of its electron density to the highly electronegative atom it's covalently bonded to, carrying a partial positive charge (δ⁺); a nearby molecule's electronegative atom attracts this hydrogen with its lone pair.",
+        "characteristics": "Hydrogen bonds are intermolecular forces, much weaker than covalent or ionic bonds, but noticeably stronger than typical van der Waals forces — strong enough to significantly raise a substance's melting and boiling points.",
+        "typicalExamples": "Hydrogen bonds between water molecules, between DNA base pairs, and within protein secondary structure.",
+        "commonSubstances": "Water, ammonia, hydrofluoric acid (HF), ethanol, and other substances with O–H or N–H bonds.",
+        "realWorldUses": "Hydrogen bonds between water molecules give water its unusually high boiling point and make ice less dense than liquid water (so ice floats); hydrogen bonds also hold DNA's double helix and protein folding structures stable.",
+        "misconceptions": "A common misconception is treating a hydrogen bond as a \"true chemical bond\" — it's actually a stronger-than-usual electrostatic attraction between (or within) molecules, not a bond formed by sharing or transferring electrons between atoms."
+      }
+    },
+    "molecules": {
+      "nacl": { "name": "Sodium Chloride", "description": "The main component of everyday table salt — a classic example of an ionic bond." },
+      "h2": { "name": "Hydrogen Gas", "description": "The simplest covalent molecule: two hydrogen atoms sharing one electron pair." },
+      "cl2": { "name": "Chlorine Gas", "description": "Two identical chlorine atoms joined by a nonpolar covalent bond." },
+      "ch4": { "name": "Methane", "description": "The main component of natural gas; carbon and four hydrogens arranged tetrahedrally." },
+      "co2": { "name": "Carbon Dioxide", "description": "A linear molecule — the bonds are polar, but the molecule as a whole is not." },
+      "hcl": { "name": "Hydrogen Chloride", "description": "A classic polar covalent molecule, with electron density shifted toward chlorine." },
+      "h2o": { "name": "Water", "description": "The polar, bent molecule essential to life." },
+      "nh3": { "name": "Ammonia", "description": "A trigonal pyramidal molecule with a partial negative charge on nitrogen." },
+      "fe": { "name": "Iron", "description": "A typical metallic lattice, showing the free \"electron sea\" in action." },
+      "h2oDimer": { "name": "Water Dimer", "description": "An illustration of two water molecules linked by a hydrogen bond." }
+    },
+    "quiz": {
+      "ionic": {
+        "q1": {
+          "question": "Which statement correctly describes how an ionic bond forms?",
+          "options": ["Two atoms share electrons equally", "An electron transfers completely from one atom to another", "Electrons move freely throughout a lattice", "No electrons are involved in the bond"],
+          "explanation": "The defining feature of an ionic bond is complete electron transfer, not sharing — unlike a covalent bond."
+        },
+        "q2": {
+          "question": "In NaCl, which atom attracts electrons more strongly, becoming the negative ion?",
+          "options": ["Chlorine (Cl)", "Sodium (Na)", "Both equally", "Cannot be determined"],
+          "explanation": "Chlorine's electronegativity (3.16) is far higher than sodium's (0.93), so sodium transfers its electron to chlorine, forming Cl⁻."
+        }
+      },
+      "covalent": {
+        "q1": {
+          "question": "What type of bond exists in an H₂ molecule?",
+          "options": ["Nonpolar covalent bond", "Polar covalent bond", "Ionic bond", "Metallic bond"],
+          "explanation": "Both hydrogen atoms have identical electronegativity, so the electron pair is shared equally — a nonpolar covalent bond."
+        },
+        "q2": {
+          "question": "What is the most accurate description of electron behavior in a covalent bond?",
+          "options": ["Electrons transfer completely from one atom to another", "Electrons move freely throughout a lattice", "Electrons are shared between two atoms", "Electrons don't participate in the bond at all"],
+          "explanation": "A covalent bond is defined by atoms sharing an electron pair, not transferring or delocalizing it."
+        }
+      },
+      "polarCovalent": {
+        "q1": {
+          "question": "In an HCl molecule, which end carries a partial negative charge (δ⁻)?",
+          "options": ["Hydrogen (H)", "Chlorine (Cl)", "Both charges are equal", "There's no charge difference"],
+          "explanation": "Chlorine's higher electronegativity pulls the shared electron pair toward itself, giving it δ⁻ while hydrogen carries δ⁺."
+        },
+        "q2": {
+          "question": "Why does HCl form a polar covalent bond instead of an ionic bond?",
+          "options": ["The electronegativity difference between H and Cl falls between 0.4 and 1.7", "H and Cl have identical electronegativity", "The electron transfers completely to Cl", "There's no shared electron pair in this bond"],
+          "explanation": "A moderate electronegativity difference means electrons are shared but unevenly — a larger difference would form an ionic bond instead."
+        }
+      },
+      "metallic": {
+        "q1": {
+          "question": "How do valence electrons behave in a metallic bond?",
+          "options": ["Fixed in place between two atoms", "Transfer completely to another atom", "Move freely throughout the metallic lattice, forming a \"sea of electrons\"", "Remain completely stationary"],
+          "explanation": "Metallic bonding delocalizes valence electrons into a freely moving electron sea — which is also why metals conduct electricity."
+        },
+        "q2": {
+          "question": "Which metal property does the \"electron sea\" model explain?",
+          "options": ["Good electrical conductivity", "Low melting point", "High transparency", "High brittleness"],
+          "explanation": "Freely moving electrons can carry charge quickly through the metal, giving it good conductivity; metals are typically ductile rather than brittle."
+        }
+      },
+      "hydrogen": {
+        "q1": {
+          "question": "A hydrogen bond mainly forms between a hydrogen atom and which kind of atom?",
+          "options": ["A highly electronegative atom, such as O, N, or F", "Another hydrogen atom", "Any metal atom", "A carbon atom"],
+          "explanation": "Hydrogen bonding requires a strongly polar O–H, N–H, or F–H bond as a prerequisite."
+        },
+        "q2": {
+          "question": "Compared to a covalent bond, how strong is a hydrogen bond?",
+          "options": ["Far stronger than a covalent bond", "Weaker than a covalent bond — it's an intermolecular force", "Exactly the same strength", "Not a force at all"],
+          "explanation": "A hydrogen bond is an intermolecular force — stronger than typical van der Waals forces, but still much weaker than a covalent or ionic bond."
+        }
+      }
+    }
+  },
+  "moleculeLibrary": {
+    "pageTitle": "Molecule Library",
+    "pageSubtitle": "Search, filter, and explore the 3D structure of chemical molecules.",
+    "demoNotice": "The 3D structures on this page are simplified teaching illustrations — coordinates are designed for clarity, not precise scientific measurement. Molecular weights and chemical properties are real data.",
+    "search": {
+      "placeholder": "Search by name, formula, or functional group…",
+      "clear": "Clear search",
+      "resultsLabel": "molecules",
+      "noResultsTitle": "No molecules found",
+      "noResultsHint": "Try a different search term, or clear your filters.",
+      "suggestionsLabel": "Suggestions"
+    },
+    "filters": {
+      "title": "Filters",
+      "categoryLabel": "Category",
+      "allCategories": "All categories",
+      "weightLabel": "Molecular weight range",
+      "atomCountLabel": "Atom count",
+      "functionalGroupLabel": "Functional group",
+      "polarityLabel": "Polarity",
+      "clearAll": "Clear all filters",
+      "polarityAll": "All",
+      "polarityPolar": "Polar",
+      "polarityNonpolar": "Nonpolar",
+      "polarityIonic": "Ionic"
+    },
+    "categories": {
+      "inorganic": "Inorganic Compounds",
+      "organic": "Organic Compounds",
+      "alcohol": "Alcohols",
+      "ether": "Ethers",
+      "aldehyde": "Aldehydes",
+      "ketone": "Ketones",
+      "carboxylicAcid": "Carboxylic Acids",
+      "ester": "Esters",
+      "amine": "Amines",
+      "amide": "Amides",
+      "alkane": "Alkanes",
+      "alkene": "Alkenes",
+      "alkyne": "Alkynes",
+      "aromatic": "Aromatic Compounds"
+    },
+    "functionalGroups": {
+      "hydroxyl": { "name": "Hydroxyl", "description": "An oxygen bonded to a hydrogen (-OH) — the defining group of alcohols." },
+      "carbonyl": { "name": "Carbonyl", "description": "A carbon double-bonded to oxygen (C=O), found in aldehydes, ketones, carboxylic acids, and esters." },
+      "carboxyl": { "name": "Carboxyl", "description": "A carbonyl combined with a hydroxyl (-COOH) — the acidic, defining group of carboxylic acids." },
+      "ester": { "name": "Ester", "description": "Formed when a carboxylic acid and an alcohol condense (-COO-); often has a distinctive fruity smell." },
+      "amino": { "name": "Amino", "description": "A nitrogen bonded to hydrogens (-NH₂) — the basic, defining group of amines." },
+      "amide": { "name": "Amide", "description": "A carbonyl joined to an amino group (-CONH₂) — the basis of the peptide bond in proteins." },
+      "alkene": { "name": "Alkene (C=C)", "description": "A carbon-carbon double bond (C=C), more reactive than a single bond." },
+      "alkyne": { "name": "Alkyne (C≡C)", "description": "A carbon-carbon triple bond (C≡C) — the shortest and strongest kind of carbon-carbon bond." },
+      "aromatic": { "name": "Aromatic Ring", "description": "A delocalized ring system like benzene's, with distinctive chemical stability." }
+    },
+    "geometry": {
+      "linear": "Linear",
+      "bent": "Bent",
+      "trigonalPlanar": "Trigonal Planar",
+      "trigonalPyramidal": "Trigonal Pyramidal",
+      "tetrahedral": "Tetrahedral",
+      "planar": "Planar Ring",
+      "ionicPair": "Ion Pair (real compound is a crystal lattice)"
+    },
+    "detail": {
+      "nameZh": "Chinese Name",
+      "nameEn": "English Name",
+      "formula": "Molecular Formula",
+      "molecularWeight": "Molecular Weight",
+      "unitGMol": "g/mol",
+      "atomCount": "Atom Count",
+      "unitAtoms": "atoms",
+      "structure": "Structure",
+      "bondTypes": "Bond Types",
+      "functionalGroups": "Functional Groups",
+      "polarity": "Polarity",
+      "geometry": "Molecular Geometry",
+      "commonUses": "Common Uses",
+      "safetyNotes": "Safety & Context",
+      "funFact": "Chemistry Fun Fact",
+      "relatedMolecules": "Related Molecules",
+      "exploreBonds": "Explore the bonds in this molecule",
+      "teachingNote": "Teaching illustration, not a precise scientific measurement",
+      "close": "Close",
+      "noFunctionalGroups": "No specific functional group"
+    },
+    "viewerControls": {
+      "rotateHint": "Drag to rotate",
+      "zoomHint": "Scroll or pinch to zoom",
+      "resetView": "Reset view",
+      "autoRotateOn": "Auto-rotate: On",
+      "autoRotateOff": "Auto-rotate: Off",
+      "toggleLabels": "Atom labels",
+      "ballAndStick": "Ball-and-stick",
+      "spaceFilling": "Space-filling",
+      "showBonds": "Show bonds",
+      "hideBonds": "Hide bonds"
+    },
+    "bondKinds": {
+      "covalentSingle": "Single bond (covalent)",
+      "covalentDouble": "Double bond (covalent)",
+      "covalentTriple": "Triple bond (covalent)",
+      "ionic": "Ionic bond",
+      "hydrogen": "Hydrogen bond"
+    },
+    "molecules": {
+      "h2o": {
+        "nameZh": "水", "nameEn": "Water",
+        "commonUses": "The universal solvent, essential for life, and used for industrial cooling and steam power.",
+        "safetyNotes": "Safe for everyday drinking and contact — one of the safest chemical substances there is.",
+        "funFact": "Hydrogen bonding between molecules gives water an unusually high boiling point, and makes solid ice less dense than liquid water — which is why ice floats."
+      },
+      "co2": {
+        "nameZh": "二氧化碳", "nameEn": "Carbon Dioxide",
+        "commonUses": "The raw material for photosynthesis, the fizz in carbonated drinks, and a fire-extinguishing agent.",
+        "safetyNotes": "Harmless at low concentrations, but can cause oxygen displacement in enclosed spaces at high concentration — ventilation is important.",
+        "funFact": "Solid carbon dioxide is called dry ice — it sublimates directly into gas at normal pressure without ever becoming liquid."
+      },
+      "o2": {
+        "nameZh": "氧氣", "nameEn": "Oxygen",
+        "commonUses": "Essential for respiration in living things, required for combustion, and used as medical oxygen.",
+        "safetyNotes": "Non-toxic itself, but high concentrations significantly increase the fire risk of combustible materials.",
+        "funFact": "Oxygen makes up about 21% of Earth's atmosphere, almost all of it produced by photosynthesis in plants and algae."
+      },
+      "n2": {
+        "nameZh": "氮氣", "nameEn": "Nitrogen",
+        "commonUses": "An inert protective gas for food packaging, liquid nitrogen for cryogenic storage, and the raw material for ammonia synthesis.",
+        "safetyNotes": "Chemically stable and non-toxic, but can displace oxygen in enclosed spaces at high concentration.",
+        "funFact": "Nitrogen makes up about 78% of Earth's atmosphere; its triple bond makes it exceptionally stable and unreactive."
+      },
+      "h2": {
+        "nameZh": "氫氣", "nameEn": "Hydrogen",
+        "commonUses": "Fuel cell energy, the raw material for ammonia synthesis (the Haber process), and rocket fuel.",
+        "safetyNotes": "Highly flammable with a wide flammability range when mixed with air — avoid open flames and static electricity.",
+        "funFact": "Hydrogen is the lightest and most abundant element in the universe, making up the vast majority of known matter."
+      },
+      "nacl": {
+        "nameZh": "氯化鈉", "nameEn": "Sodium Chloride",
+        "commonUses": "Everyday table salt, food preservation and curing, and de-icing roads.",
+        "safetyNotes": "Safe to eat, though excessive intake and prolonged contact with concentrated brine are worth noting.",
+        "funFact": "Solid sodium chloride forms a regular cubic crystal lattice, with each ion surrounded by 6 oppositely charged neighbors."
+      },
+      "hcl": {
+        "nameZh": "氯化氫", "nameEn": "Hydrogen Chloride",
+        "commonUses": "The main component of human stomach acid, an industrial cleaning agent, and a raw material for PVC and other plastics.",
+        "safetyNotes": "Corrosive and irritating — the gas or concentrated solution should be handled in a well-ventilated environment.",
+        "funFact": "Your stomach secretes hydrochloric acid (aqueous HCl) at a pH as low as 1–2 to help digest food."
+      },
+      "nh3": {
+        "nameZh": "氨", "nameEn": "Ammonia",
+        "commonUses": "The main raw material for fertilizer production, cleaning products, and an industrial refrigerant.",
+        "safetyNotes": "Pungent and corrosive — inhaling high concentrations irritates the respiratory tract; requires ventilation.",
+        "funFact": "Even though it's a gas at room temperature, ammonia is extremely soluble in water thanks to hydrogen bonding — one volume of water can dissolve over a hundred times its volume in ammonia gas."
+      },
+      "ch4": {
+        "nameZh": "甲烷", "nameEn": "Methane",
+        "commonUses": "The main component of natural gas and household fuel, and an industrial synthesis feedstock.",
+        "safetyNotes": "Colorless, odorless, and highly flammable — leaks require special attention to ignition sources and ventilation.",
+        "funFact": "Methane is the simplest hydrocarbon and a potent greenhouse gas, commonly produced in landfills and during digestion in ruminant animals."
+      },
+      "methanol": {
+        "nameZh": "甲醇", "nameEn": "Methanol",
+        "commonUses": "An industrial solvent, a biofuel additive, and a raw material for organic synthesis.",
+        "safetyNotes": "Toxic — accidental ingestion can damage the optic nerve or even be fatal. Industrial use only; never a food substitute.",
+        "funFact": "Methanol is the simplest alcohol, differing from methane by just one oxygen atom, yet with drastically different properties."
+      },
+      "ethanol": {
+        "nameZh": "乙醇", "nameEn": "Ethanol",
+        "commonUses": "Alcoholic beverages, hand sanitizer, a gasoline additive (gasohol), and an industrial solvent.",
+        "safetyNotes": "Relatively safe in moderate amounts when consumed, but highly flammable at high concentration — never to be confused with methanol.",
+        "funFact": "Ethanol is produced by yeast fermenting sugars — a process humans have used for thousands of years."
+      },
+      "aceticAcid": {
+        "nameZh": "乙酸（醋酸）", "nameEn": "Acetic Acid",
+        "commonUses": "The main component of vinegar (about 4–8% concentration), a food preservative, and an industrial solvent.",
+        "safetyNotes": "Diluted table vinegar is safe, but concentrated pure acetic acid is corrosive and irritates skin and mucous membranes.",
+        "funFact": "Pure acetic acid freezes into ice-like crystals below 16.6°C, which is why it's nicknamed \"glacial acetic acid.\""
+      },
+      "acetone": {
+        "nameZh": "丙酮", "nameEn": "Acetone",
+        "commonUses": "Nail polish remover, an industrial solvent, and paint thinner.",
+        "safetyNotes": "Flammable and volatile — use in a ventilated environment and avoid prolonged inhalation.",
+        "funFact": "The human body naturally produces small amounts of acetone during fat metabolism (ketosis), contributing to a distinctive breath odor in ketosis."
+      },
+      "benzene": {
+        "nameZh": "苯", "nameEn": "Benzene",
+        "commonUses": "A precursor in the chemical industry for synthesizing plastics and detergents; historically also used as a solvent.",
+        "safetyNotes": "A known carcinogen — modern use is tightly regulated and requires professional protective equipment and ventilation.",
+        "funFact": "Benzene's ring structure was proposed by Kekulé in 1865, reportedly after he dreamed of a snake biting its own tail."
+      },
+      "acetaldehyde": {
+        "nameZh": "乙醛", "nameEn": "Acetaldehyde",
+        "commonUses": "An intermediate raw material in manufacturing chemicals such as acetic acid.",
+        "safetyNotes": "Irritating and potentially toxic — the body also produces acetaldehyde when metabolizing alcohol, contributing to hangover symptoms.",
+        "funFact": "When the liver breaks down ethanol, it first produces acetaldehyde as an intermediate — its buildup is a major cause of hangover symptoms."
+      },
+      "methylAcetate": {
+        "nameZh": "乙酸甲酯", "nameEn": "Methyl Acetate",
+        "commonUses": "A low-volatility organic solvent used in some paints, adhesives, and nail products.",
+        "safetyNotes": "Volatile — prolonged inhalation of vapors may cause discomfort; use in a ventilated environment.",
+        "funFact": "Methyl acetate has a fruity odor and occurs naturally in some fruits."
+      },
+      "ethylene": {
+        "nameZh": "乙烯", "nameEn": "Ethylene",
+        "commonUses": "The raw material for polyethylene plastic, and a plant hormone used agriculturally to ripen fruit.",
+        "safetyNotes": "A flammable gas — industrial handling requires attention to ignition sources and leaks.",
+        "funFact": "Bananas release ethylene gas, which is why storing them with other fruit makes that fruit ripen faster."
+      },
+      "acetylene": {
+        "nameZh": "乙炔", "nameEn": "Acetylene",
+        "commonUses": "The fuel gas for oxy-acetylene welding and metal cutting, and a chemical synthesis feedstock.",
+        "safetyNotes": "Highly flammable and unstable — high-pressure storage requires special care; burns at temperatures up to about 3300°C.",
+        "funFact": "Acetylene produces one of the hottest flames of any common fuel gas, which is why it's widely used for cutting metal."
+      },
+      "methylamine": {
+        "nameZh": "甲胺", "nameEn": "Methylamine",
+        "commonUses": "An intermediate raw material in pharmaceutical and agrochemical synthesis.",
+        "safetyNotes": "Pungent and corrosive — requires a ventilated environment to handle.",
+        "funFact": "Methylamine has an ammonia-like, fishy odor and is the simplest primary amine."
+      },
+      "acetamide": {
+        "nameZh": "乙醯胺", "nameEn": "Acetamide",
+        "commonUses": "An intermediate in organic synthesis, and a raw material for some industrial solvents and plasticizers.",
+        "safetyNotes": "As with most pure chemicals, handle in a ventilated environment and avoid prolonged contact.",
+        "funFact": "Acetamide can be thought of as acetic acid and ammonia joined with the loss of a water molecule — a representative molecule of the amide functional group."
+      },
+      "dimethylEther": {
+        "nameZh": "二甲醚", "nameEn": "Dimethyl Ether",
+        "commonUses": "An aerosol spray propellant, an alternative fuel to LPG, and an organic synthesis solvent.",
+        "safetyNotes": "A flammable gas — keep away from open flames; use and store in a ventilated environment.",
+        "funFact": "Dimethyl ether and ethanol share the exact same molecular formula, C₂H₆O — they're structural isomers, yet ethanol is a liquid while dimethyl ether is a gas at room temperature and pressure."
+      }
+    }
+  },
+  "organicChemistry": {
+    "pageTitle": "Organic Chemistry Explorer",
+    "pageSubtitle": "Explore organic chemistry as a connected system — from functional groups to molecules, properties, and reactions.",
+    "demoNotice": "The 3D structures on this page are simplified teaching illustrations, not precise scientific measurements.",
+    "sections": {
+      "categories": "Functional Group Categories",
+      "map": "Reaction Relationship Map",
+      "structure": "Molecular Structure",
+      "properties": "Properties & Examples",
+      "comparison": "Functional Group Comparison"
+    },
+    "info": {
+      "generalStructure": "General Structure",
+      "characteristicAtoms": "Characteristic Atoms",
+      "bondPattern": "Bond Pattern",
+      "polarity": "Polarity",
+      "keyProperties": "Key Properties",
+      "representativeMolecules": "Representative Molecules",
+      "commonReactions": "Common Reactions"
+    },
+    "actions": {
+      "viewInLibrary": "View in Molecule Library",
+      "exploreBond": "Explore this bond",
+      "compareWith": "Compare with another group",
+      "selectSecond": "Select a second functional group to compare",
+      "stepNext": "Next",
+      "stepBack": "Back",
+      "stepLabel": "Step"
+    },
+    "learningSteps": {
+      "identify": "Identify the Functional Group",
+      "structure": "Recognize the Structure",
+      "properties": "Understand the Properties",
+      "molecule": "Representative Molecule",
+      "reactions": "Typical Reactions"
+    },
+    "reactionTypes": {
+      "hydrogenation": "Hydrogenation",
+      "addition": "Addition",
+      "oxidation": "Oxidation",
+      "condensation": "Condensation",
+      "esterification": "Esterification",
+      "hydrolysis": "Hydrolysis",
+      "amidation": "Amidation"
+    },
+    "categoryNames": {
+      "alkane": { "nameZh": "烷類", "nameEn": "Alkanes" },
+      "alkene": { "nameZh": "烯類", "nameEn": "Alkenes" },
+      "alkyne": { "nameZh": "炔類", "nameEn": "Alkynes" },
+      "aromatic": { "nameZh": "芳香族化合物", "nameEn": "Aromatic Compounds" },
+      "alcohol": { "nameZh": "醇類", "nameEn": "Alcohols" },
+      "ether": { "nameZh": "醚類", "nameEn": "Ethers" },
+      "aldehyde": { "nameZh": "醛類", "nameEn": "Aldehydes" },
+      "ketone": { "nameZh": "酮類", "nameEn": "Ketones" },
+      "carboxylicAcid": { "nameZh": "羧酸", "nameEn": "Carboxylic Acids" },
+      "ester": { "nameZh": "酯類", "nameEn": "Esters" },
+      "amine": { "nameZh": "胺類", "nameEn": "Amines" },
+      "amide": { "nameZh": "醯胺類", "nameEn": "Amides" }
+    },
+    "categories": {
+      "alkane": {
+        "generalStructure": "CnH2n+2 — saturated chain or ring compounds made only of carbon and hydrogen.",
+        "characteristicAtoms": "Carbon (C) and hydrogen (H), with every carbon fully saturated by single bonds.",
+        "bondPattern": "Carbon-carbon and carbon-hydrogen single bonds only — no functional group, low reactivity.",
+        "keyProperties": "Nonpolar, less dense than water, melting/boiling points rise with chain length, chemically fairly inert.",
+        "commonReactions": "Combustion (producing CO₂ and water), halogenation (free-radical substitution)."
+      },
+      "alkene": {
+        "generalStructure": "An unsaturated hydrocarbon with at least one carbon-carbon double bond (C=C).",
+        "characteristicAtoms": "Carbon (C) and hydrogen (H); the double-bonded carbons are trigonal planar.",
+        "bondPattern": "One σ bond plus one π bond forming the C=C double bond — the π electron cloud is reactive.",
+        "keyProperties": "Nonpolar, more reactive than an alkane of the same carbon count; the double bond can undergo addition.",
+        "commonReactions": "Addition reactions (with H₂, H₂O, halogens), polymerization."
+      },
+      "alkyne": {
+        "generalStructure": "An unsaturated hydrocarbon with at least one carbon-carbon triple bond (C≡C).",
+        "characteristicAtoms": "Carbon (C) and hydrogen (H); the triple-bonded carbons are linear.",
+        "bondPattern": "One σ bond plus two π bonds forming the C≡C triple bond — the shortest, strongest carbon-carbon bond.",
+        "keyProperties": "Nonpolar, more reactive than alkenes; burns at extremely high flame temperatures.",
+        "commonReactions": "Addition reactions (can proceed in two stages), oxy-acetylene combustion."
+      },
+      "aromatic": {
+        "generalStructure": "Represented by the benzene ring — a cyclic, conjugated π-electron system with distinctive stability.",
+        "characteristicAtoms": "Carbon (C) and hydrogen (H) forming a ring skeleton with delocalized electrons.",
+        "bondPattern": "Delocalized bonding between single and double bond character, often simplified as alternating single/double bonds (a Kekulé structure).",
+        "keyProperties": "Nonpolar, chemically stable, resists addition reactions in favor of substitution.",
+        "commonReactions": "Electrophilic substitution (nitration, halogenation, sulfonation)."
+      },
+      "alcohol": {
+        "generalStructure": "R-OH — a carbon chain or ring bearing a hydroxyl group.",
+        "characteristicAtoms": "A hydroxyl group made of oxygen (O) and hydrogen (H), attached to the carbon skeleton.",
+        "bondPattern": "Polar C-O and O-H single bonds, with the oxygen carrying a partial negative charge.",
+        "keyProperties": "Polar, hydrogen-bonds with water — small alcohols are water-soluble with higher boiling points than the corresponding alkane.",
+        "commonReactions": "Oxidation (to aldehyde or ketone), esterification (with a carboxylic acid), dehydration condensation (to an ether or alkene)."
+      },
+      "ether": {
+        "generalStructure": "R-O-R' — two carbon groups linked through an oxygen atom.",
+        "characteristicAtoms": "An oxygen (O) forming two single bonds to carbon groups on either side; no hydroxyl group.",
+        "bondPattern": "Two polar C-O single bonds; the oxygen still carries a partial negative charge, but overall reactivity is lower than an alcohol's.",
+        "keyProperties": "Weakly polar, chemically fairly stable and resistant to oxidation — commonly used as a solvent in organic reactions.",
+        "commonReactions": "Low reactivity, mainly used as a solvent; the ether bond can cleave under strong acid."
+      },
+      "aldehyde": {
+        "generalStructure": "R-CHO — a carbonyl and a hydrogen at the end of a carbon chain.",
+        "characteristicAtoms": "A carbon-oxygen double bond (C=O) with a hydrogen directly attached.",
+        "bondPattern": "A polar carbon-oxygen double bond; the carbon is trigonal planar, the oxygen carries a partial negative charge.",
+        "keyProperties": "Polar, boiling point higher than the corresponding alkane but lower than an alcohol; the carbonyl makes it easily oxidized.",
+        "commonReactions": "Oxidation (to a carboxylic acid), reduction (to an alcohol), addition with an alcohol to form a hemiacetal."
+      },
+      "ketone": {
+        "generalStructure": "R-CO-R' — a carbonyl flanked by carbon groups on both sides.",
+        "characteristicAtoms": "A carbon-oxygen double bond (C=O) with carbon, not hydrogen, on both sides.",
+        "bondPattern": "A polar carbon-oxygen double bond; the carbon is trigonal planar.",
+        "keyProperties": "Polar, chemically more stable than an aldehyde and resistant to further oxidation.",
+        "commonReactions": "Reduction (to a secondary alcohol), addition with an alcohol to form a ketal."
+      },
+      "carboxylicAcid": {
+        "generalStructure": "R-COOH — a carboxyl group at the end of a carbon chain.",
+        "characteristicAtoms": "A carbonyl (C=O) and a hydroxyl (-OH) together forming the carboxyl group.",
+        "bondPattern": "A carbon-oxygen double bond alongside a carbon-oxygen single bond; distinctly acidic, releasing H⁺.",
+        "keyProperties": "Polar and acidic — neutralizes with base to form a salt; small carboxylic acids are water-soluble.",
+        "commonReactions": "Esterification (with an alcohol to form an ester), neutralization (with base to form a salt), amidation (with an amine to form an amide)."
+      },
+      "ester": {
+        "generalStructure": "R-COO-R' — the condensation product of a carboxylic acid and an alcohol.",
+        "characteristicAtoms": "A carbonyl (C=O) and an ester-linkage oxygen connecting two carbon groups.",
+        "bondPattern": "A polar carbon-oxygen double bond alongside a single bond, but without acidity.",
+        "keyProperties": "Polar, often has a distinctive fruity smell, chemically milder than the parent carboxylic acid.",
+        "commonReactions": "Hydrolysis (to a carboxylic acid and an alcohol), saponification (base hydrolysis to a salt and an alcohol)."
+      },
+      "amine": {
+        "generalStructure": "R-NH₂ (or R₂NH, R₃N) — a carbon chain bearing an amino group.",
+        "characteristicAtoms": "A nitrogen (N) carrying a lone pair, bonded to one to three carbon groups.",
+        "bondPattern": "Polar C-N and N-H single bonds; the nitrogen's lone pair gives it basic character.",
+        "keyProperties": "Polar and basic — small amines often have a fishy smell and form ammonium salts with acids.",
+        "commonReactions": "Neutralization with acid (to an ammonium salt), amidation with a carboxylic acid."
+      },
+      "amide": {
+        "generalStructure": "R-CO-NH₂ — the condensation product of a carboxylic acid and an amine.",
+        "characteristicAtoms": "A carbonyl (C=O) directly bonded to an amino nitrogen (N).",
+        "bondPattern": "A carbon-oxygen double bond alongside a carbon-nitrogen single bond — the basis of the peptide bond in proteins.",
+        "keyProperties": "Polar, chemically stable, neither notably acidic nor basic.",
+        "commonReactions": "Hydrolysis (breaking down to a carboxylic acid and an amine under acid or base)."
+      }
+    }
+  }
+}
