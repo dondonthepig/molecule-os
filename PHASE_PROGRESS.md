@@ -301,6 +301,79 @@ Bond Explorer, Molecule Library, and Organic Chemistry Explorer were all complet
 - Real-device color rendering (OLED black levels, wide-gamut displays) has not been checked.
 - The `.light` theme's accent tokens were updated but the light theme as a whole was only spot-checked, not exhaustively QA'd page-by-page in this pass.
 
-## 15. Recommended next step
+## 15. Recommended next step (superseded — see §16/§17/§18)
 
 Bond Explorer, Molecule Library, Organic Chemistry Explorer, and the visual redesign are all complete and verified. Do not start Reaction Atlas, Periodic Table, AI Tutor, Quiz Center, or Settings without explicit user instruction. If/when given the go-ahead, `organic-reactions.ts` is the explicit intended seed for Reaction Atlas's data model, and any new UI should use the existing `--molecule-*`/`brand-*` token system rather than introducing new colors.
+
+## 16. Phase 2 — Reaction Atlas (`/reaction-atlas`)
+
+**Status: COMPLETE.** Built and committed (`1b237c0 feat: build interactive reaction atlas`) in a session that was not written up in this handoff at the time — recorded here retroactively during the Phase 2 checkpoint pass.
+
+- **Data**: `src/lib/chemistry/reactions.ts` — 11 real, mass-balanced reactions (combustion, hydrogenation, addition, oxidation, condensation, esterification, hydrolysis, amidation, substitution). `molecules.ts` was extended with ethane/chloromethane rather than forked.
+- **Components**: `reaction-atlas-workspace.tsx`, `reaction-search.tsx`, `reaction-filters.tsx`, `reaction-card.tsx`, `reaction-equation.tsx`, `reaction-detail.tsx`, `reaction-transformation-view.tsx`, `reaction-atlas-search-params.tsx`.
+- **Reuses, doesn't fork**: the bond-highlight transformation view reuses `BondVisualization`/`BondVisualizationScene` via a new optional `highlightBonds` prop (`bond-visualization-scene.tsx`/`bond-visualization.tsx` were extended, following the same backward-compatible-optional-props pattern used for Molecule Library).
+- **Cross-links**: deep-links both ways with Organic Chemistry (`?category=`) and Molecule Library (`?molecule=`/`?reaction=`), via the same `useSearchParams()`-wrapper-under-`Suspense` pattern used elsewhere.
+- **Learn mode**: 5-step guided walkthrough matching Organic Chemistry's existing pattern.
+- **Verification**: `npm run lint` / `npm run typecheck` / `npm run build` all passed at the time of the original commit; re-verified clean again during this Phase 2 checkpoint pass (see §19).
+
+## 17. Phase 2 — Periodic Table (`/periodic-table`)
+
+**Status: COMPLETE.** Built in an untracked working-tree state (never committed, never written up) and discovered in this state during a Phase 2 handoff review. Verified against the actual code (not just file names), confirmed lint/typecheck/build clean, and committed as its own checkpoint: `e35b742 feat: complete interactive periodic table`.
+
+- **Data**: `src/lib/chemistry/periodic-table.ts` — all 118 elements with real IUPAC/CRC atomic mass (mass-number convention for unstable elements, flagged via `massIsMassNumber`), electron configuration (including standard Aufbau exceptions), category, period/group, Pauling electronegativity where established, and common oxidation states. `CATEGORY_COLORS` is a separate scientific color system (10 element categories), following the same "never mix with UI brand palette" rule as `ATOM_COLORS`.
+- **Components**: `periodic-table-workspace.tsx` (search/filter state + layout), `periodic-table-grid.tsx` (real 18-column × 7-period layout with a conventional lanthanide/actinide row, filtered elements dim in place rather than being removed so the grid shape never collapses), `element-cell.tsx`, `element-detail.tsx` (modal with full element data + up to 8 related molecules), `periodic-table-search.tsx`, `periodic-table-filters.tsx` (category + state-of-matter), `periodic-table-legend.tsx`, `periodic-table-search-params.tsx` (`?element=` deep link, same `Suspense`-wrapper pattern as other features).
+- **Cross-links**: `element-detail.tsx` links out to Molecule Library or Bond Explorer for any molecule containing that element, via a new `getMoleculesContainingElement()` helper added to `molecules.ts` (structural-data addition only, no forked copy).
+- **i18n**: `dict.periodicTable.*` added to both `zh-TW.json` and `en.json` in full parity — all 118 element Traditional Chinese names, categories, states, filters, search, and detail-panel copy.
+- **Verification (this session)**: `npm run lint`, `npx tsc --noEmit`, and `npm run build` all pass clean with all 10 routes prerendering statically. No console/runtime testing was performed this session (see gap noted in §18/CLAUDE.md).
+
+## 18. Phase 2 roadmap — candidate features (not yet prioritized)
+
+No direction has been chosen yet; this is analysis only, to inform a future decision.
+
+### 1. AI Tutor (`/ai-tutor`)
+- **User value**: potentially the highest — a conversational tutor is a strong differentiator for an education product.
+- **Dev complexity**: high. Needs an LLM integration (API key/provider decision, cost/rate-limit handling, prompt design grounded in the existing chemistry data so answers stay consistent with what the app already teaches), plus a chat UI (streaming, history, error states).
+- **Technical dependencies**: a server-side API route or edge function (new architecture — everything today is static-prerendered with no backend calls); a provider choice; likely new UI primitives (chat bubbles, streaming text) not present anywhere in the codebase yet.
+- **UX impact**: net-new interaction model for the app; needs to fit the existing glass/navy/ice visual language and reduced-motion rules for any new animation.
+- **Architecture impact**: **yes, meaningfully** — first feature that isn't purely static/client-side; introduces server calls, secrets/env config, and probably a new "conversation" data shape.
+- **Priority read**: highest ceiling, highest cost and risk — the one candidate that needs a real product/scope conversation (which provider, how grounded, what it's allowed to answer) before any code is written.
+
+### 2. Quiz Center (`/quiz`)
+- **User value**: medium-high — consolidates the mini-quizzes already scattered inside Bond Explorer (and reused elsewhere) into a dedicated practice/review surface; a natural "capstone" feature over existing content.
+- **Dev complexity**: low-medium. The quiz *pattern* already exists and works (`bond-quiz.tsx`, `quiz-data.ts`) — this would mostly be aggregating/generalizing it across all four completed content features (Bond Explorer, Molecule Library, Organic Chemistry, Periodic Table) rather than inventing new interaction design.
+- **Technical dependencies**: none new — reuses existing data files by reference; would need a scoring/progress model, which is new but small.
+- **UX impact**: additive, low risk — fits the existing card/quiz visual language directly.
+- **Architecture impact**: low. Stays static/client-side, no backend needed.
+- **Priority read**: best effort-to-value ratio of the three unstarted pages — buildable with the current architecture and content, no new infra.
+
+### 3. Settings (`/settings`)
+- **User value**: low on its own; value is entirely derived from what it would control (see #4 below — language switching is the obvious first candidate for a Settings page to expose).
+- **Dev complexity**: low, *if* scope is just theme (already has a working `ThemeToggle`/`next-themes` system to surface) — but currently there is almost nothing else in the app that's actually user-configurable.
+- **Technical dependencies**: depends entirely on scope decision; trivial if it's just theme, grows if it should host language switching.
+- **UX impact**: low risk, standard settings-page patterns.
+- **Architecture impact**: none by itself.
+- **Priority read**: not worth building in isolation — natural to bundle with whatever comes out of the language-switching decision (#4), rather than shipping an empty settings shell first.
+
+### 4. English / zh-TW language switching
+- **User value**: medium — currently the whole app is permanently zh-TW; an English audience (or a bilingual classroom) can't use it at all in English despite `en.json` already existing in full parity.
+- **Dev complexity**: medium. The dictionary data is *already done* (`en satisfies Dictionary` guarantees shape parity across all 20 top-level keys, including all 118 periodic-table element names). The work is: a locale-selection mechanism (cookie/localStorage + a switcher UI), and deciding whether to keep the current no-`[locale]`-routing architecture (simpler, but SEO/shareable-URL tradeoffs) or introduce `[locale]` segments (bigger, touches every route).
+- **Technical dependencies**: this is the one candidate that **directly intersects a documented "do not change without explicit instruction" architecture decision** (`CLAUDE.md`'s i18n section) — any implementation choice here needs an explicit go-ahead since it revises a standing architectural rule, not just adds a feature.
+- **UX impact**: needs a visible, discoverable switcher (navbar? settings page?) without cluttering the current clean nav.
+- **Architecture impact**: **yes** — this is the biggest architectural fork-in-the-road among all six candidates.
+- **Priority read**: high leverage for low *new content* cost (translation already exists), but should not be started casually — it changes a documented architectural invariant and deserves its own explicit decision.
+
+### 5. Browser / mobile QA (real devices/viewports)
+- **User value**: indirect but real — every mobile user is currently running on "reasoned to be safe by code review," not verified layouts.
+- **Dev complexity**: low-to-medium *engineering* effort, but requires tooling that has been unreliable in this environment specifically (Chrome extension `resize_window` has not worked in any session to date) — may need a different verification method (real device, BrowserStack-style service, or a working local dev-server + manual resize).
+- **Technical dependencies**: none code-side; blocked on tooling/environment, not on the codebase.
+- **UX impact**: none directly (a QA pass, not a feature) — but any bugs it finds could touch any existing page.
+- **Architecture impact**: none, unless real bugs are found that require layout changes.
+- **Priority read**: cheap insurance with a real (if probably small) chance of catching an actual defect — good candidate to slot in whenever a working resize/device-testing method is available, independent of which new feature ships next.
+
+### 6. Automated testing
+- **User value**: indirect — protects against regressions in the ~6,100 lines of chemistry feature code that currently has zero test coverage, all of it hand-verified.
+- **Dev complexity**: medium to set up from zero (no test runner installed at all — no Jest/Vitest/Playwright in `package.json`), then ongoing cost per feature to write meaningful tests.
+- **Technical dependencies**: a new dev dependency (test runner) and CI consideration; none of the app's runtime code needs to change.
+- **UX impact**: none directly.
+- **Architecture impact**: additive only (new devDependency + test files) — does not touch existing app code unless tests reveal real bugs.
+- **Priority read**: the more Phase 2 content gets built (AI Tutor especially, given it'd add server-side logic), the more this stops being optional — best introduced *before* the next architecturally-risky feature (AI Tutor or language switching) rather than after.

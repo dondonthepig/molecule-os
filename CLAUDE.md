@@ -12,9 +12,19 @@
 
 **Phase 2 — Organic Chemistry Explorer (`/organic-chemistry`): COMPLETE.** Interactive knowledge map connecting 12 functional-group categories → representative molecules → properties → reactions, plus a functional-group comparison tool. Reuses `BondVisualization`, `AtomVisualization`, `functional-groups.ts`, and `molecule-library-data.ts` — no new 3D system, no duplicated chemistry data. See `PHASE_PROGRESS.md` for the full architecture and verification log.
 
-**Phase 2 — remaining features (Reaction Atlas, Periodic Table, AI Tutor, Quiz Center, Settings): NOT STARTED.** Do not begin without explicit user instruction. The established data-layer/component pattern (`src/lib/chemistry/*.ts` + `src/components/chemistry/*`) is the template to follow for these — Organic Chemistry's reaction graph (`organic-reactions.ts`) is explicitly the seed for Reaction Atlas.
+**Phase 2 — Reaction Atlas (`/reaction-atlas`): COMPLETE.** Search/filter over 11 real, mass-balanced reactions, reactant/product/conditions equation view, a bond-highlight transformation view (reuses `BondVisualization` via an optional `highlightBonds` prop), and a 5-step learn mode. Deep-links both ways with Organic Chemistry and Molecule Library. See `PHASE_PROGRESS.md` §16 for the full write-up.
+
+**Phase 2 — Periodic Table (`/periodic-table`): COMPLETE.** All 118 elements with real atomic mass, electron configuration, category/period/group, electronegativity, and oxidation states; searchable/filterable grid + detail overlay with cross-links to Molecule Library/Bond Explorer. See `PHASE_PROGRESS.md` §17 for the full write-up.
+
+**Phase 2 — remaining features (AI Tutor, Quiz Center, Settings): NOT STARTED.** Do not begin without explicit user instruction. The established data-layer/component pattern (`src/lib/chemistry/*.ts` + `src/components/chemistry/*`) is the template to follow for future features of this kind.
 
 **Visual redesign (MoleculeOS "deep black to ice blue" system): COMPLETE.** Replaced the blue/cyan/purple accent system with a navy/blue/ice palette across the entire app. See "Visual design system" section below and `PHASE_PROGRESS.md` for the full rationale and verification log.
+
+## Known gaps (do not assume these are done)
+
+- **`en.json` is not wired to any language switcher.** It exists only to keep dictionary *type* shape in parity with `zh-TW.json` (`en satisfies Dictionary`) — the app always renders `zh-TW`. Building an actual English/zh-TW switch is unstarted work, not a bug.
+- **Responsive/mobile QA has never been confirmed in a real browser viewport or on a real device.** Every past mobile-QA pass (documented in `PHASE_PROGRESS.md`) was a static code review because the available Chrome automation could not actually resize the viewport in this environment. Treat mobile layout as "reasoned to be safe," not "visually verified."
+- **There is no automated test suite.** `package.json` has no `test` script. Correctness is currently enforced only by `tsc --noEmit`, `eslint`, and manual/browser QA.
 
 ## i18n architecture (do not change without explicit instruction)
 
