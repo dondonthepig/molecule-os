@@ -575,3 +575,10 @@ export function electronegativityDelta(molecule: MoleculeSpec): number {
   const values = molecule.atoms.map((a) => ELECTRONEGATIVITY[a.element]);
   return Math.max(...values) - Math.min(...values);
 }
+
+/** Every molecule id whose structure contains the given element — used by the Periodic Table's "view molecules" cross-link. */
+export function getMoleculesContainingElement(symbol: string): string[] {
+  return Object.values(MOLECULES)
+    .filter((m) => m.atoms.some((a) => a.element === symbol))
+    .map((m) => m.id);
+}
