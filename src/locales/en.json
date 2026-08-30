@@ -226,7 +226,7 @@
     },
     "quiz": {
       "title": "Quiz Center",
-      "description": "Drag-and-drop challenges, flash cards, memory match, timed quizzes, and a leaderboard to track your progress."
+      "description": "Pick a quiz by category and difficulty, get instant right/wrong feedback with explanations, and see your score summary at the end."
     },
     "settings": {
       "title": "Settings",
@@ -1137,6 +1137,190 @@
       "Lv": { "nameZh": "鉝" },
       "Ts": { "nameZh": "鿬" },
       "Og": { "nameZh": "鿫" }
+    }
+  },
+  "quizCenter": {
+    "pageTitle": "Chemistry Quiz Center",
+    "pageSubtitle": "Pick a quiz by category and difficulty to test your understanding of elements, bonds, molecules, organic chemistry, and reactions.",
+    "demoNotice": "Questions and explanations are written from MoleculeOS's existing chemistry data (periodic table, molecule library, bond and reaction data) — not randomly generated content.",
+    "hero": {
+      "eyebrow": "Chemistry Quiz Center",
+      "heading": "Test your chemistry knowledge",
+      "description": "From elements to reactions — pick a category and difficulty, and start an interactive quiz with instant feedback and explanations."
+    },
+    "search": {
+      "placeholder": "Search quiz category or difficulty…",
+      "clear": "Clear search",
+      "noResultsTitle": "No matching quizzes found",
+      "noResultsHint": "Try different keywords, or clear your filters."
+    },
+    "filters": {
+      "title": "Filters",
+      "categoryLabel": "Category",
+      "difficultyLabel": "Difficulty",
+      "clearAll": "Clear all filters"
+    },
+    "categories": {
+      "elements": "Elements",
+      "atomicStructure": "Atomic Structure",
+      "chemicalBonds": "Chemical Bonds",
+      "molecularStructure": "Molecular Structure",
+      "functionalGroups": "Functional Groups",
+      "organicChemistry": "Organic Chemistry",
+      "chemicalReactions": "Chemical Reactions",
+      "mixed": "Mixed Chemistry"
+    },
+    "difficulties": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "card": {
+      "questionsLabel": "questions",
+      "minutesLabel": "min",
+      "start": "Start Quiz"
+    },
+    "session": {
+      "questionCounter": "Question {current} of {total}",
+      "scoreLabel": "Score",
+      "checkAnswer": "Check Answer",
+      "nextQuestion": "Next Question",
+      "finishQuiz": "See Results",
+      "correct": "Correct!",
+      "incorrect": "Incorrect",
+      "exit": "Exit Quiz",
+      "exitConfirmTitle": "Exit this quiz?",
+      "exitConfirmHint": "Your current progress will not be saved.",
+      "exitConfirmAction": "Exit",
+      "exitCancelAction": "Keep Answering"
+    },
+    "results": {
+      "title": "Quiz Results",
+      "scoreLabel": "Score",
+      "correctLabel": "Correct Answers",
+      "incorrectLabel": "Incorrect Answers",
+      "percentageLabel": "Accuracy",
+      "tierExcellent": "Excellent work! You've mastered this topic.",
+      "tierGood": "Good job — a bit more practice will make it stick.",
+      "tierPractice": "Consider reviewing this topic before trying again.",
+      "retry": "Retry Quiz",
+      "backToCenter": "Back to Quiz Center"
+    },
+    "sets": {
+      "elements-beginner": { "title": "Elements Basics", "description": "Learn common elements' symbols, names, states of matter, and categories." },
+      "elements-intermediate": { "title": "Elements: Level Up", "description": "Apply atomic number, electronegativity, electron configuration, and periodic table categories." },
+      "elements-advanced": { "title": "Elements Mastery", "description": "Deep dive into transition metals, lanthanides, and superheavy elements." },
+      "atomicStructure-beginner": { "title": "Atomic Structure Basics", "description": "Electron configuration notation, valence electrons, and element categories." },
+      "chemicalBonds-beginner": { "title": "Bonds 101", "description": "Identify ionic, covalent, metallic, and hydrogen bonds." },
+      "chemicalBonds-intermediate": { "title": "Bond Polarity: Level Up", "description": "Use electronegativity difference to judge bond polarity and type." },
+      "chemicalBonds-advanced": { "title": "Bonding Theory Mastery", "description": "The electron sea model of metallic bonds and what causes hydrogen bonding." },
+      "molecularStructure-beginner": { "title": "Molecular Shapes Basics", "description": "Common molecular geometries and atom composition." },
+      "molecularStructure-intermediate": { "title": "Molecular Polarity: Level Up", "description": "How molecular shape determines overall polarity." },
+      "functionalGroups-beginner": { "title": "Functional Groups Basics", "description": "Identify hydroxyl, carboxyl, alkene, and other common functional groups." },
+      "organicChemistry-intermediate": { "title": "Organic Reaction Relationships", "description": "How functional groups convert into each other through reactions." },
+      "chemicalReactions-beginner": { "title": "Reactions 101", "description": "Basic products and conditions of combustion, hydrogenation, and addition reactions." },
+      "chemicalReactions-advanced": { "title": "Reactions Mastery", "description": "Oxidizing agents, condensation, esterification, and substitution reaction details." },
+      "mixed-intermediate": { "title": "Mixed Challenge", "description": "A cross-topic quiz spanning elements, bonds, molecules, and reactions." }
+    },
+    "questions": {
+      "elements-beginner": {
+        "q1": { "question": "Which element does the symbol \"Na\" represent?", "options": ["Nitrogen", "Sodium", "Nickel", "Neon"], "explanation": "Na is the symbol for Sodium, from the Latin \"Natrium\"." },
+        "q2": { "question": "Which element does the symbol \"O\" represent?", "options": ["Gold", "Oxygen", "Osmium", "Argon"], "explanation": "O is the symbol for Oxygen; Gold, Osmium, and Argon are Au, Os, and Ar." },
+        "q3": { "question": "What state of matter is chlorine (Cl) at room temperature?", "options": ["Solid", "Liquid", "Gas", "Plasma"], "explanation": "Chlorine is a gas at room temperature and pressure, which is why it reacts as Cl₂ gas." },
+        "q4": { "question": "Which of these belongs to the \"halogen\" category?", "options": ["Sodium (Na)", "Chlorine (Cl)", "Calcium (Ca)", "Iron (Fe)"], "explanation": "Chlorine (Cl) is in group 17, a halogen; sodium is an alkali metal, calcium an alkaline earth metal, iron a transition metal." },
+        "q5": { "question": "What state of matter is mercury (Hg) at room temperature?", "options": ["Solid", "Liquid", "Gas", "Plasma"], "explanation": "Mercury is the only metallic element that is liquid at room temperature and pressure." }
+      },
+      "elements-intermediate": {
+        "q1": { "question": "What is the atomic number of sodium (Na)?", "options": ["10", "11", "12", "19"], "explanation": "Sodium's atomic number is 11 — its nucleus has 11 protons." },
+        "q2": { "question": "Which of these elements has the highest Pauling electronegativity?", "options": ["Hydrogen (H)", "Carbon (C)", "Oxygen (O)", "Sodium (Na)"], "explanation": "Oxygen's electronegativity is about 3.44, the highest of these four (H≈2.2, C≈2.55, Na≈0.93)." },
+        "q3": { "question": "What is the electron configuration of carbon (C)?", "options": ["[He] 2s¹", "[He] 2s² 2p²", "[Ne] 3s² 3p²", "[Ar] 3d¹⁰ 4s²"], "explanation": "Carbon's electron configuration is [He] 2s² 2p², totaling 6 electrons." },
+        "q4": { "question": "Which period of the periodic table is magnesium (Mg) in?", "options": ["2", "3", "4", "5"], "explanation": "Magnesium's configuration is [Ne] 3s², placing it in period 3." },
+        "q5": { "question": "Which of these elements is an \"alkaline earth metal\"?", "options": ["Potassium (K)", "Calcium (Ca)", "Aluminium (Al)", "Silicon (Si)"], "explanation": "Calcium is in group 2, an alkaline earth metal; potassium is an alkali metal, aluminium a post-transition metal, silicon a metalloid." }
+      },
+      "elements-advanced": {
+        "q1": { "question": "Which oxidation state pair is most common for iron (Fe)?", "options": ["+1 and +7", "+2 and +3", "+4 and +6", "+3 and +5"], "explanation": "Iron's most common oxidation states are +2 (ferrous) and +3 (ferric)." },
+        "q2": { "question": "Which of these elements is a \"lanthanide\"?", "options": ["Scandium (Sc)", "Yttrium (Y)", "Cerium (Ce)", "Zirconium (Zr)"], "explanation": "Cerium (Ce) is a lanthanide; scandium, yttrium, and zirconium are all transition metals." },
+        "q3": { "question": "Chromium (Cr) is a well-known \"Aufbau exception\" — what is its actual electron configuration?", "options": ["[Ar] 3d⁴ 4s²", "[Ar] 3d⁵ 4s¹", "[Ar] 3d⁶ 4s⁰", "[Ar] 4s² 3d⁴"], "explanation": "Chromium's actual configuration is [Ar] 3d⁵ 4s¹, favoring a stable half-filled 3d subshell over the [Ar] 3d⁴ 4s² predicted by the general rule." },
+        "q4": { "question": "Which category does tungsten (W) belong to?", "options": ["Transition metal", "Metalloid", "Halogen", "Post-transition metal"], "explanation": "Tungsten's d subshell is still being filled, placing it among the transition metals." },
+        "q5": { "question": "Which superheavy elements' data is considered \"theoretical prediction\" rather than fully experimentally verified?", "options": ["Rutherfordium (Rf, #104)", "Dubnium (Db, #105)", "Both of the above", "Neither of the above"], "explanation": "Elements past #104 are extremely unstable and produced in tiny quantities, so their configurations and oxidation states are mostly theoretical predictions based on periodic trends, not full experimental verification." }
+      },
+      "atomicStructure-beginner": {
+        "q1": { "question": "In the electron configuration \"[Ne] 3s¹\", what does \"[Ne]\" represent?", "options": ["A type of chemical bond", "Neon's full electron configuration (noble-gas shorthand)", "A type of isotope", "An oxidation state"], "explanation": "The bracketed noble-gas symbol is shorthand meaning the element's inner electrons match that noble gas's full configuration exactly." },
+        "q2": { "question": "How many valence electrons does a sodium atom (configuration [Ne] 3s¹) have?", "options": ["1", "2", "3", "11"], "explanation": "3s¹ means only 1 outermost electron — why sodium readily loses one electron to form Na⁺." },
+        "q3": { "question": "Which category does argon (Ar) belong to?", "options": ["Halogen", "Noble gas", "Transition metal", "Metalloid"], "explanation": "Argon's configuration [Ne] 3s² 3p⁶ is a stable octet, making it a noble gas." },
+        "q4": { "question": "In oxygen's electron configuration \"[He] 2s² 2p⁴\", how many electrons are in the 2p subshell?", "options": ["2", "4", "6", "8"], "explanation": "The superscript 4 in \"2p⁴\" means 4 electrons occupy the 2p subshell." },
+        "q5": { "question": "Which of these is a \"metalloid\" element?", "options": ["Silicon (Si)", "Sodium (Na)", "Chlorine (Cl)", "Calcium (Ca)"], "explanation": "Silicon has properties partway between metals and nonmetals, making it a metalloid — widely used in semiconductors." }
+      },
+      "chemicalBonds-beginner": {
+        "q1": { "question": "What type of bond forms between sodium and chlorine in NaCl?", "options": ["Ionic bond", "Covalent bond", "Metallic bond", "Hydrogen bond"], "explanation": "Sodium transfers a valence electron to chlorine, forming Na⁺ and Cl⁻ ions held together by electrostatic attraction — an ionic bond." },
+        "q2": { "question": "What type of bond forms between the two hydrogen atoms in H₂?", "options": ["Ionic bond", "Nonpolar covalent bond", "Polar covalent bond", "Metallic bond"], "explanation": "Both hydrogen atoms have identical electronegativity, so the shared electron pair is distributed evenly — a nonpolar covalent bond." },
+        "q3": { "question": "What type of bond is the O–H bond in a water molecule (H₂O)?", "options": ["Ionic bond", "Nonpolar covalent bond", "Polar covalent bond", "Metallic bond"], "explanation": "The electronegativity difference between O and H is about 1.24 (between 0.4 and 1.7), so the shared pair is skewed toward oxygen — a polar covalent bond." },
+        "q4": { "question": "What type of bond holds an iron (Fe) lattice together?", "options": ["Ionic bond", "Covalent bond", "Metallic bond", "Hydrogen bond"], "explanation": "Iron atoms form a lattice of positive ions held together by freely moving valence electrons (an \"electron sea\") — a metallic bond." },
+        "q5": { "question": "What is the weaker attraction between water molecules (H₂O⋯H₂O) called?", "options": ["Ionic bond", "Metallic bond", "Hydrogen bond", "Van der Waals force"], "explanation": "The partially positive hydrogen on one water molecule attracts the partially negative oxygen on another, forming a hydrogen bond." }
+      },
+      "chemicalBonds-intermediate": {
+        "q1": { "question": "Sodium's electronegativity is about 0.93 and chlorine's is about 3.16. What is their electronegativity difference (ΔEN)?", "options": ["0.5", "1.2", "2.2", "3.2"], "explanation": "3.16 − 0.93 ≈ 2.23, which rounds to about 2.2." },
+        "q2": { "question": "By standard textbook criteria, a bond with ΔEN ≥ 1.7 is usually classified as?", "options": ["Nonpolar covalent", "Polar covalent", "Ionic", "Metallic"], "explanation": "ΔEN ≥ 1.7 means a very large electronegativity gap — the electron is essentially fully transferred, classifying it as ionic." },
+        "q3": { "question": "Hydrogen and chlorine have electronegativities of about 2.2 and 3.16. What is HCl's ΔEN and classification?", "options": ["ΔEN≈0.96, polar covalent", "ΔEN≈0.96, nonpolar covalent", "ΔEN≈1.96, ionic", "ΔEN≈0.96, ionic"], "explanation": "3.16 − 2.2 = 0.96, which falls between 0.4–1.7, classifying it as polar covalent." },
+        "q4": { "question": "When two atoms' electronegativity difference ΔEN < 0.4, the bond is classified as?", "options": ["Ionic", "Polar covalent", "Nonpolar covalent", "Hydrogen bond"], "explanation": "A very small electronegativity difference means the electrons are distributed nearly evenly — nonpolar covalent." },
+        "q5": { "question": "Carbon and hydrogen have electronegativities of 2.55 and 2.2 (ΔEN≈0.35). How should the C–H bond in methane (CH₄) be classified?", "options": ["Ionic", "Polar covalent", "Nonpolar covalent", "Metallic"], "explanation": "0.35 is below the 0.4 threshold, so the C–H bond is classified as nonpolar covalent." }
+      },
+      "chemicalBonds-advanced": {
+        "q1": { "question": "The model describing freely mobile valence electrons in a metallic bond is commonly called?", "options": ["The electron sea model", "The octet rule", "Resonance structures", "Molecular orbital theory"], "explanation": "Metallic bonding is commonly described with the \"electron sea model\": positive ions arranged in a lattice, with valence electrons moving freely among them." },
+        "q2": { "question": "Why can water molecules form hydrogen bonds with each other, but CH₄ molecules cannot?", "options": ["Water contains highly electronegative oxygen directly bonded to hydrogen, forming a strongly polarized O–H bond", "Water molecules are heavier", "Water is an ionic compound", "Water molecules cannot move"], "explanation": "Hydrogen bonding requires hydrogen bonded directly to a highly electronegative atom (O, N, or F); carbon in CH₄ isn't electronegative enough and lacks this strongly polarized bond, so no hydrogen bonding occurs." },
+        "q3": { "question": "Which statement about hydrogen bonds is correct?", "options": ["Hydrogen bonds are stronger than typical covalent bonds", "A hydrogen bond is an intermolecular force, weaker than a covalent bond", "Hydrogen bonds only exist in metals", "Hydrogen bonds have nothing to do with electronegativity"], "explanation": "Hydrogen bonds are intermolecular forces — stronger than van der Waals forces, but still clearly weaker than covalent bonds." },
+        "q4": { "question": "Under the electronegativity-difference classification, what happens when ΔEN is exactly 1.7?", "options": ["Nonpolar covalent", "Polar covalent", "Ionic", "Cannot be classified"], "explanation": "The rule classifies ΔEN ≥ 1.7 as ionic, so a value of exactly 1.7 is still classified as ionic." },
+        "q5": { "question": "In a metallic lattice (like Fe), what is the main role of the free electrons?", "options": ["Fixed in place on specific atoms", "Moving freely among the positive ions, the basis of conductivity and malleability", "Only present in insulators", "Producing hydrogen bonds"], "explanation": "Metals' electrical conductivity, thermal conductivity, and malleability all stem from these valence electrons moving freely among the positive ions." }
+      },
+      "molecularStructure-beginner": {
+        "q1": { "question": "What is the molecular shape of carbon dioxide (CO₂)?", "options": ["Bent", "Linear", "Trigonal pyramidal", "Tetrahedral"], "explanation": "CO₂'s two C=O bonds are arranged at 180°, making it a linear molecule." },
+        "q2": { "question": "What is the molecular shape of a water molecule (H₂O)?", "options": ["Linear", "Bent", "Triangular", "Tetrahedral"], "explanation": "Two lone pairs on the oxygen compress the bond angle, giving H₂O a bent shape (about 104.5°)." },
+        "q3": { "question": "What is the molecular shape of ammonia (NH₃)?", "options": ["Linear", "Bent", "Trigonal pyramidal", "Tetrahedral"], "explanation": "A lone pair on the nitrogen gives NH₃ a trigonal pyramidal shape." },
+        "q4": { "question": "What is the molecular shape of methane (CH₄)?", "options": ["Linear", "Bent", "Trigonal pyramidal", "Tetrahedral"], "explanation": "Carbon's sp³ hybridized orbitals bond symmetrically to 4 hydrogens, forming a regular tetrahedron." },
+        "q5": { "question": "How many atoms does one water molecule (H₂O) contain in total?", "options": ["2", "3", "4", "6"], "explanation": "H₂O consists of 1 oxygen atom and 2 hydrogen atoms — 3 atoms total." }
+      },
+      "molecularStructure-intermediate": {
+        "q1": { "question": "Why is a water molecule (H₂O) polar, even though it's made only of polar O–H bonds?", "options": ["Because it contains an ionic bond", "Because its bent shape prevents the bond dipoles from cancelling out", "Because the oxygen atom is positively charged", "Because it contains a metallic bond"], "explanation": "The bent structure makes the two O–H bond dipoles asymmetric, so the net dipole moment isn't zero — making the molecule polar overall." },
+        "q2": { "question": "Carbon dioxide (CO₂) contains polar C=O bonds, yet the molecule overall is nonpolar. Why?", "options": ["The molecule is linear and symmetric, so the bond dipoles cancel out", "Carbon has no electronegativity", "CO₂ is an ionic compound", "Carbon is a metal"], "explanation": "The two equal-and-opposite C=O bond dipoles cancel out exactly in the linear structure, giving a net dipole moment of zero." },
+        "q3": { "question": "What molecular geometry is benzene (C₆H₆) classified as?", "options": ["Tetrahedral", "Planar", "Linear", "Trigonal pyramidal"], "explanation": "All 6 carbon atoms and 6 hydrogen atoms of the benzene ring lie in the same plane — a planar structure." },
+        "q4": { "question": "Which of these molecules is \"nonpolar\"?", "options": ["H₂O", "NH₃", "CH₄", "HCl"], "explanation": "CH₄'s symmetric tetrahedral shape makes its four C–H bond dipoles cancel out, making it nonpolar." },
+        "q5": { "question": "What is NaCl's molecular geometry classified as?", "options": ["Linear", "Ionic pair", "Tetrahedral", "Planar"], "explanation": "NaCl doesn't form a fixed covalent geometry — it's represented as an ionic pair held together by electrostatic attraction." }
+      },
+      "functionalGroups-beginner": {
+        "q1": { "question": "The functional group \"-OH\" is called?", "options": ["Carbonyl", "Hydroxyl", "Carboxyl", "Amino"], "explanation": "\"-OH\" is the hydroxyl group, commonly found in alcohols." },
+        "q2": { "question": "The functional group \"-COOH\" is called?", "options": ["Ester", "Amide", "Carboxyl", "Hydroxyl"], "explanation": "\"-COOH\" is the carboxyl group, the signature functional group of carboxylic acids." },
+        "q3": { "question": "Which functional group does ethanol contain?", "options": ["Carbonyl", "Hydroxyl", "Carboxyl", "Amide"], "explanation": "Ethanol contains one -OH group, the hydroxyl functional group characteristic of alcohols." },
+        "q4": { "question": "Which functional groups does acetic acid (CH₃COOH) contain?", "options": ["Hydroxyl and ether", "Carboxyl and carbonyl", "Amino and amide", "Alkene and alkyne"], "explanation": "The carboxyl group (-COOH) itself contains a carbonyl (C=O), so acetic acid is classified as having both carboxyl and carbonyl groups." },
+        "q5": { "question": "The functional group \"C=C\" is called?", "options": ["Alkyne", "Alkene", "Aromatic", "Carbonyl"], "explanation": "A carbon-carbon double bond \"C=C\" is the signature structure of an alkene." }
+      },
+      "organicChemistry-intermediate": {
+        "q1": { "question": "Which organic category does benzene belong to?", "options": ["Alkane", "Alkene", "Aromatic", "Ester"], "explanation": "Benzene's distinctive cyclic conjugated structure earns it its own \"aromatic\" category." },
+        "q2": { "question": "According to the reaction relationship graph, what can an alcohol's \"oxidation\" reaction ultimately produce?", "options": ["Only alkenes", "An aldehyde/ketone, which can be further oxidized to a carboxylic acid", "Only ethers", "A metallic-bonded compound"], "explanation": "Oxidizing an alcohol first produces an aldehyde or ketone (depending on the alcohol type), and an aldehyde can be further oxidized into a carboxylic acid." },
+        "q3": { "question": "According to the reaction relationship graph, what does a carboxylic acid + alcohol \"esterification\" reaction produce?", "options": ["An ether", "An ester", "An amide", "An alkane"], "explanation": "A carboxylic acid and an alcohol undergo acid-catalyzed esterification to produce an ester and water." },
+        "q4": { "question": "What does an ester convert back into via \"hydrolysis\"?", "options": ["An alcohol", "A carboxylic acid", "An alkene", "An ether"], "explanation": "Hydrolysis is the reverse of esterification: an ester reacting with water produces a carboxylic acid (and an alcohol)." },
+        "q5": { "question": "What does acetylene (C₂H₂) first produce via \"hydrogenation\"?", "options": ["Ethane", "Ethylene", "Ethanol", "Benzene"], "explanation": "Hydrogenating an alkyne first produces an alkene (acetylene → ethylene); only further hydrogenation produces an alkane (ethylene → ethane)." }
+      },
+      "chemicalReactions-beginner": {
+        "q1": { "question": "What are the products of methane's (CH₄) combustion reaction?", "options": ["CO₂ and H₂O", "CO and H₂", "C and O₂", "CH₃OH"], "explanation": "Complete combustion of a hydrocarbon produces carbon dioxide and water." },
+        "q2": { "question": "What does ethylene produce when hydrogenated with H₂ over a Ni catalyst with heating?", "options": ["Acetylene", "Ethane", "Ethanol", "Benzene"], "explanation": "Hydrogenating ethylene's carbon-carbon double bond turns it into a single bond, producing ethane." },
+        "q3": { "question": "What does ethylene produce when reacted with water (H₂O) via \"addition\", catalyzed by acid (H₃PO₄) with heating?", "options": ["Ethane", "Ethanol", "Acetic acid", "Acetaldehyde"], "explanation": "Water adds across ethylene's double bond to produce ethanol — one industrial method for manufacturing ethanol." },
+        "q4": { "question": "What reaction condition does methane's combustion require?", "options": ["Room temperature", "Heating", "Ignition", "UV light"], "explanation": "Combustion requires ignition to start, after which it continues releasing heat on its own." },
+        "q5": { "question": "Which catalyst is used to hydrogenate acetylene into ethylene?", "options": ["Ni", "Pd/CaCO₃ (Lindlar catalyst)", "H₃PO₄", "No catalyst needed"], "explanation": "The Lindlar catalyst stops hydrogenation at the alkene stage, preventing further hydrogenation to an alkane." }
+      },
+      "chemicalReactions-advanced": {
+        "q1": { "question": "What oxidizing agent is used to oxidize ethanol into acetaldehyde?", "options": ["K₂Cr₂O₇ / H⁺", "KMnO₄ / H⁺", "H₂SO₄", "Ni"], "explanation": "This reaction uses potassium dichromate (K₂Cr₂O₇) under acidic conditions as the oxidizing agent." },
+        "q2": { "question": "What oxidizing agent further oxidizes acetaldehyde into acetic acid?", "options": ["K₂Cr₂O₇ / H⁺", "KMnO₄ / H⁺", "H₃PO₄", "Pd/CaCO₃"], "explanation": "This step uses potassium permanganate (KMnO₄) under acidic conditions to fully oxidize the aldehyde into a carboxylic acid." },
+        "q3": { "question": "What does the \"condensation\" of two methanol molecules under concentrated sulfuric acid and heat produce?", "options": ["Dimethyl ether and water", "Ethanol and water", "Methyl acetate and water", "Ethane and water"], "explanation": "Two methanol molecules condense (losing water) to form dimethyl ether (an ether) and water." },
+        "q4": { "question": "Acetic acid and methanol undergo esterification to form methyl acetate. What is its \"reverse reaction\"?", "options": ["Addition", "Hydrolysis", "Oxidation", "Substitution"], "explanation": "Esterification and hydrolysis are reverse reactions of each other: esterification produces an ester and water, while hydrolysis reacts an ester with water back into a carboxylic acid and an alcohol." },
+        "q5": { "question": "What are the products of methane reacting with chlorine (Cl₂) via substitution under UV light?", "options": ["Chloroethane and HCl", "Chloromethane and HCl", "Dichloromethane and H₂", "Methanol and Cl₂"], "explanation": "UV light provides the energy to homolytically split Cl₂ into radicals, which substitute one hydrogen on methane to produce chloromethane and HCl." }
+      },
+      "mixed-intermediate": {
+        "q1": { "question": "Which of these elements has the highest electronegativity?", "options": ["Fluorine (F)", "Carbon (C)", "Hydrogen (H)", "Sodium (Na)"], "explanation": "Fluorine's electronegativity is about 3.98 — the highest of any known element." },
+        "q2": { "question": "Which of these molecules has a \"tetrahedral\" shape?", "options": ["H₂O", "NH₃", "CH₄", "CO₂"], "explanation": "CH₄'s carbon uses sp³ hybridized orbitals to bond symmetrically to 4 hydrogens, forming a tetrahedron; H₂O is bent, NH₃ is trigonal pyramidal, and CO₂ is linear." },
+        "q3": { "question": "What kind of functional group can an alcohol's oxidation reaction produce?", "options": ["Alkene", "Aldehyde/ketone (carbonyl)", "Alkyne", "Aromatic"], "explanation": "The first step of alcohol oxidation produces an aldehyde or ketone, both containing a carbonyl group." },
+        "q4": { "question": "What is the reaction type of methane's combustion reaction called?", "options": ["Oxidation", "Combustion", "Condensation", "Substitution"], "explanation": "Combustion is technically a form of oxidation, but MoleculeOS's reaction data lists it as its own \"combustion\" type." },
+        "q5": { "question": "Lanthanides and actinides are conventionally shown in their own row below the main periodic table because their \"group\" field is?", "options": ["1", "18", "null (no fixed group)", "0"], "explanation": "Lanthanides and actinides don't map cleanly onto the main table's 1–18 group columns, so they're stored as group=null and conventionally shown as two separate rows." }
+      }
     }
   }
 }

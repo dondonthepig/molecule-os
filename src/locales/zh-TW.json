@@ -226,7 +226,7 @@
     },
     "quiz": {
       "title": "化學測驗中心",
-      "description": "拖曳配對、單字卡、記憶配對、限時測驗與排行榜，全方位追蹤你的學習進度，即將推出。"
+      "description": "依分類與難度挑選測驗，作答後立即獲得對錯回饋與詳解，測驗結束顯示得分與正確率總結。"
     },
     "settings": {
       "title": "設定",
@@ -1137,6 +1137,190 @@
       "Lv": { "nameZh": "鉝" },
       "Ts": { "nameZh": "鿬" },
       "Og": { "nameZh": "鿫" }
+    }
+  },
+  "quizCenter": {
+    "pageTitle": "化學測驗中心",
+    "pageSubtitle": "依分類與難度挑選測驗，測試你對元素、鍵結、分子、有機化學與反應的理解。",
+    "demoNotice": "題目與詳解均根據 MoleculeOS 既有的化學資料（週期表、分子庫、鍵結與反應資料）編寫，並非隨機產生的內容。",
+    "hero": {
+      "eyebrow": "化學測驗中心",
+      "heading": "測試你的化學知識",
+      "description": "從元素到反應，挑選一個分類與難度，立即開始一場有回饋、有詳解的互動測驗。"
+    },
+    "search": {
+      "placeholder": "搜尋測驗分類或難度…",
+      "clear": "清除搜尋",
+      "noResultsTitle": "找不到符合的測驗",
+      "noResultsHint": "試試其他關鍵字，或清除篩選條件。"
+    },
+    "filters": {
+      "title": "篩選",
+      "categoryLabel": "分類",
+      "difficultyLabel": "難度",
+      "clearAll": "清除全部篩選"
+    },
+    "categories": {
+      "elements": "元素",
+      "atomicStructure": "原子結構",
+      "chemicalBonds": "化學鍵結",
+      "molecularStructure": "分子結構",
+      "functionalGroups": "官能基",
+      "organicChemistry": "有機化學",
+      "chemicalReactions": "化學反應",
+      "mixed": "綜合測驗"
+    },
+    "difficulties": {
+      "beginner": "初級",
+      "intermediate": "中級",
+      "advanced": "高級"
+    },
+    "card": {
+      "questionsLabel": "題",
+      "minutesLabel": "分鐘",
+      "start": "開始測驗"
+    },
+    "session": {
+      "questionCounter": "第 {current} / {total} 題",
+      "scoreLabel": "得分",
+      "checkAnswer": "確認答案",
+      "nextQuestion": "下一題",
+      "finishQuiz": "查看結果",
+      "correct": "答對了！",
+      "incorrect": "答錯了",
+      "exit": "離開測驗",
+      "exitConfirmTitle": "確定要離開這場測驗嗎？",
+      "exitConfirmHint": "目前的作答進度不會被保留。",
+      "exitConfirmAction": "離開",
+      "exitCancelAction": "繼續作答"
+    },
+    "results": {
+      "title": "測驗結果",
+      "scoreLabel": "分數",
+      "correctLabel": "答對題數",
+      "incorrectLabel": "答錯題數",
+      "percentageLabel": "正確率",
+      "tierExcellent": "表現優異！你已經掌握這個主題。",
+      "tierGood": "表現不錯，再多練習幾次會更熟練。",
+      "tierPractice": "建議再複習相關內容後重新挑戰這個主題。",
+      "retry": "重新測驗",
+      "backToCenter": "返回測驗中心"
+    },
+    "sets": {
+      "elements-beginner": { "title": "元素入門", "description": "認識常見元素的符號、名稱、物質狀態與分類。" },
+      "elements-intermediate": { "title": "元素進階", "description": "原子序、電負度、電子組態與週期表分類的應用。" },
+      "elements-advanced": { "title": "元素高手", "description": "過渡金屬、鑭系元素與超重元素的深入知識。" },
+      "atomicStructure-beginner": { "title": "原子結構基礎", "description": "電子組態記法、價電子與元素分類的基本概念。" },
+      "chemicalBonds-beginner": { "title": "化學鍵入門", "description": "辨識離子鍵、共價鍵、金屬鍵與氫鍵。" },
+      "chemicalBonds-intermediate": { "title": "鍵結極性進階", "description": "運用電負度差判斷鍵結的極性與類型。" },
+      "chemicalBonds-advanced": { "title": "鍵結理論高手", "description": "金屬鍵電子海模型與氫鍵成因的深入理解。" },
+      "molecularStructure-beginner": { "title": "分子形狀入門", "description": "常見分子的幾何形狀與原子組成。" },
+      "molecularStructure-intermediate": { "title": "分子極性進階", "description": "分子形狀如何決定整體極性。" },
+      "functionalGroups-beginner": { "title": "官能基入門", "description": "辨識羥基、羧基、烯基等常見官能基。" },
+      "organicChemistry-intermediate": { "title": "有機反應關係", "description": "官能基之間如何透過反應互相轉換。" },
+      "chemicalReactions-beginner": { "title": "反應入門", "description": "燃燒、氫化與加成反應的基本產物與條件。" },
+      "chemicalReactions-advanced": { "title": "反應高手", "description": "氧化劑、縮合、酯化與取代反應的細節。" },
+      "mixed-intermediate": { "title": "綜合挑戰", "description": "橫跨元素、鍵結、分子與反應的綜合測驗。" }
+    },
+    "questions": {
+      "elements-beginner": {
+        "q1": { "question": "元素符號「Na」代表哪個元素？", "options": ["氮 (Nitrogen)", "鈉 (Sodium)", "鎳 (Nickel)", "氖 (Neon)"], "explanation": "Na 是鈉（Sodium）的元素符號，源自拉丁文「Natrium」。" },
+        "q2": { "question": "元素符號「O」代表哪個元素？", "options": ["金 (Gold)", "氧 (Oxygen)", "鋨 (Osmium)", "氬 (Argon)"], "explanation": "O 是氧（Oxygen）的元素符號；金、鋨、氬的符號分別是 Au、Os、Ar。" },
+        "q3": { "question": "常溫下，氯（Cl）的物質狀態是？", "options": ["固態", "液態", "氣態", "電漿態"], "explanation": "氯在常溫常壓下是氣態，因此常以 Cl₂ 氣體形式參與反應。" },
+        "q4": { "question": "下列何者屬於「鹵素」(halogen) 分類？", "options": ["鈉 (Na)", "氯 (Cl)", "鈣 (Ca)", "鐵 (Fe)"], "explanation": "氯（Cl）位於第17族，屬於鹵素；鈉是鹼金屬，鈣是鹼土金屬，鐵是過渡金屬。" },
+        "q5": { "question": "常溫下，汞（Hg）的物質狀態是？", "options": ["固態", "液態", "氣態", "電漿態"], "explanation": "汞是唯一在常溫常壓下呈液態的金屬元素。" }
+      },
+      "elements-intermediate": {
+        "q1": { "question": "鈉（Na）的原子序是多少？", "options": ["10", "11", "12", "19"], "explanation": "鈉的原子序是 11，代表原子核中有 11 個質子。" },
+        "q2": { "question": "下列哪個元素的鮑林電負度（Pauling electronegativity）最高？", "options": ["氫 (H)", "碳 (C)", "氧 (O)", "鈉 (Na)"], "explanation": "氧的電負度約為 3.44，在這四者中最高（H≈2.2、C≈2.55、Na≈0.93）。" },
+        "q3": { "question": "碳（C）的電子組態是？", "options": ["[He] 2s¹", "[He] 2s² 2p²", "[Ne] 3s² 3p²", "[Ar] 3d¹⁰ 4s²"], "explanation": "碳的電子組態為 [He] 2s² 2p²，共 6 個電子。" },
+        "q4": { "question": "鎂（Mg）位於週期表的第幾週期？", "options": ["2", "3", "4", "5"], "explanation": "鎂的電子組態為 [Ne] 3s²，屬於第 3 週期。" },
+        "q5": { "question": "下列哪個元素屬於「鹼土金屬」(alkaline earth metal)？", "options": ["鉀 (K)", "鈣 (Ca)", "鋁 (Al)", "矽 (Si)"], "explanation": "鈣位於第2族，屬於鹼土金屬；鉀是鹼金屬，鋁是貧金屬，矽是類金屬。" }
+      },
+      "elements-advanced": {
+        "q1": { "question": "鐵（Fe）常見的氧化態組合是？", "options": ["+1 與 +7", "+2 與 +3", "+4 與 +6", "+3 與 +5"], "explanation": "鐵最常見的氧化態是 +2（亞鐵）與 +3（正鐵）。" },
+        "q2": { "question": "下列哪個元素屬於「鑭系元素」(lanthanide)？", "options": ["鈧 (Sc)", "釔 (Y)", "鈰 (Ce)", "鋯 (Zr)"], "explanation": "鈰（Ce）是鑭系元素；鈧、釔、鋯都屬於過渡金屬。" },
+        "q3": { "question": "鉻（Cr）出現常見的「Aufbau 例外」，其正確電子組態為？", "options": ["[Ar] 3d⁴ 4s²", "[Ar] 3d⁵ 4s¹", "[Ar] 3d⁶ 4s⁰", "[Ar] 4s² 3d⁴"], "explanation": "鉻為了讓 3d 軌域達到半滿的穩定狀態，實際組態是 [Ar] 3d⁵ 4s¹，而非依一般規則預期的 3d⁴ 4s²。" },
+        "q4": { "question": "鎢（W, Tungsten）屬於下列哪一種元素分類？", "options": ["過渡金屬", "類金屬", "鹵素", "貧金屬"], "explanation": "鎢的 d 軌域正在填入電子，屬於過渡金屬。" },
+        "q5": { "question": "下列哪一組超重元素的資料被視為「理論預測」，而非完整實驗驗證？", "options": ["鑪 (Rf, 104 號)", "𨧀 (Db, 105 號)", "以上皆是", "以上皆非"], "explanation": "104 號之後的元素極不穩定、產量極少，電子組態與氧化態多依週期趨勢做理論推測，而非完整實驗驗證。" }
+      },
+      "atomicStructure-beginner": {
+        "q1": { "question": "電子組態「[Ne] 3s¹」中的「[Ne]」代表什麼？", "options": ["一種化學鍵結", "氖的完整電子組態（noble-gas shorthand）", "一種同位素", "一個氧化態"], "explanation": "方括號中的惰性氣體符號是簡寫，代表該元素內層電子組態與該惰性氣體完全相同。" },
+        "q2": { "question": "鈉原子（電子組態 [Ne] 3s¹）的最外層（價）電子數是多少？", "options": ["1", "2", "3", "11"], "explanation": "3s¹ 代表最外層只有 1 個電子，這也是鈉容易失去 1 個電子形成 Na⁺ 的原因。" },
+        "q3": { "question": "氬（Ar）屬於下列哪一種元素分類？", "options": ["鹵素", "惰性氣體 (noble gas)", "過渡金屬", "類金屬"], "explanation": "氬的電子組態 [Ne] 3s² 3p⁶ 已達到穩定的八隅體，屬於惰性氣體。" },
+        "q4": { "question": "氧原子的電子組態「[He] 2s² 2p⁴」中，2p 軌域上有幾個電子？", "options": ["2", "4", "6", "8"], "explanation": "「2p⁴」中的上標 4 即代表 2p 軌域上有 4 個電子。" },
+        "q5": { "question": "下列哪一個是「類金屬」(metalloid) 元素？", "options": ["矽 (Si)", "鈉 (Na)", "氯 (Cl)", "鈣 (Ca)"], "explanation": "矽同時具有金屬與非金屬的部分特性，屬於類金屬，常用於半導體材料。" }
+      },
+      "chemicalBonds-beginner": {
+        "q1": { "question": "NaCl 中鈉與氯之間形成的鍵結類型是？", "options": ["離子鍵", "共價鍵", "金屬鍵", "氫鍵"], "explanation": "鈉將價電子轉移給氯，形成 Na⁺ 與 Cl⁻ 離子，兩者以靜電力結合成離子鍵。" },
+        "q2": { "question": "H₂ 分子中兩個氫原子之間的鍵結類型是？", "options": ["離子鍵", "非極性共價鍵", "極性共價鍵", "金屬鍵"], "explanation": "兩個氫原子電負度相同，共用電子對均勻分布，屬於非極性共價鍵。" },
+        "q3": { "question": "水分子（H₂O）中的 O–H 鍵屬於？", "options": ["離子鍵", "非極性共價鍵", "極性共價鍵", "金屬鍵"], "explanation": "氧與氫的電負度差約 1.24（介於 0.4–1.7 之間），共用電子對偏向氧，形成極性共價鍵。" },
+        "q4": { "question": "鐵（Fe）晶格中的鍵結類型是？", "options": ["離子鍵", "共價鍵", "金屬鍵", "氫鍵"], "explanation": "鐵原子以規則排列的正離子晶格與自由移動的價電子（電子海）結合，屬於金屬鍵。" },
+        "q5": { "question": "水分子之間（H₂O⋯H₂O）形成的較弱作用力稱為？", "options": ["離子鍵", "金屬鍵", "氫鍵", "凡得瓦力"], "explanation": "一個水分子中帶部分正電的氫，與另一個水分子中帶部分負電的氧相互吸引，形成氫鍵。" }
+      },
+      "chemicalBonds-intermediate": {
+        "q1": { "question": "鈉的電負度約為 0.93，氯的電負度約為 3.16，兩者的電負度差(ΔEN)約為多少？", "options": ["0.5", "1.2", "2.2", "3.2"], "explanation": "3.16 − 0.93 ≈ 2.23，四捨五入約為 2.2。" },
+        "q2": { "question": "依照教科書判斷標準，當 ΔEN ≥ 1.7 時，鍵結通常被歸類為？", "options": ["非極性共價鍵", "極性共價鍵", "離子鍵", "金屬鍵"], "explanation": "ΔEN ≥ 1.7 代表電負度差異極大，電子幾乎完全轉移，歸類為離子鍵。" },
+        "q3": { "question": "氫與氯的電負度分別約為 2.2 與 3.16，HCl 鍵結的 ΔEN 與分類為？", "options": ["ΔEN≈0.96，極性共價鍵", "ΔEN≈0.96，非極性共價鍵", "ΔEN≈1.96，離子鍵", "ΔEN≈0.96，離子鍵"], "explanation": "3.16 − 2.2 = 0.96，落在 0.4–1.7 之間，歸類為極性共價鍵。" },
+        "q4": { "question": "當兩原子的電負度差 ΔEN < 0.4 時，鍵結會被歸類為？", "options": ["離子鍵", "極性共價鍵", "非極性共價鍵", "氫鍵"], "explanation": "電負度差很小，電子分布幾乎均勻，屬於非極性共價鍵。" },
+        "q5": { "question": "碳與氫的電負度分別為 2.55 與 2.2，ΔEN≈0.35，甲烷（CH₄）中的 C–H 鍵應歸類為？", "options": ["離子鍵", "極性共價鍵", "非極性共價鍵", "金屬鍵"], "explanation": "0.35 小於 0.4 的門檻，因此 C–H 鍵被歸類為非極性共價鍵。" }
+      },
+      "chemicalBonds-advanced": {
+        "q1": { "question": "金屬鍵中，價電子可自由移動的模型常被稱為？", "options": ["電子海模型 (electron sea model)", "八隅體規則", "共振結構", "分子軌域理論"], "explanation": "金屬鍵常以「電子海模型」描述：正離子排列成晶格，價電子在其間自由移動。" },
+        "q2": { "question": "為什麼水分子之間能形成氫鍵，而 CH₄ 分子之間不行？", "options": ["水含有高電負度的氧，且氧直接與氫鍵結，形成強極化的 O–H 鍵", "水分子比較重", "水是離子化合物", "水分子無法移動"], "explanation": "氫鍵需要氫直接鍵結到高電負度原子（如 O、N、F）；CH₄ 中的碳電負度不夠高，也沒有這種強極化的鍵，因此不會形成氫鍵。" },
+        "q3": { "question": "下列關於氫鍵的敘述何者正確？", "options": ["氫鍵比典型共價鍵強", "氫鍵是一種分子間作用力，強度比共價鍵弱", "氫鍵只存在於金屬中", "氫鍵與電負度無關"], "explanation": "氫鍵屬於分子間作用力，雖比凡得瓦力強，但仍明顯弱於共價鍵。" },
+        "q4": { "question": "依照電負度差分類標準，若 ΔEN 恰好等於 1.7，會被分類為？", "options": ["非極性共價鍵", "極性共價鍵", "離子鍵", "無法分類"], "explanation": "分類標準採「ΔEN ≥ 1.7 為離子鍵」，因此恰好等於 1.7 時仍歸類為離子鍵。" },
+        "q5": { "question": "金屬晶格（如 Fe）中，自由電子的角色主要是？", "options": ["固定在特定原子上不移動", "在正離子之間自由移動，是導電性與延展性的基礎", "只存在於絕緣體中", "產生氫鍵"], "explanation": "金屬的導電性、導熱性與延展性，都源自這些可在正離子間自由移動的價電子。" }
+      },
+      "molecularStructure-beginner": {
+        "q1": { "question": "二氧化碳（CO₂）的分子形狀是？", "options": ["彎曲形 (bent)", "直線形 (linear)", "三角錐形 (trigonal pyramidal)", "四面體形 (tetrahedral)"], "explanation": "CO₂ 的兩個 C=O 鍵呈 180° 排列，是直線形分子。" },
+        "q2": { "question": "水分子（H₂O）的分子形狀是？", "options": ["直線形", "彎曲形", "三角形", "四面體形"], "explanation": "氧原子上的兩對孤對電子壓縮鍵角，使 H₂O 呈彎曲形（約104.5°）。" },
+        "q3": { "question": "氨分子（NH₃）的分子形狀是？", "options": ["直線形", "彎曲形", "三角錐形", "四面體形"], "explanation": "氮原子上有一對孤對電子，使 NH₃ 呈三角錐形。" },
+        "q4": { "question": "甲烷（CH₄）的分子形狀是？", "options": ["直線形", "彎曲形", "三角錐形", "四面體形"], "explanation": "碳原子以 sp³ 混成軌域對稱鍵結 4 個氫，形成正四面體形。" },
+        "q5": { "question": "一個水分子（H₂O）總共含有幾個原子？", "options": ["2", "3", "4", "6"], "explanation": "H₂O 由 1 個氧原子與 2 個氫原子組成，共 3 個原子。" }
+      },
+      "molecularStructure-intermediate": {
+        "q1": { "question": "為什麼水分子（H₂O）是極性分子，即使它只由 O–H 極性鍵組成？", "options": ["因為它含有離子鍵", "因為分子形狀是彎曲形，鍵偶極無法互相抵消", "因為氧原子帶正電", "因為它含有金屬鍵"], "explanation": "彎曲形結構讓兩個 O–H 鍵的偶極方向不對稱，淨偶極矩不為零，因此整體是極性分子。" },
+        "q2": { "question": "二氧化碳（CO₂）雖然含有極性 C=O 鍵，但整體分子卻是非極性，原因是？", "options": ["分子是直線形對稱結構，鍵偶極互相抵消", "碳原子沒有電負度", "CO₂ 是離子化合物", "碳是金屬元素"], "explanation": "兩個方向相反、大小相等的 C=O 鍵偶極在直線形結構中互相抵消，淨偶極矩為零。" },
+        "q3": { "question": "苯（benzene, C₆H₆）的分子幾何形狀分類為？", "options": ["四面體形", "平面形 (planar)", "直線形", "三角錐形"], "explanation": "苯環上的 6 個碳原子與 6 個氫原子都位於同一平面上，屬於平面形結構。" },
+        "q4": { "question": "下列哪個分子屬於「非極性」(nonpolar)？", "options": ["H₂O", "NH₃", "CH₄", "HCl"], "explanation": "CH₄ 呈對稱的四面體形，四個 C–H 鍵偶極互相抵消，是非極性分子。" },
+        "q5": { "question": "NaCl 的分子幾何被歸類為？", "options": ["直線形", "離子對 (ionic pair)", "四面體形", "平面形"], "explanation": "NaCl 並非以共價鍵形成固定幾何形狀，而是以離子對的形式呈現靜電吸引結構。" }
+      },
+      "functionalGroups-beginner": {
+        "q1": { "question": "官能基「-OH」稱為？", "options": ["羰基 (carbonyl)", "羥基 (hydroxyl)", "羧基 (carboxyl)", "氨基 (amino)"], "explanation": "「-OH」是羥基，常見於醇類分子中。" },
+        "q2": { "question": "官能基「-COOH」稱為？", "options": ["酯基 (ester)", "醯胺基 (amide)", "羧基 (carboxyl)", "羥基 (hydroxyl)"], "explanation": "「-COOH」是羧基，是羧酸類分子的特徵官能基。" },
+        "q3": { "question": "乙醇（ethanol）含有哪一種官能基？", "options": ["羰基", "羥基", "羧基", "醯胺基"], "explanation": "乙醇分子中含有一個 -OH，屬於醇類的羥基官能基。" },
+        "q4": { "question": "醋酸（acetic acid, CH₃COOH）含有下列哪些官能基？", "options": ["羥基與醚", "羧基與羰基", "氨基與醯胺基", "烯基與炔基"], "explanation": "羧基 (-COOH) 本身即包含一個羰基 (C=O)，因此醋酸同時具有羧基與羰基兩種官能基分類。" },
+        "q5": { "question": "官能基「C=C」稱為？", "options": ["炔基 (alkyne)", "烯基 (alkene)", "芳香基 (aromatic)", "羰基 (carbonyl)"], "explanation": "碳與碳之間的雙鍵「C=C」是烯基的特徵結構。" }
+      },
+      "organicChemistry-intermediate": {
+        "q1": { "question": "苯（benzene）屬於哪一個有機分類？", "options": ["烷類 (alkane)", "烯類 (alkene)", "芳香族 (aromatic)", "酯類 (ester)"], "explanation": "苯具有特殊的環狀共軛結構，獨立歸類為芳香族化合物。" },
+        "q2": { "question": "醇類經「氧化」(oxidation) 反應後，依反應關係圖，最終可以生成下列哪一種官能基？", "options": ["只能生成烯類", "醛基/酮基，並可再氧化為羧酸", "只能生成醚類", "生成金屬鍵化合物"], "explanation": "醇氧化可先生成醛或酮（依醇的種類而定），醛還能再進一步氧化為羧酸。" },
+        "q3": { "question": "依反應關係圖，羧酸（carboxylic acid）與醇進行「酯化」(esterification) 反應會生成？", "options": ["醚 (ether)", "酯 (ester)", "醯胺 (amide)", "烷 (alkane)"], "explanation": "羧酸與醇在酸催化下進行酯化反應，生成酯與水。" },
+        "q4": { "question": "酯（ester）經「水解」(hydrolysis) 反應，會轉變回？", "options": ["醇 (alcohol)", "羧酸 (carboxylic acid)", "烯 (alkene)", "醚 (ether)"], "explanation": "水解是酯化反應的逆反應，酯與水反應會生成羧酸與醇。" },
+        "q5": { "question": "乙炔（acetylene, C₂H₂）經「氫化」(hydrogenation) 反應後，會先生成？", "options": ["乙烷 (ethane)", "乙烯 (ethylene)", "乙醇 (ethanol)", "苯 (benzene)"], "explanation": "炔類氫化會先生成烯類（乙炔→乙烯），持續氫化才會進一步生成烷類（乙烯→乙烷）。" }
+      },
+      "chemicalReactions-beginner": {
+        "q1": { "question": "甲烷（CH₄）燃燒反應的產物是？", "options": ["CO₂ 和 H₂O", "CO 和 H₂", "C 和 O₂", "CH₃OH"], "explanation": "碳氫化合物完全燃燒的產物是二氧化碳與水。" },
+        "q2": { "question": "乙烯（ethylene）與氫氣（H₂）以 Ni 為催化劑、加熱進行氫化反應會生成？", "options": ["乙炔", "乙烷", "乙醇", "苯"], "explanation": "乙烯的碳碳雙鍵被氫化後變成單鍵，生成乙烷。" },
+        "q3": { "question": "乙烯與水（H₂O）在酸（H₃PO₄）催化、加熱條件下進行「加成」反應會生成？", "options": ["乙烷", "乙醇", "乙酸", "乙醛"], "explanation": "水加成到乙烯的碳碳雙鍵上，生成乙醇，這是工業製造乙醇的方法之一。" },
+        "q4": { "question": "甲烷燃燒反應需要哪一種反應條件？", "options": ["室溫", "加熱", "點燃 (ignition)", "紫外光"], "explanation": "燃燒反應需要點燃才能啟動，之後會持續放熱進行。" },
+        "q5": { "question": "乙炔氫化為乙烯的反應使用哪一種催化劑？", "options": ["Ni", "Pd/CaCO₃ (Lindlar 催化劑)", "H₃PO₄", "不需要催化劑"], "explanation": "Lindlar 催化劑能讓氫化反應停在烯類階段，避免繼續氫化成烷類。" }
+      },
+      "chemicalReactions-advanced": {
+        "q1": { "question": "乙醇氧化為乙醛的反應中，使用的氧化劑是？", "options": ["K₂Cr₂O₇ / H⁺", "KMnO₄ / H⁺", "H₂SO₄", "Ni"], "explanation": "這個反應以重鉻酸鉀（K₂Cr₂O₇）在酸性條件下作為氧化劑。" },
+        "q2": { "question": "乙醛進一步氧化為乙酸時，使用的氧化劑是？", "options": ["K₂Cr₂O₇ / H⁺", "KMnO₄ / H⁺", "H₃PO₄", "Pd/CaCO₃"], "explanation": "這一步以高錳酸鉀（KMnO₄）在酸性條件下作為氧化劑，將醛完全氧化為羧酸。" },
+        "q3": { "question": "兩分子甲醇在濃硫酸、加熱條件下進行「縮合」反應，生成的產物是？", "options": ["二甲醚與水", "乙醇與水", "乙酸甲酯與水", "乙烷與水"], "explanation": "兩個甲醇分子縮合脫水，生成二甲醚（一種醚類）與水。" },
+        "q4": { "question": "乙酸與甲醇進行酯化反應生成乙酸甲酯，其「逆反應」是？", "options": ["加成反應", "水解反應 (hydrolysis)", "氧化反應", "取代反應"], "explanation": "酯化與水解互為逆反應：酯化生成酯與水，水解則讓酯與水反應回羧酸與醇。" },
+        "q5": { "question": "甲烷與氯氣（Cl₂）在紫外光條件下進行取代反應，產物是？", "options": ["氯乙烷與 HCl", "氯甲烷與 HCl", "二氯甲烷與 H₂", "甲醇與 Cl₂"], "explanation": "紫外光提供能量使 Cl₂ 均裂產生自由基，取代甲烷上的一個氫，生成氯甲烷與 HCl。" }
+      },
+      "mixed-intermediate": {
+        "q1": { "question": "下列哪個元素的電負度最高？", "options": ["氟 (F)", "碳 (C)", "氫 (H)", "鈉 (Na)"], "explanation": "氟的電負度約為 3.98，是目前已知電負度最高的元素。" },
+        "q2": { "question": "下列哪個分子的形狀是「四面體形」(tetrahedral)？", "options": ["H₂O", "NH₃", "CH₄", "CO₂"], "explanation": "CH₄ 的碳原子以 sp³ 混成軌域對稱鍵結 4 個氫，呈四面體形；H₂O 是彎曲形，NH₃ 是三角錐形，CO₂ 是直線形。" },
+        "q3": { "question": "醇類經氧化反應後，可以生成下列哪一類官能基？", "options": ["烯基", "醛基/酮基 (carbonyl)", "炔基", "芳香基"], "explanation": "醇氧化的第一步會生成含羰基的醛或酮。" },
+        "q4": { "question": "甲烷燃燒反應的反應類型（reaction type）稱為？", "options": ["氧化 (oxidation)", "燃燒 (combustion)", "縮合 (condensation)", "取代 (substitution)"], "explanation": "燃燒本質上也是氧化反應的一種，但在 MoleculeOS 的反應分類中，燃燒被獨立列為「combustion」類型。" },
+        "q5": { "question": "週期表中，鑭系與錒系元素通常獨立排列在主表下方，因為它們的「族」(group) 欄位是？", "options": ["1", "18", "null（無固定族）", "0"], "explanation": "鑭系與錒系元素不易對應到主表的 1–18 族欄位，因此以 group=null 表示，並依慣例獨立成兩列呈現。" }
+      }
     }
   }
 }

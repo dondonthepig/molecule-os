@@ -16,7 +16,9 @@
 
 **Phase 2 — Periodic Table (`/periodic-table`): COMPLETE.** All 118 elements with real atomic mass, electron configuration, category/period/group, electronegativity, and oxidation states; searchable/filterable grid + detail overlay with cross-links to Molecule Library/Bond Explorer. See `PHASE_PROGRESS.md` §17 for the full write-up.
 
-**Phase 2 — remaining features (AI Tutor, Quiz Center, Settings): NOT STARTED.** Do not begin without explicit user instruction. The established data-layer/component pattern (`src/lib/chemistry/*.ts` + `src/components/chemistry/*`) is the template to follow for future features of this kind.
+**Phase 2 — Quiz Center (`/quiz`): COMPLETE.** 14 quizzes (70 questions) across 8 categories (Elements, Atomic Structure, Chemical Bonds, Molecular Structure, Functional Groups, Organic Chemistry, Chemical Reactions, Mixed) × 3 difficulties, every question grounded in existing chemistry data (`periodic-table.ts`, `molecules.ts`, `bond-types.ts`, `molecule-library-data.ts`, `functional-groups.ts`, `organic-chemistry.ts`, `organic-reactions.ts`, `reactions.ts`) — no invented facts, no AI-generated questions. See `PHASE_PROGRESS.md` §19 for the full write-up.
+
+**Phase 2 — remaining features (AI Tutor, Settings): NOT STARTED.** Do not begin without explicit user instruction. The established data-layer/component pattern (`src/lib/chemistry/*.ts` + `src/components/chemistry/*`) is the template to follow for future features of this kind.
 
 **Visual redesign (MoleculeOS "deep black to ice blue" system): COMPLETE.** Replaced the blue/cyan/purple accent system with a navy/blue/ice palette across the entire app. See "Visual design system" section below and `PHASE_PROGRESS.md` for the full rationale and verification log.
 
@@ -42,6 +44,7 @@
 - Cross-feature navigation (e.g. "explore this molecule's bonds" → Bond Explorer, "view in library" → Molecule Library) is done via a query param (`?bondType=`, `?molecule=`) read through a small `useSearchParams()` wrapper component under a `Suspense` boundary in the target page — this preselects state without either feature importing the other's components, and without breaking static prerendering. Follow this exact pattern (new wrapper + prop on the existing workspace component) for any future cross-feature deep link — don't add `useSearchParams` directly to a workspace component itself.
 - `molecule-library-data.ts`'s `MoleculeCategory` union is the canonical category list shared by Molecule Library's filters and Organic Chemistry's category map — extend it in place (as done for `ether`/`amide`) rather than creating a parallel category system.
 - Organic Chemistry's `organic-chemistry.ts` cross-references `functional-groups.ts` and `molecule-library-data.ts` by id rather than redefining functional-group or molecule data; its own dictionary content covers only category-level structure/property/reaction prose that doesn't exist elsewhere.
+- Quiz Center's `quiz-center-data.ts` holds only quiz set metadata (category, difficulty, question ids + correct-answer indices) — same "id + correctIndex only" pattern as `quiz-data.ts` — while every question/option/explanation string lives in `dict.quizCenter.questions[setId][questionId]`. Its questions are written from facts already established in the other chemistry data files (never invented), and it deliberately does not persist scores/progress anywhere (each session is ephemeral React state) — that's reserved for a future learning-progress feature, not part of this system.
 
 ## Visual design system
 

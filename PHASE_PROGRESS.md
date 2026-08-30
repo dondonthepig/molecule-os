@@ -370,6 +370,10 @@ No direction has been chosen yet; this is analysis only, to inform a future deci
 - **Architecture impact**: none, unless real bugs are found that require layout changes.
 - **Priority read**: cheap insurance with a real (if probably small) chance of catching an actual defect — good candidate to slot in whenever a working resize/device-testing method is available, independent of which new feature ships next.
 
+### 2. Quiz Center (`/quiz`) — STARTED, see §19
+
+Completed as the first Phase 2 roadmap item selected after this analysis. See §19 for the full write-up.
+
 ### 6. Automated testing
 - **User value**: indirect — protects against regressions in the ~6,100 lines of chemistry feature code that currently has zero test coverage, all of it hand-verified.
 - **Dev complexity**: medium to set up from zero (no test runner installed at all — no Jest/Vitest/Playwright in `package.json`), then ongoing cost per feature to write meaningful tests.
@@ -377,3 +381,33 @@ No direction has been chosen yet; this is analysis only, to inform a future deci
 - **UX impact**: none directly.
 - **Architecture impact**: additive only (new devDependency + test files) — does not touch existing app code unless tests reveal real bugs.
 - **Priority read**: the more Phase 2 content gets built (AI Tutor especially, given it'd add server-side logic), the more this stops being optional — best introduced *before* the next architecturally-risky feature (AI Tutor or language switching) rather than after.
+
+## 19. Phase 2 — Quiz Center (`/quiz`)
+
+**Status: COMPLETE.** Replaces the `ComingSoon` placeholder with a full practice system — not a quiz per se but a *center*: browse by category/difficulty, take a quiz with immediate feedback, see a results summary. Selected as the first roadmap item from §18 for its low architectural risk and direct reuse of the existing chemistry data layer.
+
+### Architecture
+
+- **Data** (`src/lib/chemistry/quiz-center-data.ts`): `QuizCategoryId` (8 values: elements, atomicStructure, chemicalBonds, molecularStructure, functionalGroups, organicChemistry, chemicalReactions, mixed) × `QuizDifficulty` (beginner/intermediate/advanced). 14 `QuizSetSpec` entries, each holding only `{ categoryId, difficulty, questions: { id, correctIndex }[] }` — the same "id + correctIndex only" pattern as Bond Explorer's `quiz-data.ts`. `estimateMinutes()` derives the card's time estimate from question count and difficulty rather than a hand-picked number.
+- **Content is not invented**: all 70 questions (5 per set) are written directly from facts already established in `periodic-table.ts` (symbols, atomic numbers, electron configuration, categories, oxidation states), `molecules.ts`/`bond-types.ts` (bond types, real Pauling electronegativity values feeding `classifyElectronegativityDifference`), `molecule-library-data.ts` (molecular geometry, polarity), `functional-groups.ts`, and `reactions.ts`/`organic-reactions.ts` (real catalysts, oxidants, reaction conditions, and the category-to-category reaction graph). No AI-generated questions in this phase, per instruction — the data shape (question text lives in the dictionary, referenced by id) is deliberately set up so a future generation step could add new question ids without restructuring anything.
+- **All display text** — set titles/descriptions, category/difficulty labels, question/option/explanation copy, hero/filter/session/results UI strings — lives in `dict.quizCenter.*` in both `zh-TW.json` and `en.json` (full parity, verified by `en satisfies Dictionary`). `dict.pages.quiz.description` was also corrected — the old copy promised drag-and-drop, flash cards, memory match, and a leaderboard, none of which exist; it now describes what's actually built.
+- **Components** (`src/components/chemistry/quiz-center-*.tsx`): `QuizCenterWorkspace` (root, a 3-state view machine: `browse` → `active` → `results`, no routing involved), `QuizCenterHero`, `QuizCenterSearch`, `QuizCenterFilters` (category multi-select + difficulty single-select, same interaction pattern as Periodic Table's filters), `QuizCenterCard`, `QuizCenterSession` (question flow: progress bar, options, check/reveal/next, keyboard support), `QuizCenterResults` (score, percentage, correct/incorrect counts, a performance-tier message, retry/back), `QuizCenterSearchParamsWithSuspense`-equivalent `QuizCenterWithSearchParams` (`?quiz=<setId>` deep link, same `Suspense`-wrapper pattern as every other feature).
+- **Session state is ephemeral by design**: score/progress live only in the session component's React state and are discarded on exit or retry. No `localStorage`, no persistence — that's explicitly out of scope for this phase (reserved for the future Learning Progress feature per §18's roadmap analysis).
+- **Accessibility**: every interactive control has a `focus-visible` ring; answer options use `role="radiogroup"`/`role="radio"` with `aria-checked`; the exit-confirmation panel uses `role="alertdialog"`/`aria-modal`; keyboard support inside a session — digit keys `1`–`4` select an option, `Enter` checks the answer or advances, `Escape` opens/closes the exit-confirm panel — instead of requiring mouse-only interaction.
+- **Reduced motion**: `QuizCenterSession` reads `usePrefersReducedMotion()` and drops the question slide-transition and the progress-bar width transition when set, following the same rule as every other animated component in the app.
+- **Responsive**: single-column stacking below `lg` (filters move above the card grid, same breakpoint convention as Molecule Library/Periodic Table); card grid is `grid-cols-1 sm:grid-cols-2 xl:grid-cols-3`; the active-session and results views are constrained to a `max-w-2xl` column so question text and options stay readable at every width without a separate mobile layout.
+
+### Verification results (this session)
+
+- `npm run lint` — pass, no warnings.
+- `npx tsc --noEmit` — pass (includes the `en satisfies Dictionary` parity check across all 70 new questions × options × explanations, in both locales).
+- `npm run build` — pass, all 10 routes compile and prerender as static content, including `/quiz`.
+- Live-checked against the running dev server (not just the static build): `/quiz` returns `200` and server-renders both the hero heading and the first quiz card's title; all other 8 existing routes (`/`, `/bond-explorer`, `/molecule-library`, `/organic-chemistry`, `/reaction-atlas`, `/periodic-table`, `/ai-tutor`, `/settings`) re-checked and still return `200` — confirms this phase did not regress any previously completed feature.
+- Not verified this session: interactive click-through of a full quiz session in a real browser, and mobile/tablet viewport testing (same tooling limitation noted throughout this document — see the "Known gaps" note in `CLAUDE.md`).
+
+### Known limitations
+
+- Content coverage is intentionally an initial set, not exhaustive: 14 quizzes across 8 categories, with Beginner represented in 6, Intermediate in 5, and Advanced in 3 — not a full 8×3 matrix. The architecture (`QUIZ_SETS` is a flat array) supports adding more sets/questions later without any restructuring.
+- No score/progress persistence (by design — see "Session state is ephemeral" above).
+- No AI-generated or adaptive questions (explicitly out of scope for this phase per instruction).
+- Not yet linked *to* from other features (e.g. Periodic Table's element detail or Bond Explorer could eventually deep-link into a relevant quiz via `?quiz=`) — the `?quiz=` param exists and works, but no other page links into it yet. Left out to keep this phase's diff scoped to Quiz Center only.
