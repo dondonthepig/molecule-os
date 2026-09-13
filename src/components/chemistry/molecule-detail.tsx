@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, RotateCcw, Play, Pause, Tags, Boxes, ArrowUpRight } from "lucide-react";
 import { dict } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { useSettings } from "@/hooks/use-settings";
 import { getMolecule } from "@/lib/chemistry/molecules";
 import { getLibraryEntry, getAtomCount } from "@/lib/chemistry/molecule-library-data";
 import { getReactionsForMolecule } from "@/lib/chemistry/reactions";
@@ -38,8 +39,9 @@ export function MoleculeDetail({
   const atomCount = getAtomCount(moleculeId);
   const d = dict.moleculeLibrary.detail;
   const vc = dict.moleculeLibrary.viewerControls;
+  const { settings } = useSettings();
 
-  const [renderMode, setRenderMode] = React.useState<MoleculeRenderMode>("ballAndStick");
+  const [renderMode, setRenderMode] = React.useState<MoleculeRenderMode>(settings.defaultVisualization);
   const [showLabels, setShowLabels] = React.useState(true);
   const [showBonds, setShowBonds] = React.useState(true);
   const [autoRotate, setAutoRotate] = React.useState(true);

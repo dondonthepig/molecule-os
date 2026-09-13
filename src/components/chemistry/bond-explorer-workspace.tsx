@@ -13,8 +13,10 @@ import { BondPolarityPanel } from "./bond-polarity-panel";
 import { MoleculeExample } from "./molecule-example";
 import { BondQuiz } from "./bond-quiz";
 import { LearningModeToggle, type LearningMode } from "./learning-mode-toggle";
+import { useSettings } from "@/hooks/use-settings";
 
 export function BondExplorerWorkspace({ initialBondTypeId }: { initialBondTypeId?: BondTypeId } = {}) {
+  const { settings } = useSettings();
   const startingBondTypeId = initialBondTypeId ?? "ionic";
   const [bondTypeId, setBondTypeId] = React.useState<BondTypeId>(startingBondTypeId);
   const [moleculeId, setMoleculeId] = React.useState(BOND_TYPES[startingBondTypeId].defaultMoleculeId);
@@ -58,7 +60,12 @@ export function BondExplorerWorkspace({ initialBondTypeId }: { initialBondTypeId
             <p className="mb-2 text-xs font-semibold text-brand-cyan">{sections.visualization}</p>
             <div className="glass relative overflow-hidden rounded-3xl border-border/60">
               <div className="h-[340px] w-full sm:h-[400px] lg:h-[440px]">
-                <BondVisualization molecule={molecule} replayToken={replayToken} viewResetToken={viewResetToken} />
+                <BondVisualization
+                  molecule={molecule}
+                  replayToken={replayToken}
+                  viewResetToken={viewResetToken}
+                  renderMode={settings.defaultVisualization}
+                />
               </div>
               <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border/60 px-5 py-3">
                 <div className="flex items-center gap-2 text-[11px] text-muted-foreground">

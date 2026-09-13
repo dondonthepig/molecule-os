@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Sparkles } from "lucide-react";
-import { ComingSoon } from "@/components/coming-soon";
+import { Suspense } from "react";
+import { AiTutorWorkspace } from "@/components/chemistry/ai-tutor-workspace";
+import { AiTutorWithSearchParams } from "@/components/chemistry/ai-tutor-search-params";
 import { dict } from "@/lib/i18n";
 
-export const metadata: Metadata = { title: dict.pages.aiTutor.title };
+export const metadata: Metadata = {
+  title: dict.pages.aiTutor.title,
+  description: dict.pages.aiTutor.description,
+};
 
 export default function AiTutorPage() {
   return (
-    <ComingSoon
-      icon={Sparkles}
-      title={dict.pages.aiTutor.title}
-      description={dict.pages.aiTutor.description}
-    />
+    <Suspense fallback={<AiTutorWorkspace />}>
+      <AiTutorWithSearchParams />
+    </Suspense>
   );
 }

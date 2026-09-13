@@ -222,7 +222,7 @@
     },
     "aiTutor": {
       "title": "AI 化學助教",
-      "description": "以對話形式解說反應與反應機構、提供提問建議，並依你的程度產生專屬測驗，即將推出。"
+      "description": "以化學鍵、分子資料庫、有機化學、反應圖譜與元素週期表的既有資料為基礎，提供學習模式選擇、建議提問與延伸探索連結的對話式助教（原型模式）。"
     },
     "quiz": {
       "title": "化學測驗中心",
@@ -230,7 +230,7 @@
     },
     "settings": {
       "title": "設定",
-      "description": "外觀、無障礙與帳號偏好設定——導覽列中的深色模式切換功能已經可以使用。"
+      "description": "外觀、學習偏好與化學顯示設定，僅儲存在本機瀏覽器中，可隨時重設為預設值。"
     }
   },
   "bondExplorer": {
@@ -1321,6 +1321,228 @@
         "q4": { "question": "甲烷燃燒反應的反應類型（reaction type）稱為？", "options": ["氧化 (oxidation)", "燃燒 (combustion)", "縮合 (condensation)", "取代 (substitution)"], "explanation": "燃燒本質上也是氧化反應的一種，但在 MoleculeOS 的反應分類中，燃燒被獨立列為「combustion」類型。" },
         "q5": { "question": "週期表中，鑭系與錒系元素通常獨立排列在主表下方，因為它們的「族」(group) 欄位是？", "options": ["1", "18", "null（無固定族）", "0"], "explanation": "鑭系與錒系元素不易對應到主表的 1–18 族欄位，因此以 group=null 表示，並依慣例獨立成兩列呈現。" }
       }
+    }
+  },
+  "aiTutor": {
+    "pageTitle": "AI 化學助教",
+    "pageSubtitle": "以化學鍵、分子資料庫、有機化學、反應圖譜與元素週期表的既有資料為基礎，提供有依據的講解與提問引導。",
+    "prototypeBadge": "原型模式",
+    "prototypeNotice": "目前為原型模式（Prototype）：回答由內建的化學知識庫比對產生，尚未連接真正的大型語言模型。",
+    "modesLabel": "學習模式",
+    "modes": {
+      "explain": { "label": "概念講解", "description": "完整說明一個化學概念的原理與關鍵字。" },
+      "solve": { "label": "解題引導", "description": "逐步拆解計算或反應機構類題目的解法。" },
+      "socratic": { "label": "蘇格拉底提問", "description": "用一連串引導性問題，讓你自己推導出答案。" },
+      "examPrep": { "label": "考前衝刺", "description": "把主題轉換成練習題與重點整理，用於複習。" },
+      "reviewMistakes": { "label": "錯題檢討", "description": "請你先說出自己的想法，再對照正確觀念。" },
+      "terminology": { "label": "化學術語", "description": "查詢專有名詞的精確定義。" }
+    },
+    "topicsLabel": "主題篩選",
+    "topics": {
+      "all": "全部主題",
+      "bonding": "化學鍵結",
+      "geometry": "分子幾何",
+      "periodicTrends": "週期趨勢",
+      "organic": "有機化學",
+      "reactions": "化學反應"
+    },
+    "difficultyLabel": "程度",
+    "difficulty": {
+      "beginner": "初學",
+      "intermediate": "中階",
+      "advanced": "進階"
+    },
+    "composer": {
+      "placeholder": "輸入你的化學問題……",
+      "send": "送出",
+      "clear": "清空對話",
+      "disclaimer": "AI 化學助教目前為示範原型，答案基於既有資料庫比對，請仍以課本與老師的說明為準。"
+    },
+    "suggestedPromptsLabel": "建議提問",
+    "suggestedPrompts": [
+      { "id": "p1", "text": "為什麼 H2O 是彎曲形（bent shape）？" },
+      { "id": "p2", "text": "要怎麼判斷一個分子是不是極性分子？" },
+      { "id": "p3", "text": "離子鍵和共價鍵有什麼不同？" },
+      { "id": "p4", "text": "電負度在週期表上有什麼趨勢？" },
+      { "id": "p5", "text": "醇類可以發生哪些反應？" },
+      { "id": "p6", "text": "酯化反應是怎麼發生的？" },
+      { "id": "p7", "text": "為什麼水的沸點比想像中高？" },
+      { "id": "p8", "text": "苯為什麼要獨立歸類成芳香族？" }
+    ],
+    "emptyState": {
+      "title": "從一個問題開始",
+      "description": "選擇下方的學習模式與主題，或直接點選建議提問，AI 化學助教會引導你一步步理解。"
+    },
+    "messages": {
+      "userLabel": "你",
+      "assistantLabel": "AI 化學助教",
+      "thinking": "正在比對化學知識庫……"
+    },
+    "relatedResourcesLabel": "延伸探索",
+    "fallback": {
+      "title": "這個問題還不在知識庫範圍內",
+      "intro": "目前的原型知識庫還沒有涵蓋這個問題，不過你可以先參考下面的資源，或換個問法試試看。",
+      "hint": "試著直接點選下方的建議提問，或用分子形狀、鍵結類型、官能基、化學反應等關鍵字重新提問。"
+    },
+    "solveNoStepsNote": "這個概念沒有明確的計算步驟，以下是完整的說明：",
+    "socraticIntro": "在往下看解答之前，先想想這幾個問題：",
+    "revealAnswer": "顯示完整解答",
+    "examPrepIntro": "考前衝刺模式：試著先自己回答下面這個問題，再往下看重點整理。",
+    "keyPointsLabel": "重點整理",
+    "reviewPrompt": "錯題檢討模式：請先說說看你原本的想法或答案是什麼，再對照下面的正確觀念，找出差異在哪裡。",
+    "correctConceptLabel": "正確觀念",
+    "glossaryLabel": "常用化學術語",
+    "glossary": {
+      "electronegativity": { "term": "電負度 (Electronegativity)", "definition": "原子在化學鍵結中吸引共用電子對的能力，數值越大代表吸引力越強，常以 Pauling 標度表示。" },
+      "vsepr": { "term": "價殼層電子對排斥理論 (VSEPR)", "definition": "利用中心原子周圍電子domain之間的排斥力，預測分子的立體形狀。" },
+      "lonePair": { "term": "孤對電子 (Lone Pair)", "definition": "未參與鍵結、單獨留在中心原子上的價電子對，對分子形狀的影響通常大於鍵結電子對。" },
+      "polarCovalentBond": { "term": "極性共價鍵 (Polar Covalent Bond)", "definition": "兩原子電負度不同，共用電子對偏向其中一方，形成部分正負電荷（以 δ+ / δ- 表示）。" },
+      "functionalGroup": { "term": "官能基 (Functional Group)", "definition": "分子中決定其主要化學性質的特定原子團，例如 -OH（羥基）、-COOH（羧基）。" },
+      "delocalizedElectron": { "term": "離域電子 (Delocalized Electron)", "definition": "不屬於單一原子或單一鍵、能在多個原子間自由分佈的電子，常見於金屬鍵與苯環的共軛結構。" },
+      "hydrogenBond": { "term": "氫鍵 (Hydrogen Bond)", "definition": "氫與電負度高、半徑小的原子（O、N、F）之間形成的較強分子間作用力。" },
+      "hydrolysis": { "term": "水解反應 (Hydrolysis)", "definition": "酯與水反應生成羧酸與醇的反應，是酯化反應的逆反應。" }
+    },
+    "knowledgeBase": {
+      "waterBentShape": {
+        "title": "為什麼 H₂O 是彎曲形（bent shape）？",
+        "keywords": ["h2o", "水", "彎曲", "bent", "vsepr", "分子形狀", "分子幾何", "孤對電子", "lone pair"],
+        "explain": "水分子中心的氧原子有 4 組電子domain：2 對鍵結電子（分別與 2 個氫）與 2 對孤對電子。依 VSEPR（價殼層電子對排斥理論），4 組電子domain會盡量互相遠離，形成四面體排列；但分子形狀只看『原子』的相對位置，而孤對電子的排斥力又比鍵結電子對更強，把 O–H 鍵角從理想的 109.5° 壓縮到約 104.5°，因此 H₂O 呈現彎曲形（bent / angular），而不是直線形。",
+        "socratic": ["中心氧原子總共有幾組電子domain（鍵結加孤對）？", "如果沒有孤對電子，4 組電子domain會排成什麼形狀？", "孤對電子與鍵結電子對之間的排斥力，哪一種比較強？這會如何改變鍵角？"],
+        "hint": "先數一數氧原子周圍有幾對『鍵結』電子和幾對『孤對』電子。"
+      },
+      "polarityCheck": {
+        "title": "要怎麼判斷一個分子是不是極性分子？",
+        "keywords": ["極性", "polar", "非極性", "nonpolar", "電負度差", "dipole", "偶極矩"],
+        "explain": "判斷分兩步：第一，看『鍵』的極性——兩原子電負度差越大，鍵的極性越強。第二，看『分子形狀』是否對稱——即使分子中每個鍵都是極性鍵，如果幾何形狀讓各鍵的偶極矩方向互相抵銷（例如直線形的 CO₂），整個分子仍可能是非極性；反之像彎曲形的 H₂O，鍵的偶極矩無法互相抵銷，就是極性分子。",
+        "socratic": ["這個分子裡的每個鍵，兩端原子的電負度差大不大？", "這個分子的幾何形狀對稱嗎？各鍵的偶極矩方向會不會剛好互相抵銷？"],
+        "hint": "光看『有沒有極性鍵』還不夠，還要看分子形狀對不對稱。"
+      },
+      "ionicVsCovalent": {
+        "title": "離子鍵和共價鍵有什麼不同？",
+        "keywords": ["離子鍵", "共價鍵", "ionic", "covalent", "電子轉移", "共用電子對", "nacl"],
+        "explain": "離子鍵發生在電負度差異很大的原子之間（通常是金屬與非金屬），電子被『完全轉移』，形成正負離子後靠靜電力吸引在一起，例如 NaCl。共價鍵則發生在非金屬之間，原子『共用』一對或多對電子，例如 H₂ 或 CH₄。簡單判斷：電負度差越大，鍵結越偏離子性；差異很小或為零，則偏共價性。",
+        "socratic": ["這兩個原子分別是金屬還是非金屬？", "它們的電負度差異大概有多大？", "電子是被『轉移』還是『共用』？"],
+        "hint": "先看兩個原子是金屬還是非金屬，再看電負度差。"
+      },
+      "electronegativityTrend": {
+        "title": "電負度在週期表上有什麼趨勢？",
+        "keywords": ["電負度", "electronegativity", "週期表", "趨勢", "trend"],
+        "explain": "電負度描述原子在鍵結中『吸引共用電子對』的能力。在週期表中，電負度大致隨『族』往上增加，隨『週期』往右增加，因此氟（F）是電負度最高的元素，鹼金屬（如 Na、K）則偏低。電負度差越大，兩原子間的鍵越偏向離子性；差異小則偏共價性。",
+        "socratic": ["電負度在週期表上，從左到右、從下到上，大致是變大還是變小？", "電負度最高和最低的元素分別大概在週期表的哪個位置？"],
+        "hint": "記住『右上角電負度最高（惰性氣體除外）』這個大方向。"
+      },
+      "hydrogenBondingWater": {
+        "title": "為什麼水的沸點比想像中高？",
+        "keywords": ["氫鍵", "hydrogen bond", "沸點", "boiling point", "水", "h2o", "冰"],
+        "explain": "氫鍵是一種較強的分子間作用力，發生在氫原子與電負度很高、半徑小的原子（如 O、N、F）之間：氫與這些原子形成極性共價鍵後，帶部分正電的氫會被鄰近分子上帶部分負電的孤對電子吸引。水分子之間能形成大量氫鍵，這讓水的沸點遠高於預期，也讓固態的冰因氫鍵形成的開放晶格而密度低於液態水，冰塊才會浮在水面上。",
+        "socratic": ["氫鍵通常發生在氫和哪幾種電負度很高的原子之間？", "如果沒有氫鍵，水的沸點還會這麼高嗎？"],
+        "hint": "想想水分子上，哪個原子帶部分負電、哪個氫帶部分正電。"
+      },
+      "metallicBonding": {
+        "title": "金屬鍵是如何形成的？",
+        "keywords": ["金屬鍵", "metallic", "電子海", "delocalized", "導電", "延展性"],
+        "explain": "金屬鍵可以想像成『帶正電的金屬陽離子』浸在一片『自由流動的電子海』之中——金屬原子的價電子並不屬於特定某一個原子，而是在整個金屬晶格中自由移動。這個電子海讓金屬能導電、導熱，也讓金屬可以延展、彎曲而不斷裂。",
+        "socratic": ["金屬鍵裡的電子是屬於某一個原子，還是可以自由移動？", "為什麼這種鍵結方式能同時解釋『導電』和『延展性』這兩個性質？"],
+        "hint": "關鍵字：離域電子（delocalized electrons）、電子海。"
+      },
+      "alcoholReactions": {
+        "title": "醇類可以發生哪些反應？",
+        "keywords": ["醇", "alcohol", "羥基", "hydroxyl", "乙醇", "ethanol", "氧化", "酯化"],
+        "explain": "醇類的特徵官能基是羥基（-OH）。依 MoleculeOS 的反應關聯圖，醇可以被『氧化』成含羰基的醛或酮（醛還能再氧化成羧酸），也可以和羧酸進行『酯化』反應生成酯與水，或是兩分子醇之間『縮合』脫水生成醚。乙醇（ethanol）就是醇類最常見的代表分子。",
+        "socratic": ["醇類的官能基是什麼？", "醇氧化之後，可能會先變成哪一類官能基？"],
+        "hint": "先確認官能基 -OH 的位置，會影響氧化後的產物。"
+      },
+      "esterification": {
+        "title": "酯化反應是怎麼發生的？",
+        "keywords": ["酯化", "esterification", "羧酸", "酯", "ester", "水解", "hydrolysis"],
+        "explain": "酯化反應是羧酸與醇在酸（通常是濃硫酸）催化、加熱下發生的反應，生成酯與水；這也是一個可逆反應，逆反應（酯 + 水 → 羧酸 + 醇）稱為水解。例如乙酸與甲醇酯化會生成乙酸甲酯和水。",
+        "steps": ["確認反應物：一個羧酸（-COOH）與一個醇（-OH）。", "在酸（如濃硫酸）催化、加熱條件下，羧酸的 -OH 與醇的 H 脫去一分子水。", "生成物為『酯』與『水』；反應可逆，逆反應即為水解。"],
+        "socratic": ["酯化反應需要哪兩種官能基當反應物？", "這個反應需要什麼催化劑和條件？它的逆反應叫什麼名字？"],
+        "hint": "口訣：酸 + 醇 → 酯 + 水，逆反應是水解。"
+      },
+      "combustionMethane": {
+        "title": "甲烷燃燒反應的方程式怎麼寫？",
+        "keywords": ["甲烷", "methane", "燃燒", "combustion", "ch4", "配平"],
+        "explain": "甲烷（CH₄）在充足氧氣下完全燃燒，生成二氧化碳與水，同時釋放大量熱能：CH₄ + 2O₂ → CO₂ + 2H₂O。這是天然氣作為燃料的化學基礎，反應需要點燃才能啟動，之後會持續放熱進行。",
+        "steps": ["寫出反應物：CH₄ 與 O₂。", "確認完全燃燒的產物是 CO₂ 與 H₂O。", "配平原子數：CH₄ + 2O₂ → CO₂ + 2H₂O。"],
+        "socratic": ["碳氫化合物完全燃燒的兩個產物是什麼？", "配平這個方程式時，先平衡哪個元素比較容易？"],
+        "hint": "先配平碳、再配平氫，最後配平氧。"
+      },
+      "aromaticBenzene": {
+        "title": "苯為什麼要獨立歸類成芳香族？",
+        "keywords": ["苯", "benzene", "芳香族", "aromatic", "離域", "共軛"],
+        "explain": "苯（benzene, C₆H₆）具有六個碳排成環狀、且電子在整個環上『離域』（delocalized）的特殊共軛結構，這種穩定性讓它的化學性質和一般烯類不同，因此在 MoleculeOS 的有機分類中被獨立歸為『芳香族化合物』，不歸在烯類。",
+        "socratic": ["苯環上的電子是集中在某幾個特定的鍵，還是分散在整個環上？", "這種結構為什麼會讓苯特別穩定？"],
+        "hint": "關鍵字：離域電子、共軛環、芳香性。"
+      },
+      "additionHydrogenation": {
+        "title": "氫化反應（加成反應）是怎麼進行的？",
+        "keywords": ["氫化", "hydrogenation", "加成", "addition", "乙烯", "ethylene", "乙炔", "acetylene", "催化劑"],
+        "explain": "氫化反應是一種加成反應：氫氣（H₂）在金屬催化劑（如 Ni）作用下，加成到碳碳雙鍵或三鍵上，把不飽和鍵變成單鍵。例如乙烯（ethylene）氫化會生成乙烷（ethane）；如果是三鍵（乙炔），則會用特殊的 Lindlar 催化劑（Pd/CaCO₃）讓反應停在烯類階段，避免一路氫化成烷類。",
+        "steps": ["確認起始分子含有碳碳雙鍵或三鍵（不飽和）。", "選擇合適的催化劑：一般氫化用 Ni；若要讓炔停在烯類階段，用 Lindlar 催化劑。", "H₂ 加成到雙鍵／三鍵上，鍵結數減少、氫原子數增加。"],
+        "socratic": ["氫化反應需要哪一種催化劑？", "如果起始物是三鍵（炔類），要怎麼讓反應『停在』烯類，而不是一路變成烷類？"],
+        "hint": "普通催化劑一路氫化到烷類；Lindlar 催化劑會讓反應停在烯類。"
+      },
+      "amideAmine": {
+        "title": "胺類和醯胺類有什麼不同？",
+        "keywords": ["胺", "amine", "醯胺", "amide", "氨基", "amino"],
+        "explain": "胺類的官能基是氨基（-NH₂ 或其衍生形式），可以想像成氨（NH₃）的一個或多個氫被碳鏈取代。醯胺（amide）則是羧酸與氨（或胺）反應後的產物，含有醯胺基，例如乙酸與氨反應生成乙醯胺（acetamide）。醯胺鍵也是蛋白質中胺基酸之間連結的鍵結方式。",
+        "socratic": ["胺基和醯胺基這兩個官能基，分別是由哪些原子組成？", "醯胺是由哪兩種官能基／分子反應生成的？"],
+        "hint": "醯胺 = 羧酸 + 氨（或胺）反應後的產物。"
+      }
+    }
+  },
+  "settings": {
+    "pageTitle": "設定",
+    "pageSubtitle": "外觀、學習與化學顯示偏好——所有設定僅儲存在本機瀏覽器中。",
+    "sections": {
+      "appearance": { "title": "外觀", "description": "調整介面主題與動態效果。" },
+      "learning": { "title": "學習偏好", "description": "設定 AI 化學助教的預設難度、模式與提示方式。" },
+      "chemistry": { "title": "化學顯示偏好", "description": "調整分子資訊在 AI 化學助教與視覺化中的顯示方式。" },
+      "application": { "title": "應用程式", "description": "語言與版本資訊。" },
+      "dataPrivacy": { "title": "資料與隱私", "description": "管理儲存在本機的偏好設定。" }
+    },
+    "appearance": {
+      "themeLabel": "主題",
+      "themeDark": "深色",
+      "themeLight": "淺色",
+      "motionLabel": "動態效果",
+      "motionAuto": "跟隨系統",
+      "motionReduced": "減少動態",
+      "motionDescription": "「減少動態」會關閉頁面中的裝飾性動畫，效果等同瀏覽器的無障礙減少動態設定。"
+    },
+    "learning": {
+      "difficultyLabel": "預設難度",
+      "defaultModeLabel": "預設學習模式",
+      "showExplanationsLabel": "顯示完整說明",
+      "showExplanationsDescription": "關閉後，AI 化學助教只會顯示精簡的重點，而不是完整段落。",
+      "showHintsLabel": "先提示、後解答",
+      "showHintsDescription": "開啟後，AI 化學助教會先給提示，答案收合在「顯示完整解答」裡，讓你先想過一遍。"
+    },
+    "chemistry": {
+      "notationLabel": "偏好表示法",
+      "notationFormula": "分子式",
+      "notationStructural": "結構式描述",
+      "showFormulasLabel": "顯示分子式",
+      "showNamesLabel": "顯示中英文名稱",
+      "defaultVisualizationLabel": "預設 3D 顯示模式",
+      "scopeNote": "以上偏好會套用於 AI 化學助教引用分子時的顯示方式，以及化學鍵探索／分子資料庫的預設 3D 模式。"
+    },
+    "application": {
+      "languageLabel": "語言",
+      "languageValue": "繁體中文（台灣）",
+      "languageNote": "英文介面的內容已經準備好，但尚未開放切換。",
+      "aboutTitle": "關於 MoleculeOS",
+      "aboutDescription": "互動式化學學習平台，涵蓋化學鍵、分子資料庫、有機化學、反應圖譜、元素週期表與測驗中心。",
+      "versionLabel": "版本"
+    },
+    "dataPrivacy": {
+      "localOnlyTitle": "僅儲存在本機",
+      "localOnlyDescription": "目前沒有帳號系統，所有偏好設定僅儲存在這個瀏覽器的 local storage，換裝置或清除瀏覽資料後會遺失，不會同步到雲端，AI 化學助教的對話內容也不會被儲存。",
+      "resetLabel": "重設所有偏好設定",
+      "resetDescription": "將以上所有設定復原為預設值。",
+      "resetButton": "重設為預設值",
+      "resetConfirmed": "已重設為預設值"
     }
   }
 }
