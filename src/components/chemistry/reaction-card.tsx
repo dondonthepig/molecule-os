@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 import type { Reaction } from "@/lib/chemistry/reactions";
 import { ReactionEquation } from "./reaction-equation";
 
-const DIFFICULTY_STYLE: Record<Reaction["difficulty"], string> = {
-  beginner: "border-brand-cyan/40 bg-brand-cyan/10 text-brand-cyan",
-  intermediate: "border-brand-blue/40 bg-brand-blue/10 text-brand-blue",
-  advanced: "border-brand-purple/40 bg-brand-purple/10 text-brand-purple",
+const DIFFICULTY_DOT: Record<Reaction["difficulty"], string> = {
+  beginner: "bg-brand-cyan",
+  intermediate: "bg-brand-blue",
+  advanced: "bg-brand-purple",
 };
 
 export function ReactionCard({ reaction, onSelect }: { reaction: Reaction; onSelect: () => void }) {
@@ -18,23 +18,20 @@ export function ReactionCard({ reaction, onSelect }: { reaction: Reaction; onSel
     <button
       type="button"
       onClick={onSelect}
-      className="glass-subtle group flex flex-col gap-3 rounded-2xl border-border/60 p-5 text-left transition-colors hover:bg-muted/20"
+      className="group flex flex-col gap-2.5 rounded-lg border border-border/30 p-4 text-left transition-colors hover:border-border/60 hover:bg-muted/10"
     >
-      <div className="flex flex-wrap items-center gap-1.5">
-        <span className="rounded-full border border-border/60 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
-          {dict.organicChemistry.reactionTypes[reaction.reactionTypeId]}
-        </span>
-        <span
-          className={cn(
-            "rounded-full border px-2.5 py-0.5 text-[11px] font-medium",
-            DIFFICULTY_STYLE[reaction.difficulty],
-          )}
-        >
+      <p className="flex items-center gap-1.5 text-[11px] font-medium tracking-wide text-muted-foreground">
+        <span>{dict.organicChemistry.reactionTypes[reaction.reactionTypeId]}</span>
+        <span className="text-border">·</span>
+        <span className="inline-flex items-center gap-1.5">
+          <span className={cn("size-1.5 rounded-full", DIFFICULTY_DOT[reaction.difficulty])} />
           {dict.reactionAtlas.difficulty[reaction.difficulty]}
         </span>
-      </div>
+      </p>
 
-      <h3 className="text-base font-medium text-foreground">{copy?.name}</h3>
+      <h3 className="text-base font-medium text-foreground transition-colors group-hover:text-brand-cyan">
+        {copy?.name}
+      </h3>
 
       <ReactionEquation reaction={reaction} size="sm" />
 

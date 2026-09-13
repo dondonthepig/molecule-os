@@ -16,6 +16,7 @@ import { ORGANIC_CATEGORY_IDS, type OrganicCategoryId } from "@/lib/chemistry/or
 import { ReactionSearch, type ReactionSearchSuggestion } from "./reaction-search";
 import { ReactionFilters, type ReactionFiltersState } from "./reaction-filters";
 import { ReactionCard } from "./reaction-card";
+import { FeaturedReactionRow } from "./featured-reaction-row";
 import { ReactionDetail } from "./reaction-detail";
 
 const FEATURED_REACTION_IDS = [
@@ -171,13 +172,13 @@ export function ReactionAtlasWorkspace({
 
         {noActiveFilters ? (
           <div className="mb-10">
-            <p className="mb-3 flex items-center gap-1.5 text-xs font-semibold text-brand-cyan">
+            <p className="mb-1 flex items-center gap-1.5 text-xs font-semibold text-brand-cyan">
               <Sparkles className="size-3.5" />
               {sections.featured}
             </p>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div>
               {FEATURED_REACTION_IDS.map((id) => (
-                <ReactionCard key={id} reaction={getReaction(id)} onSelect={() => setSelectedReactionId(id)} />
+                <FeaturedReactionRow key={id} reaction={getReaction(id)} onSelect={() => setSelectedReactionId(id)} />
               ))}
             </div>
           </div>

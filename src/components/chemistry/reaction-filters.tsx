@@ -40,9 +40,9 @@ export function ReactionFilters({
   ];
 
   return (
-    <div className={cn("glass-subtle rounded-2xl border-border/60 p-5", className)}>
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-foreground">{f.title}</h3>
+    <div className={cn("flex flex-col", className)}>
+      <div className="flex items-center justify-between pb-4">
+        <h3 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{f.title}</h3>
         <button
           type="button"
           onClick={onClearAll}
@@ -52,9 +52,9 @@ export function ReactionFilters({
         </button>
       </div>
 
-      <div className="mt-4">
-        <p className="text-xs font-medium text-muted-foreground">{f.typeLabel}</p>
-        <div className="mt-2 flex flex-wrap gap-1.5">
+      <div className="border-t border-border/40 py-4">
+        <p className="text-xs font-medium text-foreground">{f.typeLabel}</p>
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {typeIds.map((id) => {
             const active = state.types.has(id);
             return (
@@ -76,9 +76,9 @@ export function ReactionFilters({
         </div>
       </div>
 
-      <div className="mt-4">
-        <p className="text-xs font-medium text-muted-foreground">{f.categoryLabel}</p>
-        <div className="mt-2 flex flex-wrap gap-1.5">
+      <div className="border-t border-border/40 py-4">
+        <p className="text-xs font-medium text-foreground">{f.categoryLabel}</p>
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {categoryIds.map((id) => {
             const active = state.categories.has(id);
             return (
@@ -100,9 +100,9 @@ export function ReactionFilters({
         </div>
       </div>
 
-      <div className="mt-4">
-        <p className="text-xs font-medium text-muted-foreground">{f.difficultyLabel}</p>
-        <div className="mt-2 flex flex-wrap gap-1.5">
+      <div className="border-t border-border/40 py-4">
+        <p className="text-xs font-medium text-foreground">{f.difficultyLabel}</p>
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {difficultyOptions.map((option) => {
             const active = state.difficulty === option.id;
             return (

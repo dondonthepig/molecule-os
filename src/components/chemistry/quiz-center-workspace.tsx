@@ -126,7 +126,7 @@ export function QuizCenterWorkspace({ initialSetId }: { initialSetId?: string } 
                 <p className="text-xs text-muted-foreground">{s.noResultsHint}</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="flex flex-col">
                 {filteredSets.map((set) => (
                   <QuizCenterCard key={set.id} quizSet={set} onStart={() => setView({ mode: "active", setId: set.id })} />
                 ))}
