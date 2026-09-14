@@ -37,6 +37,13 @@ function AtomMesh({
           roughness={0.3}
         />
       </mesh>
+      {/* Thin ice-blue rim light so dark CPK colors (carbon, iron) stay
+          legible against the dark background — never recolors the atom
+          itself, just an outline shell behind its silhouette. */}
+      <mesh scale={1.12}>
+        <sphereGeometry args={[atom.radius * radiusScale, 24, 24]} />
+        <meshBasicMaterial color="#4cc9f0" transparent opacity={0.22} side={THREE.BackSide} />
+      </mesh>
       {showLabel ? (
         <Html center style={{ pointerEvents: "none" }}>
           <div className="text-[11px] font-semibold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.8)]">
@@ -93,7 +100,7 @@ function SharedElectronPair({
       {[0.17, -0.17].map((offset) => (
         <mesh key={offset} position={[offset, 0, 0]}>
           <sphereGeometry args={[0.055, 12, 12]} />
-          <meshStandardMaterial color="#91c9ed" emissive="#91c9ed" emissiveIntensity={0.9} />
+          <meshStandardMaterial color="#4cc9f0" emissive="#4cc9f0" emissiveIntensity={0.9} />
         </mesh>
       ))}
     </group>
@@ -139,7 +146,7 @@ function IonicTransferParticle({
   return (
     <mesh ref={ref}>
       <sphereGeometry args={[0.075, 14, 14]} />
-      <meshStandardMaterial color="#91c9ed" emissive="#91c9ed" emissiveIntensity={1.1} transparent opacity={1} />
+      <meshStandardMaterial color="#4cc9f0" emissive="#4cc9f0" emissiveIntensity={1.1} transparent opacity={1} />
     </mesh>
   );
 }
@@ -169,7 +176,7 @@ function IonicBondGlow({
   return (
     <mesh ref={ref} position={position} quaternion={quaternion}>
       <cylinderGeometry args={[0.025, 0.025, length, 8]} />
-      <meshStandardMaterial color="#0571cc" emissive="#0571cc" emissiveIntensity={0.6} transparent opacity={0.4} />
+      <meshStandardMaterial color="#4361ee" emissive="#4361ee" emissiveIntensity={0.6} transparent opacity={0.4} />
     </mesh>
   );
 }
@@ -199,7 +206,7 @@ function HydrogenBondLine({
   return (
     <mesh ref={ref} position={position} quaternion={quaternion}>
       <cylinderGeometry args={[0.018, 0.018, length, 6]} />
-      <meshStandardMaterial color="#91c9ed" emissive="#91c9ed" emissiveIntensity={0.5} transparent opacity={0.3} />
+      <meshStandardMaterial color="#4cc9f0" emissive="#4cc9f0" emissiveIntensity={0.5} transparent opacity={0.3} />
     </mesh>
   );
 }
@@ -230,8 +237,8 @@ function CovalentBondMesh({
     <mesh ref={ref} position={position} quaternion={quaternion}>
       <cylinderGeometry args={[highlighted ? radius * 1.3 : radius, highlighted ? radius * 1.3 : radius, length, 12]} />
       <meshStandardMaterial
-        color={highlighted ? "#91c9ed" : "#9aa0a8"}
-        emissive={highlighted ? "#91c9ed" : "#5a6472"}
+        color={highlighted ? "#4cc9f0" : "#9aa0a8"}
+        emissive={highlighted ? "#4cc9f0" : "#5a6472"}
         emissiveIntensity={highlighted ? 0.7 : 0.12}
         metalness={highlighted ? 0.15 : 0.45}
         roughness={0.35}
@@ -296,7 +303,7 @@ function ElectronSea({ atoms, reduceMotion }: { atoms: AtomSpec[]; reduceMotion:
           position={p.pos}
         >
           <sphereGeometry args={[0.045, 8, 8]} />
-          <meshStandardMaterial color="#91c9ed" emissive="#91c9ed" emissiveIntensity={1} />
+          <meshStandardMaterial color="#4cc9f0" emissive="#4cc9f0" emissiveIntensity={1} />
         </mesh>
       ))}
     </>
@@ -405,10 +412,10 @@ export function BondVisualizationScene({
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       className="!touch-none"
     >
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.6} />
       <directionalLight position={[5, 6, 5]} intensity={1.4} color="#eef4ff" />
-      <pointLight position={[-6, -2, -3]} intensity={18} color="#243b67" distance={20} />
-      <pointLight position={[5, -4, 4]} intensity={12} color="#91c9ed" distance={16} />
+      <pointLight position={[-6, -2, -3]} intensity={18} color="#2b3566" distance={20} />
+      <pointLight position={[5, -4, 4]} intensity={12} color="#4cc9f0" distance={16} />
       <MoleculeGroup
         key={`${molecule.id}-${replayToken}`}
         molecule={molecule}

@@ -20,7 +20,7 @@ const ringAtoms: MoleculeAtom[] = Array.from({ length: RING_COUNT }, (_, i) => {
       0,
     ],
     radius: 0.34,
-    color: "#0571cc",
+    color: "#4361ee",
   };
 });
 
@@ -39,7 +39,7 @@ const substituents: MoleculeAtom[] = [0, 2, 4].map((ringIndex) => {
     id: `sub-${ringIndex}`,
     position: [dir[0], dir[1], z],
     radius: 0.24,
-    color: "#91c9ed",
+    color: "#4cc9f0",
   };
 });
 
@@ -54,13 +54,13 @@ const tail: MoleculeAtom[] = [
     id: "tail-1",
     position: [substituents[0].position[0] * 1.5, substituents[0].position[1] * 1.5 + 0.4, 1.9],
     radius: 0.19,
-    color: "#243b67",
+    color: "#2b3566",
   },
   {
     id: "tail-2",
     position: [substituents[0].position[0] * 1.35, substituents[0].position[1] * 1.9 - 0.5, 2.7],
     radius: 0.15,
-    color: "#b9ddf4",
+    color: "#9be0fa",
   },
 ];
 
@@ -74,7 +74,7 @@ const accent: MoleculeAtom = {
   id: "accent-1",
   position: [-2.9, -1.6, -1.4],
   radius: 0.21,
-  color: "#2f4678",
+  color: "#37458a",
 };
 const accentBond: MoleculeBond = ["ring-3", "accent-1"];
 

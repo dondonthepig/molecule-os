@@ -22,6 +22,13 @@ function AtomMesh({ atom }: { atom: (typeof MOLECULE_ATOMS)[number] }) {
         metalness={0.2}
         roughness={0.25}
       />
+      {/* Thin ice-blue rim light: a slightly larger back-face shell reads as a
+          silhouette outline, keeping every atom legible against the dark
+          background regardless of its own fill color. */}
+      <mesh scale={1.12}>
+        <sphereGeometry args={[atom.radius, 24, 24]} />
+        <meshBasicMaterial color="#4cc9f0" transparent opacity={0.22} side={THREE.BackSide} />
+      </mesh>
     </mesh>
   );
 }
@@ -78,7 +85,7 @@ function MoleculeGroup() {
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={0.62}>
       {MOLECULE_BONDS.map(([fromId, toId]) => {
         const from = MOLECULE_ATOM_MAP.get(fromId)!;
         const to = MOLECULE_ATOM_MAP.get(toId)!;
@@ -97,14 +104,14 @@ export function HeroMoleculeScene() {
   return (
     <Canvas
       dpr={[1, 1.75]}
-      camera={{ position: [0, 0, 8.2], fov: 40 }}
+      camera={{ position: [0, 0, 8.6], fov: 48 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       className="!touch-none"
     >
-      <ambientLight intensity={0.55} />
+      <ambientLight intensity={0.65} />
       <directionalLight position={[5, 6, 5]} intensity={1.5} color="#eef4ff" />
-      <pointLight position={[-6, -2, -3]} intensity={20} color="#243b67" distance={22} />
-      <pointLight position={[5, -4, 4]} intensity={14} color="#91c9ed" distance={18} />
+      <pointLight position={[-6, -2, -3]} intensity={20} color="#2b3566" distance={22} />
+      <pointLight position={[5, -4, 4]} intensity={14} color="#4cc9f0" distance={18} />
       <Float speed={1.3} rotationIntensity={0.35} floatIntensity={0.9}>
         <MoleculeGroup />
       </Float>

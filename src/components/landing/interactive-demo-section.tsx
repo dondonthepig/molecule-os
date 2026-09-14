@@ -72,7 +72,7 @@ function IonicVisual() {
       />
       <motion.circle
         r="4"
-        fill="#91c9ed"
+        fill="#4cc9f0"
         initial={{ cx: 78, cy: 68, opacity: 1 }}
         animate={{ cx: [78, 130, 158], cy: [68, 55, 68], opacity: [1, 1, 0] }}
         transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 0.6, ease: "easeInOut" }}
@@ -114,8 +114,8 @@ function CovalentVisual() {
         animate={{ x: [0, 3, -3, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
       >
-        <circle cx="112" cy="72" r="3.5" fill="#91c9ed" />
-        <circle cx="128" cy="88" r="3.5" fill="#91c9ed" />
+        <circle cx="112" cy="72" r="3.5" fill="#4cc9f0" />
+        <circle cx="128" cy="88" r="3.5" fill="#4cc9f0" />
       </motion.g>
     </svg>
   );
@@ -136,13 +136,13 @@ function MetallicVisual() {
   return (
     <svg viewBox="0 0 240 160" className="h-full w-full">
       {ions.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="12" fill="#2f4678" opacity={0.9} />
+        <circle key={i} cx={x} cy={y} r="12" fill="#37458a" opacity={0.9} />
       ))}
       {Array.from({ length: 14 }).map((_, i) => (
         <motion.circle
           key={`e-${i}`}
           r="2.5"
-          fill="#91c9ed"
+          fill="#4cc9f0"
           initial={{
             cx: 20 + ((i * 37) % 200),
             cy: 20 + ((i * 53) % 120),

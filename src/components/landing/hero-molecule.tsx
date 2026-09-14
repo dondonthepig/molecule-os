@@ -30,7 +30,7 @@ function StaticMoleculeGlyph() {
         className="relative size-64 opacity-90"
         aria-hidden="true"
       >
-        <g stroke="#2f4678" strokeWidth="2" opacity="0.7">
+        <g stroke="#37458a" strokeWidth="2" opacity="0.7">
           <line x1="100" y1="40" x2="155" y2="70" />
           <line x1="155" y1="70" x2="155" y2="130" />
           <line x1="155" y1="130" x2="100" y2="160" />
@@ -46,9 +46,9 @@ function StaticMoleculeGlyph() {
           [45, 130],
           [45, 70],
         ].map(([cx, cy], i) => (
-          <circle key={i} cx={cx} cy={cy} r={9} fill="#0571cc" />
+          <circle key={i} cx={cx} cy={cy} r={9} fill="#4361ee" />
         ))}
-        <circle cx="100" cy="100" r="6" fill="#243b67" />
+        <circle cx="100" cy="100" r="6" fill="#2b3566" />
       </svg>
     </div>
   );

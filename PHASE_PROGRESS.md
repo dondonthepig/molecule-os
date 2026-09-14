@@ -258,6 +258,8 @@ Bond Explorer, Molecule Library, and Organic Chemistry Explorer were all complet
 
 ## 14. Visual redesign — the MoleculeOS "deep black to ice blue" system
 
+> **Superseded by §20.** The specific hex values in the table below were replaced by a 2026-09 palette refresh (new #4CC9F0/#4361EE/#1B1F2A base triad) — the token *names* and architecture described in this section are unchanged and still accurate.
+
 **Status: COMPLETE, verified.** Replaced the entire blue/cyan/purple accent system with a navy/blue/ice palette, app-wide, while explicitly preserving scientific CPK atom coloring. This was a color-system change only — no chemistry logic, no i18n architecture, no 3D engine, and no existing functionality was touched or rebuilt.
 
 ### The palette
@@ -411,3 +413,65 @@ Completed as the first Phase 2 roadmap item selected after this analysis. See §
 - No score/progress persistence (by design — see "Session state is ephemeral" above).
 - No AI-generated or adaptive questions (explicitly out of scope for this phase per instruction).
 - Not yet linked *to* from other features (e.g. Periodic Table's element detail or Bond Explorer could eventually deep-link into a relevant quiz via `?quiz=`) — the `?quiz=` param exists and works, but no other page links into it yet. Left out to keep this phase's diff scoped to Quiz Center only.
+
+## 20. Hero 3D layering fix + palette refresh (electric-arc-blue / deep-electric-blue / graphite-black)
+
+**Status: COMPLETE, verified.** Two related tasks: (A) fix the hero molecule's atoms appearing to be clipped/"eaten" near the canvas edge, and (B) re-derive the entire `--molecule-*` token set from a new base triad. No chemistry data, i18n text, or the shared `BondVisualization`/`BondVisualizationScene` 3D-engine architecture were touched — this was a token-value + one scene-parameter change, following the exact pattern established in §14.
+
+### Task A — root cause, verified empirically (not guessed)
+
+The task brief's working theory was that `hero-background.tsx`'s two vignette `<div>`s (lines 56–57 at the time) were painting *over* the 3D canvas. That was checked directly in a live browser rather than assumed:
+
+- `document.elementFromPoint()` at the canvas's own center returned the `<canvas>` itself — confirming the 3D canvas was already the topmost element there. DOM order already put it on top: `hero-section.tsx` renders `<HeroBackground />` first and the content grid (containing `<HeroMolecule />`) second, and neither had a `z-index`, so standard paint-order rules (later sibling wins among positioned elements with `z-index: auto`) already stacked the molecule above the vignette. **The original "vignette occludes the canvas" theory was false** — toggling the two overlay `<div>`s off/on confirmed the molecule's own opaque atom pixels were unaffected either way.
+- What *was* real, found by watching the auto-rotating molecule across several frames: at `camera={{ position: [0, 0, 8.2], fov: 40 }}` in `hero-molecule-scene.tsx`, the decorative molecule's farthest point (`tail-2`, magnitude + radius ≈ 4.40 world units — computed directly from `molecule-data.ts`'s coordinates, which were **not modified**) exceeds the camera frustum's safe radius (`distance × sin(fov/2) ≈ 2.98` units) at that distance/FOV. A zoomed screenshot during rotation caught an atom rendered half-cut at the canvas's literal edge — a genuine camera-framing bug, not a stacking bug.
+- Secondary, smaller contributor: `bg-radial-fade`'s old `ellipse 70% 60% at 50% 40%` transparent core fell short of the molecule's bounding box (the column is right-aligned via `lg:justify-end`, reaching ~90% of the section width), so the fully-darkened region outside that ellipse legitimately crushed contrast on the canvas's transparent background and bloom-halo pixels right at the molecule's silhouette — real, just not the primary cause.
+- Checked for the same pattern elsewhere: `bond-visualization.tsx` (wrapper) and every call site (`bond-explorer-workspace.tsx`, `molecule-detail.tsx`, `organic-chemistry-workspace.tsx`, `reaction-transformation-view.tsx`) — none have a vignette overlay sibling; they're plain `overflow-hidden` rounded cards with no decorative layer on top. The largest molecule in `molecules.ts` (mag + radius ≈ 3.15) times `bond-visualization-scene.tsx`'s existing `scale={0.6}` stays well inside its `distance 6.5 / fov 42` frustum (safe radius ≈ 2.33 vs. actual ≈ 1.89) — no clipping risk there, confirmed by direct computation, no code change needed.
+
+### Task A — the fix
+
+- `hero-molecule-scene.tsx`: added `scale={0.62}` to the molecule's `<group>` (same technique already used by `bond-visualization-scene.tsx`, not a new pattern) and widened the camera to `{ position: [0, 0, 8.6], fov: 48 }`, giving the molecule's true bounding radius ~24% headroom inside the frustum instead of exceeding it. **`molecule-data.ts`'s 3D coordinates were not touched**, per instruction.
+- `hero-background.tsx`: made the stacking explicit and defensive rather than relying only on implicit DOM order — root layer gets `isolate z-0`, both vignette `<div>`s get `pointer-events-none` and `z-0`; the content grid in `hero-section.tsx` gets an explicit `z-10`. This doesn't change behavior (the molecule was already on top) but removes the fragility of an implicit ordering.
+- `globals.css`'s `bg-radial-fade` utility (used only by `hero-background.tsx`) and the linear vignette gradient were reshaped so their darkened region only reaches the true screen corners/very-bottom edge, never the content column — transparent core widened from `70% 60%` to `120% 105%`, fade-start pushed from 40%/50% to 62%/82%.
+- Contrast assist for the "額外的對比度要求" ask: added a thin ice-blue (`#4cc9f0`) rim-light shell (`scale 1.12`, `BackSide`, `meshBasicMaterial`, `opacity 0.22`) behind every atom in both `AtomMesh` components (`hero-molecule-scene.tsx` and the shared `bond-visualization-scene.tsx`) — a silhouette outline, not a recolor, so `ATOM_COLORS` in `molecules.ts` was never touched. Ambient light nudged up slightly in both scenes (0.55→0.65 hero, 0.5→0.6 shared) as the "environment light tweak" option.
+- Verified in a live browser: full-quality (`scale: 1`) screenshots show the molecule fully framed with no clipping across multiple auto-rotation frames; the previous *appearance* of an empty hero in earlier screenshots turned out to be a compression artifact of the default reduced-scale screenshot capture, not a real rendering bug — confirmed by comparing default-scale vs. `scale: 1` captures of the identical live state.
+
+### Task B — palette refresh
+
+New base triad: `#4CC9F0` electric-arc-blue (accent), `#4361EE` deep-electric-blue (primary), `#1B1F2A` graphite-black (background). Only `src/app/globals.css`'s `--molecule-*` tokens were edited — the `--color-brand-blue/-cyan/-purple` alias layer from §14 was left untouched, so the same repaint-without-touching-components mechanism applied again.
+
+| Token | Old hex (§14) | New hex | Derivation |
+|---|---|---|---|
+| `--molecule-black` | `#010101` | `#1B1F2A` | given (graphite-black) |
+| `--molecule-blue` | `#0571cc` | `#4361EE` | given (deep-electric-blue) |
+| `--molecule-ice` | `#91c9ed` | `#4CC9F0` | given (electric-arc-blue) |
+| `--molecule-navy` | `#243b67` | `#2B3566` | `--molecule-blue` darkened toward `--molecule-black` (card/secondary surfaces) |
+| `--molecule-navy-dark` | `#2f4678` | `#37458A` | one step lighter than navy, for hover/accent states |
+| `--molecule-light` | `#b9ddf4` | `#9BE0FA` | `--molecule-ice` lightened, for text/labels on dark accent fills |
+| `--molecule-soft` | `#7fb6e5` | `#6E9CF5` | midpoint between `--molecule-ice` and `--molecule-blue`, for chart variety |
+
+- **Contrast regression found and fixed**: `--primary-foreground` (and `--sidebar-primary-foreground`) were `var(--molecule-black)` in both `:root` and `.dark` — under the old palette that was `#010101` on `#0571cc` (high contrast), but under the new palette it became `#1B1F2A` on `#4361EE`, measured **3.28:1**, failing WCAG AA's 4.5:1 threshold for normal text. Changed both to `oklch(0.99 0.005 260)` (the same near-white value already used by `.light`'s own `--primary-foreground`, reused rather than inventing a new one) — re-measured at **4.88:1**, passing AA.
+- **Every remaining hardcoded hex from the old palette was found and replaced** (`grep`-verified zero remaining matches for `#0571cc|#91c9ed|#243b67|#2f4678|#b9ddf4|#7fb6e5|#010101` anywhere in `src/`): `feature-visuals.tsx`, `hero-molecule.tsx` (incl. the reduced-motion `StaticMoleculeGlyph` SVG), `hero-section.tsx` (avatar dots), `molecule-data.ts` (hero's decorative molecule — confirmed non-CPK per the "does it have an element label" rule in CLAUDE.md), `interactive-demo-section.tsx` (only the *unlabeled* metallic-lattice ions and electron dots — the Na⁺/Cl⁻/H demo's own CPK atom fills were left untouched, re-confirmed against `ATOM_COLORS`), `atom-visualization.tsx`, `bond-visualization-scene.tsx` (bond neutral-gray `#9aa0a8`/`#5a6472` also re-confirmed untouched — not brand-colored, per CLAUDE.md), `electron-animation.tsx`, `hero-molecule-scene.tsx`. `ATOM_COLORS` in `molecules.ts` itself was never touched (H/Na/Cl/O/N/C/Fe hex values don't overlap the old brand hexes, confirmed by grep).
+- `.light` theme: only its accent-bearing tokens (`--primary`, `--ring`, `--accent`, `--chart-*`) reference `--molecule-*`; its own background/foreground/card values are untouched, so light mode stayed light — spot-checked live via the navbar theme toggle.
+- No hardcoded `#010101`/fog color existed in either 3D scene file (`hero-molecule-scene.tsx`, `bond-visualization-scene.tsx`) — both `Canvas`es already use `alpha: true` with no explicit background/fog, so the graphite-black page background shows through automatically; nothing to change there.
+
+### Verification results (this session)
+
+- `npx tsc --noEmit`, `npm run lint`, `npm run build` — all pass clean (all 10 routes prerender statically).
+- Real measured contrast (canvas-rendered, not approximated — `getComputedStyle` + `<canvas>` pixel readback to resolve `oklch()`/`color-mix()` to actual sRGB, then WCAG relative-luminance contrast):
+
+  | Pair | Contrast | AA threshold | Result |
+  |---|---|---|---|
+  | `--foreground` / `--background` (body text) | 13.81:1 | 4.5:1 | pass |
+  | `--primary-foreground` / `--primary` (button text) | 4.88:1 | 4.5:1 | pass |
+  | `--muted-foreground` / `--background` | 7.44:1 | 4.5:1 | pass |
+  | `--card-foreground` / `--card` | 9.77:1 | 4.5:1 | pass |
+  | `--accent-foreground` / `--accent` | 6.06:1 | 4.5:1 | pass |
+
+- Live-checked every page named in the task's acceptance criteria at full-quality screenshots: `/`, `/bond-explorer`, `/molecule-library`, `/organic-chemistry`, `/reaction-atlas`, `/periodic-table`, `/quiz` — new palette renders consistently, no residual old-palette hex visible, CPK atom colors (Na⁺ yellow, Cl⁻ green, carbon dark gray) unchanged and now have visible rim-light outlines, `.light` theme toggle confirmed to keep its own light background.
+- Hero molecule specifically re-verified at `scale: 1` (full-resolution) screenshots across multiple auto-rotation frames: fully framed, no edge clipping, rim-light visible on every atom.
+
+### Known limitations
+
+- Mobile/tablet viewport QA was not re-run (same tooling limitation as every prior phase — see CLAUDE.md's "Known gaps"); this was a token-value + one 3D-scene-parameter change, not a layout change, so risk is considered low but unverified.
+- Periodic Table's `CATEGORY_COLORS` (a separate 10-category scientific color legend, same "don't mix with UI brand palette" rule as `ATOM_COLORS`) was out of scope for this task and was not touched or reviewed.
+- The rim-light technique (a scaled-up `BackSide` shell) is a fixed visual constant (`#4cc9f0`, `opacity 0.22`) rather than a token — matches the existing pattern where 3D scene colors are hardcoded hex (see §14's "3D scene colors are hardcoded, not CSS-var-driven" precedent), not a new inconsistency introduced by this change.

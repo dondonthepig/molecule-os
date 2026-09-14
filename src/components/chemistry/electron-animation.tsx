@@ -18,7 +18,7 @@ export function ElectronAnimation({
   duration = 1.6,
   delay = 0,
   repeat = Infinity,
-  color = "#91c9ed",
+  color = "#4cc9f0",
   radius = 3.5,
 }: ElectronAnimationProps) {
   return (

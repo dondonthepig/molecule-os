@@ -15,7 +15,7 @@ export function HeroSection() {
     <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16">
       <HeroBackground />
 
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:gap-8 lg:px-10">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:gap-8 lg:px-10">
         <div className="flex flex-col items-start text-left">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -80,7 +80,7 @@ export function HeroSection() {
           >
             <div className="flex items-center gap-2">
               <span className="flex h-6 -space-x-2">
-                {["#0571cc", "#91c9ed", "#243b67"].map((color) => (
+                {["#4361ee", "#4cc9f0", "#2b3566"].map((color) => (
                   <span
                     key={color}
                     className="size-6 rounded-full border-2 border-background"

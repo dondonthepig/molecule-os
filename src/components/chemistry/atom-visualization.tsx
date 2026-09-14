@@ -35,7 +35,7 @@ export function AtomVisualization({
         {Array.from({ length: 10 }).map((_, i) => (
           <ElectronAnimation
             key={i}
-            color="#91c9ed"
+            color="#4cc9f0"
             radius={2.5}
             duration={3 + (i % 4)}
             delay={i * 0.15}
@@ -153,7 +153,7 @@ export function AtomVisualization({
           y1={cy}
           x2={bx - 30}
           y2={cy}
-          stroke="#91c9ed"
+          stroke="#4cc9f0"
           strokeWidth={1.5}
           strokeDasharray="2 6"
           initial={{ opacity: 0.3 }}
@@ -206,8 +206,8 @@ export function AtomVisualization({
         animate={isPolar ? {} : { x: [0, 2, -2, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
       >
-        <circle cx={midX - 6} cy={cy - 6} r={3.5} fill="#91c9ed" />
-        <circle cx={midX + 6} cy={cy + 8} r={3.5} fill="#91c9ed" />
+        <circle cx={midX - 6} cy={cy - 6} r={3.5} fill="#4cc9f0" />
+        <circle cx={midX + 6} cy={cy + 8} r={3.5} fill="#4cc9f0" />
       </motion.g>
     </svg>
   );

@@ -28,7 +28,7 @@ export function OrbitVisual() {
             <span
               className="absolute top-1/2 left-0 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full"
               style={{
-                backgroundColor: i === 0 ? "#0571cc" : i === 1 ? "#91c9ed" : "#243b67",
+                backgroundColor: i === 0 ? "#4361ee" : i === 1 ? "#4cc9f0" : "#2b3566",
                 boxShadow: "0 0 8px currentColor",
               }}
             />
@@ -81,7 +81,7 @@ export function PeriodicSwatchVisual() {
           key={i}
           className="rounded-[4px]"
           animate={{
-            backgroundColor: i === active ? "#91c9ed" : "rgba(145, 201, 237, 0.14)",
+            backgroundColor: i === active ? "#4cc9f0" : "rgba(76, 201, 240, 0.14)",
             scale: i === active ? 1.12 : 1,
           }}
           transition={{ duration: 0.35 }}
@@ -180,8 +180,8 @@ export function QuizProgressVisual() {
           />
           <defs>
             <linearGradient id="quiz-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0571cc" />
-              <stop offset="100%" stopColor="#243b67" />
+              <stop offset="0%" stopColor="#4361ee" />
+              <stop offset="100%" stopColor="#2b3566" />
             </linearGradient>
           </defs>
         </svg>
@@ -237,7 +237,7 @@ export function KnowledgeGraphVisual() {
           cx={node.x}
           cy={node.y}
           r={i === 0 ? 4.5 : 3.2}
-          fill={i % 2 === 0 ? "#0571cc" : "#243b67"}
+          fill={i % 2 === 0 ? "#4361ee" : "#2b3566"}
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
