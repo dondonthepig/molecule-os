@@ -8,7 +8,7 @@ import { ReactionEquation } from "./reaction-equation";
 const DIFFICULTY_DOT: Record<Reaction["difficulty"], string> = {
   beginner: "bg-brand-cyan",
   intermediate: "bg-brand-blue",
-  advanced: "bg-brand-purple",
+  advanced: "bg-brand-purple-dim",
 };
 
 export function ReactionCard({ reaction, onSelect }: { reaction: Reaction; onSelect: () => void }) {

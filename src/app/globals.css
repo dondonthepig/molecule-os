@@ -47,19 +47,23 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* MoleculeOS brand accents — the "deep black to ice blue" system (see
-     --molecule-* tokens below for the named reference palette). Token names
-     (brand-blue/cyan/purple) are kept stable so every existing className in
-     the app (`text-brand-cyan`, `from-brand-blue ... to-brand-purple`, etc.)
-     repaints to the new palette without per-component edits. There is no
-     "purple" in the new palette — brand-purple now resolves to a deep navy
-     (the darkest of the three accent stops), not an actual purple hue. */
+  /* MoleculeOS brand accents — a strict 3-color system (electric-arc-blue,
+     deep-electric-blue, graphite-black; see --molecule-* tokens below).
+     Token names (brand-blue/cyan/purple) are kept stable so every existing
+     className in the app (`text-brand-cyan`, `border-brand-blue/40`,
+     `from-brand-blue ... to-brand-purple`, etc.) repaints without
+     per-component edits. There is no purple hue in this system — brand-purple
+     resolves to molecule-blue itself, so a 3-stop `from-brand-blue
+     via-brand-cyan to-brand-purple` gradient is deliberately a cyan↔indigo
+     two-color loop, not a 3-distinct-hue gradient. brand-purple-dim resolves
+     to molecule-navy (a dark blue), the same role brand-purple used to play
+     before this token was repointed. */
   --color-brand-blue: var(--molecule-blue);
   --color-brand-cyan: var(--molecule-ice);
-  --color-brand-purple: var(--molecule-navy);
+  --color-brand-purple: var(--molecule-blue);
   --color-brand-blue-dim: var(--molecule-navy-dark);
   --color-brand-cyan-dim: var(--molecule-soft);
-  --color-brand-purple-dim: var(--molecule-black);
+  --color-brand-purple-dim: var(--molecule-navy);
 }
 
 /* ------------------------------------------------------------------ */
@@ -71,21 +75,26 @@
 /* reference the token.                                                 */
 /* ------------------------------------------------------------------ */
 :root {
-  /* Base triad (2026-09 redesign): #4CC9F0 electric-arc-blue (accent),
-     #4361EE deep-electric-blue (primary), #1B1F2A graphite-black (background).
-     navy/navy-dark/light/soft are derived from these three — never introduce
-     an unrelated hue when adjusting them. */
+  /* Strict 3-color base (2026-09 palette fix): #4CC9F0 electric-arc-blue
+     (accent), #4361EE deep-electric-blue (primary), #1B1F2A graphite-black
+     (background). Every other --molecule-* token below is a live
+     color-mix() of these three (plus neutral white/black for pure
+     tint/shade, never a 4th hue) — never hardcode a precomputed hex for an
+     "intermediate" color here again; write the mix so the derivation stays
+     visible and maintainable. */
   --molecule-black: #1b1f2a;
   --molecule-blue: #4361ee;
   --molecule-ice: #4cc9f0;
-  /* navy = molecule-blue darkened toward molecule-black (card/secondary surfaces) */
-  --molecule-navy: #2b3566;
-  /* navy-dark = one step lighter than navy, for hover/accent states */
-  --molecule-navy-dark: #37458a;
-  /* light = molecule-ice lightened, for text/labels drawn on dark accent fills */
-  --molecule-light: #9be0fa;
-  /* soft = midpoint between molecule-ice and molecule-blue, for chart variety */
-  --molecule-soft: #6e9cf5;
+  /* navy = graphite-black lifted with a little blue (NOT card/surface color —
+     see --card/--popover/--sidebar below, which lift black with white/gray
+     instead so large surfaces read neutral graphite, not blue-tinted). */
+  --molecule-navy: color-mix(in oklab, var(--molecule-black) 88%, var(--molecule-blue) 12%);
+  /* navy-dark = one step further toward blue than navy, for hover/accent states */
+  --molecule-navy-dark: color-mix(in oklab, var(--molecule-black) 76%, var(--molecule-blue) 24%);
+  /* light = molecule-ice lightened with white, for text/labels on dark accent fills */
+  --molecule-light: color-mix(in oklab, var(--molecule-ice) 80%, white 20%);
+  /* soft = midpoint between molecule-blue and molecule-ice, for chart variety */
+  --molecule-soft: color-mix(in oklab, var(--molecule-blue) 55%, var(--molecule-ice) 45%);
 }
 
 :root {
@@ -93,17 +102,21 @@
      app looks correct before the theme script/class has a chance to run. */
   --background: var(--molecule-black);
   --foreground: oklch(0.94 0.012 250);
-  --card: var(--molecule-navy);
+  /* Surfaces (card/popover/secondary/muted/sidebar) lift graphite-black with
+     white/gray, not blue — keeps large passive areas reading as clean
+     graphite instead of a blue/navy haze. Accent stays molecule-navy-dark
+     (blue) deliberately: unlike these, it's meant to read as a color highlight. */
+  --card: color-mix(in oklab, var(--molecule-black) 88%, white 12%);
   --card-foreground: oklch(0.94 0.012 250);
-  --popover: color-mix(in oklab, var(--molecule-navy) 92%, black);
+  --popover: color-mix(in oklab, var(--molecule-black) 84%, white 16%);
   --popover-foreground: oklch(0.94 0.012 250);
   --primary: var(--molecule-blue);
   /* white text on molecule-blue: ~5:1 contrast (AA) — molecule-black on
      molecule-blue measured ~3.3:1 and fails WCAG AA for normal text. */
   --primary-foreground: oklch(0.99 0.005 260);
-  --secondary: color-mix(in oklab, var(--molecule-navy) 55%, black);
+  --secondary: color-mix(in oklab, var(--molecule-black) 80%, white 20%);
   --secondary-foreground: oklch(0.94 0.012 250);
-  --muted: color-mix(in oklab, var(--molecule-navy) 40%, black);
+  --muted: color-mix(in oklab, var(--molecule-black) 94%, white 6%);
   --muted-foreground: color-mix(in oklab, var(--molecule-light) 55%, oklch(0.6 0.01 250));
   --accent: var(--molecule-navy-dark);
   --accent-foreground: var(--molecule-light);
@@ -117,11 +130,11 @@
   --chart-4: var(--molecule-soft);
   --chart-5: var(--molecule-navy);
   --radius: 0.875rem;
-  --sidebar: color-mix(in oklab, var(--molecule-navy) 35%, black);
+  --sidebar: color-mix(in oklab, var(--molecule-black) 95%, white 5%);
   --sidebar-foreground: oklch(0.94 0.012 250);
   --sidebar-primary: var(--molecule-blue);
   --sidebar-primary-foreground: oklch(0.99 0.005 260);
-  --sidebar-accent: color-mix(in oklab, var(--molecule-navy) 55%, black);
+  --sidebar-accent: color-mix(in oklab, var(--molecule-black) 85%, white 15%);
   --sidebar-accent-foreground: oklch(0.94 0.012 250);
   --sidebar-border: color-mix(in oklab, var(--molecule-ice) 16%, transparent);
   --sidebar-ring: color-mix(in oklab, var(--molecule-blue) 55%, transparent);
@@ -130,17 +143,21 @@
 .dark {
   --background: var(--molecule-black);
   --foreground: oklch(0.94 0.012 250);
-  --card: var(--molecule-navy);
+  /* Surfaces (card/popover/secondary/muted/sidebar) lift graphite-black with
+     white/gray, not blue — keeps large passive areas reading as clean
+     graphite instead of a blue/navy haze. Accent stays molecule-navy-dark
+     (blue) deliberately: unlike these, it's meant to read as a color highlight. */
+  --card: color-mix(in oklab, var(--molecule-black) 88%, white 12%);
   --card-foreground: oklch(0.94 0.012 250);
-  --popover: color-mix(in oklab, var(--molecule-navy) 92%, black);
+  --popover: color-mix(in oklab, var(--molecule-black) 84%, white 16%);
   --popover-foreground: oklch(0.94 0.012 250);
   --primary: var(--molecule-blue);
   /* white text on molecule-blue: ~5:1 contrast (AA) — molecule-black on
      molecule-blue measured ~3.3:1 and fails WCAG AA for normal text. */
   --primary-foreground: oklch(0.99 0.005 260);
-  --secondary: color-mix(in oklab, var(--molecule-navy) 55%, black);
+  --secondary: color-mix(in oklab, var(--molecule-black) 80%, white 20%);
   --secondary-foreground: oklch(0.94 0.012 250);
-  --muted: color-mix(in oklab, var(--molecule-navy) 40%, black);
+  --muted: color-mix(in oklab, var(--molecule-black) 94%, white 6%);
   --muted-foreground: color-mix(in oklab, var(--molecule-light) 55%, oklch(0.6 0.01 250));
   --accent: var(--molecule-navy-dark);
   --accent-foreground: var(--molecule-light);
@@ -153,11 +170,11 @@
   --chart-3: var(--molecule-navy-dark);
   --chart-4: var(--molecule-soft);
   --chart-5: var(--molecule-navy);
-  --sidebar: color-mix(in oklab, var(--molecule-navy) 35%, black);
+  --sidebar: color-mix(in oklab, var(--molecule-black) 95%, white 5%);
   --sidebar-foreground: oklch(0.94 0.012 250);
   --sidebar-primary: var(--molecule-blue);
   --sidebar-primary-foreground: oklch(0.99 0.005 260);
-  --sidebar-accent: color-mix(in oklab, var(--molecule-navy) 55%, black);
+  --sidebar-accent: color-mix(in oklab, var(--molecule-black) 85%, white 15%);
   --sidebar-accent-foreground: oklch(0.94 0.012 250);
   --sidebar-border: color-mix(in oklab, var(--molecule-ice) 16%, transparent);
   --sidebar-ring: color-mix(in oklab, var(--molecule-blue) 55%, transparent);

@@ -29,7 +29,7 @@ export function BondPolarityPanel({ molecule, className }: { molecule: MoleculeS
         <span className="font-mono text-foreground">Δ{delta.toFixed(2)}</span>
       </div>
 
-      <div className="relative mt-3 h-8 overflow-hidden rounded-full bg-gradient-to-r from-brand-blue/40 via-muted to-brand-purple/40">
+      <div className="relative mt-3 h-8 overflow-hidden rounded-full bg-gradient-to-r from-brand-blue/40 via-muted to-brand-purple-dim/40">
         <motion.div
           className="absolute top-1/2 size-5 -translate-y-1/2 rounded-full bg-white shadow-[0_0_12px_2px_rgba(255,255,255,0.6)]"
           initial={false}
@@ -57,13 +57,13 @@ export function BondPolarityPanel({ molecule, className }: { molecule: MoleculeS
               character === "ionic"
                 ? "color-mix(in oklab, var(--color-brand-blue) 20%, transparent)"
                 : character === "polar"
-                  ? "color-mix(in oklab, var(--color-brand-purple) 20%, transparent)"
+                  ? "color-mix(in oklab, var(--color-brand-purple-dim) 20%, transparent)"
                   : "color-mix(in oklab, var(--color-brand-cyan) 20%, transparent)",
             color:
               character === "ionic"
                 ? "var(--color-brand-blue)"
                 : character === "polar"
-                  ? "var(--color-brand-purple)"
+                  ? "var(--color-brand-purple-dim)"
                   : "var(--color-brand-cyan)",
           }}
         >

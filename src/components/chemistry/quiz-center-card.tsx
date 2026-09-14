@@ -8,7 +8,7 @@ import { estimateMinutes, type QuizSetSpec } from "@/lib/chemistry/quiz-center-d
 const DIFFICULTY_DOT: Record<QuizSetSpec["difficulty"], string> = {
   beginner: "bg-brand-cyan",
   intermediate: "bg-brand-blue",
-  advanced: "bg-brand-purple",
+  advanced: "bg-brand-purple-dim",
 };
 
 export function QuizCenterCard({ quizSet, onStart }: { quizSet: QuizSetSpec; onStart: () => void }) {

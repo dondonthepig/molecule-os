@@ -475,3 +475,73 @@ New base triad: `#4CC9F0` electric-arc-blue (accent), `#4361EE` deep-electric-bl
 - Mobile/tablet viewport QA was not re-run (same tooling limitation as every prior phase — see CLAUDE.md's "Known gaps"); this was a token-value + one 3D-scene-parameter change, not a layout change, so risk is considered low but unverified.
 - Periodic Table's `CATEGORY_COLORS` (a separate 10-category scientific color legend, same "don't mix with UI brand palette" rule as `ATOM_COLORS`) was out of scope for this task and was not touched or reviewed.
 - The rim-light technique (a scaled-up `BackSide` shell) is a fixed visual constant (`#4cc9f0`, `opacity 0.22`) rather than a token — matches the existing pattern where 3D scene colors are hardcoded hex (see §14's "3D scene colors are hardcoded, not CSS-var-driven" precedent), not a new inconsistency introduced by this change.
+
+## 21. Palette fix — back to a strict 3-color, high-contrast system
+
+**Status: COMPLETE, verified.** §20's palette refresh introduced four hand-derived intermediate hex values (`#2B3566`, `#37458A`, `#6E9CF5`, `#9BE0FA`) that, combined with two other latent issues, made the whole app read as a "purple-blue-gray haze" instead of the intended high-contrast "bright cyan vs. near-black" look. This session fixed the derivation and the two latent issues, without introducing any new token name.
+
+### Root causes (three, only one of which was in the original bug report)
+
+1. **`--card`/`--popover`/`--secondary`/`--muted`/`--sidebar` were all defined in terms of `--molecule-navy`** (a blue-tinted token). Every large passive surface in the app — every card, every popover, the sidebar — was therefore blue-tinted, not neutral graphite. This is the main reason the app read as "blue-gray" rather than "near-black": surfaces are the majority of the visible area, more than the small text/border accents.
+2. **`--color-brand-purple` pointed at `--molecule-navy`**, so every `from-brand-blue via-brand-cyan to-brand-purple` 3-stop gradient (used in ~20 places: nav/footer logo marks, primary CTA buttons, icon badges, progress bars) rendered blue → cyan → navy, i.e. a third, duller stop that read as desaturated purple rather than completing back to a vivid color.
+3. **`particle-field.tsx` had hardcoded literal RGB triples from the *original* (pre-§14) palette** (`5,113,204` / `145,201,237` / `127,182,229`) that neither §14 nor §20 ever touched, because the hex-string `grep` both sessions ran only matches `#rrggbb` syntax, not comma-separated RGB. 70 twinkling particles, permanently visible across the entire hero background, were rendering in stale colors unrelated to either palette generation — found only by reading the file directly after visually suspecting the hero background specifically (not gradients or cards) still looked hazy after the token fixes. This is the one concrete lesson worth flagging: a hex-only grep is not sufficient to find every hardcoded color in a canvas/WebGL-heavy codebase; `rgba?\(\s*\d+` is needed too.
+
+### The fix
+
+**`src/app/globals.css`** — `--molecule-black`/`-blue`/`-ice` unchanged (`#1B1F2A`/`#4361EE`/`#4CC9F0`). Every other `--molecule-*` token is now a live `color-mix()` expression instead of a precomputed hex, so the derivation stays visible in the source instead of needing to be re-derived by eye:
+
+```css
+--molecule-navy:      color-mix(in oklab, var(--molecule-black) 88%, var(--molecule-blue) 12%);
+--molecule-navy-dark: color-mix(in oklab, var(--molecule-black) 76%, var(--molecule-blue) 24%);
+--molecule-light:     color-mix(in oklab, var(--molecule-ice) 80%, white 20%);
+--molecule-soft:      color-mix(in oklab, var(--molecule-blue) 55%, var(--molecule-ice) 45%);
+```
+
+`--card`/`--popover`/`--secondary`/`--muted`/`--sidebar`/`--sidebar-accent` were **repointed off `--molecule-navy` entirely** and redefined directly as graphite-black lifted with white/gray (`color-mix(in oklab, var(--molecule-black) 88%, white 12%)` for card, 84/16 popover, 80/20 secondary, 94/6 muted, 95/5 sidebar, 85/15 sidebar-accent) — surfaces now read as clean graphite at every elevation step instead of blue. `--accent` deliberately still points at `--molecule-navy-dark` (blue) — unlike the surfaces above, accent is meant to read as a color highlight, not recede.
+
+`--color-brand-purple` now resolves to `--molecule-blue` itself (not navy), and `--color-brand-purple-dim` takes over navy's old role — so a 3-stop `from-brand-blue via-brand-cyan to-brand-purple` gradient is now deliberately a cyan↔indigo two-color loop (both ends the same vivid blue) rather than fading to a third, duller stop.
+
+**`src/components/landing/hero-background.tsx`** — collapsed the three overlapping `blur-[110px]` aurora blobs (`bg-brand-blue/25`, `bg-brand-purple/25`, `bg-brand-cyan/25`) down to a single `bg-brand-cyan/10` glow. Three translucent color washes stacked on a dark background compound into a haze even once each individual hue is correct in isolation — one glow also satisfies the "cyan needs real visible area, not just thin text/borders" requirement. `blobTwoX/Y`/`blobThreeX/Y` motion-parallax transforms were removed as now-unused.
+
+**`src/components/landing/particle-field.tsx`** — the `purple` hue key (RGB `127,182,229`, the *old* `--molecule-soft`) was replaced with a `soft` key using an approximation of the *new* `--molecule-soft` (`71,144,239`); `blue`/`cyan` were updated to the literal new base-triad hex (`67,97,238` / `76,201,240`). Canvas 2D `fillStyle` can't consume `var()`/`color-mix()`, so these remain literal RGB by necessity (same constraint as every Three.js material color in the app — see §14).
+
+### A regression this fix would have caused, found and fixed in the same pass
+
+Repointing `--color-brand-purple` to `--molecule-blue` (as required, above) makes `brand-purple` and `brand-blue` the *same color*. That's correct for the ~20 decorative 3-stop gradients, but it silently collapsed several **discrete, information-bearing** color maps down to only two distinguishable colors where three were needed — e.g. `DIFFICULTY_DOT` (`beginner: cyan, intermediate: blue, advanced: purple`) in `reaction-card.tsx`/`quiz-center-card.tsx`/`featured-reaction-row.tsx` would have made "intermediate" and "advanced" render identically; Bond Explorer's own bond-type tab strip (`bond-selector.tsx`'s `ACCENT_TEXT`, `ionic: blue, covalent: cyan, polarCovalent: purple, metallic: blue, hydrogen: cyan`) would have made 3 of its 5 tabs share one color; `bond-polarity-panel.tsx`'s ionic/polar/nonpolar badge and slider-gradient would have lost the ionic/polar distinction entirely.
+
+Fixed by swapping the bare `brand-purple` class/var to `brand-purple-dim` (already-existing alias, now resolving to `--molecule-navy` — a real, distinct dark blue) at exactly the sites where it's used as a *discrete differentiator sitting alongside `brand-blue` in the same map or component*, and leaving it untouched everywhere it's a *decorative, non-competing* gradient stop: `bond-selector.tsx`, `bond-polarity-panel.tsx` (×2), `featured-reaction-row.tsx`, `reaction-card.tsx`, `quiz-center-card.tsx` (`DIFFICULTY_DOT` only, not its button gradient), `categories-section.tsx`, `testimonials-section.tsx`, `polarity-indicator.tsx`, `functional-group-badge.tsx`, `organic-knowledge-map.tsx`. `molecule-filters.tsx`/`reaction-filters.tsx`/`molecule-card.tsx` were checked and left alone — their `brand-purple` usage is a uniform "selected/accent" indicator with no competing sibling `brand-blue` in the same context, so no information is lost by them becoming blue. No new token or class name was introduced anywhere in this fix — every substitution reuses an alias that already existed.
+
+### Verification results (this session)
+
+- `npx tsc --noEmit`, `npm run lint`, `npm run build` — all pass clean (all 10 routes prerender statically).
+- Real computed values read back from the live page (canvas pixel readback resolving `color-mix()`/`oklch()`, same method as §20):
+
+  | Token | Resolved hex | Note |
+  |---|---|---|
+  | `--molecule-navy` | `#1f273f` | neutral dark blue, R<G<B — no magenta/purple skew |
+  | `--molecule-navy-dark` | `#242f54` | same family, one step more saturated |
+  | `--molecule-soft` | `#4493f1` | clean blue↔cyan midpoint |
+  | `--molecule-light` | `#7ad4f4` | light cyan |
+  | `--card` | `#323640` | R/G/B within 14 of each other — genuinely neutral graphite, not blue-tinted |
+  | `--secondary` | `#42454f` | neutral |
+  | `--popover` | `#3a3d48` | neutral |
+  | `--sidebar` | `#242833` | neutral, barely lifted off background |
+
+- Contrast (WCAG relative-luminance, canvas-verified):
+
+  | Pair | Contrast | AA threshold | Result |
+  |---|---|---|---|
+  | `--foreground` / `--background` | 13.81:1 | 4.5:1 | pass |
+  | `--primary-foreground` / `--primary` (button text) | 4.88:1 | 4.5:1 | pass |
+  | `--muted-foreground` / `--background` | 6.84:1 | 4.5:1 | pass |
+  | `--card-foreground` / `--card` | 10.14:1 | 4.5:1 | pass |
+  | `--accent-foreground` / `--accent` | 7.80:1 | 4.5:1 | pass |
+  | `--secondary-foreground` / `--secondary` | 8.03:1 | 4.5:1 | pass |
+
+- Live-checked `/`, `/bond-explorer`, `/molecule-library`, `/quiz` in a running dev server: hero background reads as clean graphite with a single visible cyan glow and no purple/gray haze; the hero molecule (from §20) still fully framed with its cyan rim-light clearly visible against the darker, more neutral background; Bond Explorer's 5-tab bond-type strip shows 3 genuinely distinct colors (cyan/blue/navy) instead of 3 tabs collapsing to one blue; Molecule Library's card grid and CPK atom badges unaffected (as expected — CPK colors were never in scope). `/organic-chemistry`, `/reaction-atlas`, `/periodic-table` were not re-screenshotted this session (their only relevant dependency, the `--molecule-*`/semantic tokens, was already confirmed correct via the computed-value readback above and the pages that were checked) — noted here as a known gap rather than silently skipped.
+
+### Known limitations
+
+- `/organic-chemistry`, `/reaction-atlas`, and `/periodic-table` were verified via `npm run build` (compiles, prerenders) and via the token-level computed-value check, but not re-screenshotted live in this session (browser-automation viewport was unstable partway through this pass — see below). Visual risk is low since none of these pages have page-specific color logic beyond the shared token system and `brand-*` classNames already checked elsewhere, but this is a gap, not a confirmed pass.
+- The browser-automation tool's window intermittently resized itself (bouncing between ~718×282 and ~1440×850) and once navigated back to `/` on its own mid-session, for reasons unrelated to any code change here (no client-side navigation or router code was touched). Verification was completed by re-navigating and cross-checking with direct JS-executed contrast/color readbacks (robust to viewport size) rather than fighting the flakiness further.
+- `--molecule-soft`'s literal RGB in `particle-field.tsx` (`71,144,239`) is a simple sRGB linear-blend approximation of the real `color-mix(in oklab, ...)` result (`#4493f1` / `68,147,241`) — 3 units off per channel, imperceptible, but noted since canvas fillStyle can't consume the CSS token directly and this file will silently drift if the token formula changes again without a corresponding manual update here.

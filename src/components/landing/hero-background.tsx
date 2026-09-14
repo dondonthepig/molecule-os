@@ -13,10 +13,6 @@ export function HeroBackground() {
 
   const blobOneX = useTransform(springX, (v) => v * 26);
   const blobOneY = useTransform(springY, (v) => v * 20);
-  const blobTwoX = useTransform(springX, (v) => v * -20);
-  const blobTwoY = useTransform(springY, (v) => v * -14);
-  const blobThreeX = useTransform(springX, (v) => v * 14);
-  const blobThreeY = useTransform(springY, (v) => v * -18);
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -35,18 +31,17 @@ export function HeroBackground() {
       {/* Grid */}
       <div className="absolute inset-0 bg-grid-fade opacity-60" />
 
-      {/* Aurora blobs */}
+      {/*
+       * A single low-opacity cyan glow, not three overlapping blue/navy/cyan
+       * blobs — three translucent color washes stacked on a dark background
+       * read as a purple-blue haze rather than clean graphite, even once
+       * each individual hue is correct. One glow also doubles as the "cyan
+       * needs real visible area" requirement instead of only ever appearing
+       * in thin text/borders.
+       */}
       <motion.div
         style={{ x: blobOneX, y: blobOneY }}
-        className="absolute -top-32 left-[8%] h-[32rem] w-[32rem] rounded-full bg-brand-blue/25 blur-[110px]"
-      />
-      <motion.div
-        style={{ x: blobTwoX, y: blobTwoY }}
-        className="absolute top-10 right-[5%] h-[28rem] w-[28rem] rounded-full bg-brand-purple/25 blur-[110px]"
-      />
-      <motion.div
-        style={{ x: blobThreeX, y: blobThreeY }}
-        className="absolute bottom-[-10rem] left-1/3 h-[26rem] w-[26rem] rounded-full bg-brand-cyan/20 blur-[110px]"
+        className="absolute -top-32 left-[8%] h-[32rem] w-[32rem] rounded-full bg-brand-cyan/10 blur-[110px]"
       />
 
       {/* Particles */}

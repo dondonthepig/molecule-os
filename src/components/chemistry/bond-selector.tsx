@@ -17,7 +17,7 @@ const ICONS: Record<BondTypeId, LucideIcon> = {
 const ACCENT_TEXT: Record<string, string> = {
   blue: "text-brand-blue",
   cyan: "text-brand-cyan",
-  purple: "text-brand-purple",
+  purple: "text-brand-purple-dim",
 };
 
 export function BondSelector({

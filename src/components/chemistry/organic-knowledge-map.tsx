@@ -172,7 +172,7 @@ export function OrganicKnowledgeMap({
         <defs>
           <radialGradient id="organic-node-active">
             <stop offset="0%" stopColor="var(--color-brand-blue)" />
-            <stop offset="100%" stopColor="var(--color-brand-purple)" />
+            <stop offset="100%" stopColor="var(--color-brand-purple-dim)" />
           </radialGradient>
         </defs>
       </svg>

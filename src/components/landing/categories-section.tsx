@@ -9,7 +9,7 @@ import { dict } from "@/lib/i18n";
 const ACCENT_GRADIENT: Record<string, string> = {
   blue: "from-brand-blue/25 to-transparent",
   cyan: "from-brand-cyan/25 to-transparent",
-  purple: "from-brand-purple/25 to-transparent",
+  purple: "from-brand-purple-dim/25 to-transparent",
 };
 
 export function CategoriesSection() {

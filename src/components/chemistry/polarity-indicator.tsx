@@ -4,7 +4,7 @@ import type { Polarity } from "@/lib/chemistry/molecule-library-data";
 
 const DOT_COLOR: Record<Polarity, string> = {
   nonpolar: "bg-brand-cyan",
-  polar: "bg-brand-purple",
+  polar: "bg-brand-purple-dim",
   ionic: "bg-brand-blue",
 };
 

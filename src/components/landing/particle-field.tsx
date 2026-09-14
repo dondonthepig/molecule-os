@@ -9,21 +9,26 @@ type Particle = {
   radius: number;
   driftX: number;
   driftY: number;
-  hue: "blue" | "cyan" | "purple";
+  hue: "blue" | "cyan" | "soft";
   twinklePhase: number;
   twinkleSpeed: number;
 };
 
+/* Literal RGB, matching every other 3D/canvas color in the app (see
+   CLAUDE.md — canvas/Three.js contexts can't consume CSS var()/color-mix()).
+   blue/cyan are the base triad's literal hex; "soft" approximates
+   --molecule-soft (molecule-blue 55% / molecule-ice 45%) — there is no
+   fourth hue here, this is a shade of the same two colors. */
 const COLORS: Record<Particle["hue"], string> = {
-  blue: "5, 113, 204",
-  cyan: "145, 201, 237",
-  purple: "127, 182, 229",
+  blue: "67, 97, 238",
+  cyan: "76, 201, 240",
+  soft: "71, 144, 239",
 };
 
 const PARTICLE_COUNT = 70;
 
 function createParticles(width: number, height: number): Particle[] {
-  const hues: Particle["hue"][] = ["blue", "cyan", "purple"];
+  const hues: Particle["hue"][] = ["blue", "cyan", "soft"];
   return Array.from({ length: PARTICLE_COUNT }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,

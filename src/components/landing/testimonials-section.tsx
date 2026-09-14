@@ -14,7 +14,7 @@ type TestimonialCard = CardStackItem & Testimonial;
 const ACCENT_BG: Record<Testimonial["accent"], string> = {
   blue: "from-brand-blue to-brand-blue-dim",
   cyan: "from-brand-cyan to-brand-cyan-dim",
-  purple: "from-brand-purple to-brand-purple-dim",
+  purple: "from-brand-purple-dim to-brand-blue-dim",
 };
 
 const items: TestimonialCard[] = DEMO_TESTIMONIALS.map((t) => ({
