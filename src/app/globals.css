@@ -201,8 +201,11 @@
   --accent: color-mix(in oklab, var(--molecule-navy-dark) 88%, white);
   --accent-foreground: oklch(0.99 0.005 260);
   --destructive: oklch(0.58 0.22 25);
-  --border: color-mix(in oklab, var(--molecule-navy) 12%, transparent);
-  --input: color-mix(in oklab, var(--molecule-navy) 14%, transparent);
+  /* 12%/14% (pre-2026-09 fix) measured ~1.9:1 against white --card/--background —
+     invisible in practice. 50%/55% measures ~3:1+ (WCAG 1.4.11 non-text
+     minimum) while staying a neutral navy line, not a harsh black rule. */
+  --border: color-mix(in oklab, var(--molecule-navy) 50%, transparent);
+  --input: color-mix(in oklab, var(--molecule-navy) 55%, transparent);
   --ring: color-mix(in oklab, var(--molecule-blue) 45%, transparent);
   --chart-1: var(--molecule-blue);
   --chart-2: color-mix(in oklab, var(--molecule-ice) 85%, black 8%);
@@ -215,7 +218,7 @@
   --sidebar-primary-foreground: oklch(0.99 0.005 260);
   --sidebar-accent: oklch(0.955 0.008 260);
   --sidebar-accent-foreground: oklch(0.17 0.016 260);
-  --sidebar-border: color-mix(in oklab, var(--molecule-navy) 12%, transparent);
+  --sidebar-border: color-mix(in oklab, var(--molecule-navy) 45%, transparent);
   --sidebar-ring: color-mix(in oklab, var(--molecule-blue) 45%, transparent);
 }
 

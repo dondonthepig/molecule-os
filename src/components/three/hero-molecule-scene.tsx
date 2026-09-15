@@ -85,7 +85,13 @@ function MoleculeGroup() {
   });
 
   return (
-    <group ref={group} scale={0.62}>
+    // 0.72 (up from 0.62) still keeps the farthest tail atom's swept radius
+    // (sqrt(x²+z²) as it spins through rotation.y) at ~24% inside the
+    // fov:48/z:8.6 camera's horizontal frustum at that depth — see
+    // PHASE_PROGRESS.md §20 for why this margin was tight enough to clip
+    // once already; don't push scale up further without also widening fov
+    // or moving the camera back.
+    <group ref={group} scale={0.72}>
       {MOLECULE_BONDS.map(([fromId, toId]) => {
         const from = MOLECULE_ATOM_MAP.get(fromId)!;
         const to = MOLECULE_ATOM_MAP.get(toId)!;
