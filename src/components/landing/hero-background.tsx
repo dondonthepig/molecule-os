@@ -1,52 +1,10 @@
-"use client";
-
-import * as React from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ParticleField } from "./particle-field";
-
-/** Aurora + grid + particle backdrop with subtle cursor parallax. */
+/** Plain dark backdrop with an edge vignette for text legibility — no grid or glow decoration. */
 export function HeroBackground() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
-
-  const blobOneX = useTransform(springX, (v) => v * 26);
-  const blobOneY = useTransform(springY, (v) => v * 20);
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
   return (
     <div
-      onPointerMove={handlePointerMove}
       className="absolute inset-0 isolate z-0 overflow-hidden bg-background"
       aria-hidden="true"
     >
-      {/* Grid */}
-      <div className="absolute inset-0 bg-grid-fade opacity-60" />
-
-      {/*
-       * A single low-opacity cyan glow, not three overlapping blue/navy/cyan
-       * blobs — three translucent color washes stacked on a dark background
-       * read as a purple-blue haze rather than clean graphite, even once
-       * each individual hue is correct. One glow also doubles as the "cyan
-       * needs real visible area" requirement instead of only ever appearing
-       * in thin text/borders.
-       */}
-      <motion.div
-        style={{ x: blobOneX, y: blobOneY }}
-        className="absolute -top-32 left-[8%] h-[32rem] w-[32rem] rounded-full bg-brand-cyan/10 blur-[110px]"
-      />
-
-      {/* Particles */}
-      <ParticleField className="absolute inset-0" />
-
       {/*
        * Edge-only vignette for text legibility near the top/bottom of the
        * viewport. Explicit z-0 + isolate (root) keeps this pinned behind the

@@ -99,8 +99,11 @@
 
 :root {
   /* MoleculeOS is dark-mode-first: :root ships the dark palette so the
-     app looks correct before the theme script/class has a chance to run. */
-  --background: var(--molecule-black);
+     app looks correct before the theme script/class has a chance to run.
+     --background is pure black (not --molecule-black/graphite) by design —
+     surfaces (card/popover/sidebar below) still lift off graphite so they
+     read as raised panels against a true-black page. */
+  --background: #000000;
   --foreground: oklch(0.94 0.012 250);
   /* Surfaces (card/popover/secondary/muted/sidebar) lift graphite-black with
      white/gray, not blue — keeps large passive areas reading as clean
@@ -141,7 +144,9 @@
 }
 
 .dark {
-  --background: var(--molecule-black);
+  /* Pure black page background — see :root above for why this deliberately
+     diverges from --molecule-black (kept for card/popover/sidebar lifts). */
+  --background: #000000;
   --foreground: oklch(0.94 0.012 250);
   /* Surfaces (card/popover/secondary/muted/sidebar) lift graphite-black with
      white/gray, not blue — keeps large passive areas reading as clean
